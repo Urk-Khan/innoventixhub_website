@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#191919" />
+  <title>Innoventix Hub</title>
+  <meta name="description" content="Innoventix Hub — Next-Gen AI Automation & Media House. Stop guessing. Start converting. AI UGC that sells." />
+  <meta property="og:title" content="Innoventix Hub — AI UGC That Sells" />
+  <meta property="og:description" content="Next-Gen AI Automation & Media House. Book your free strategy call." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png" />
+</head>
+<body>
+
+  <!-- Frosted blur strip above the floating navbar -->
+  <div class="scroll-blur" aria-hidden="true"></div>
+
+  <!-- Ambient background -->
+  <div class="bg-noise" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- NAVBAR (floating pill) -->
+  <header class="nav" id="nav">
+    <div class="nav-pill">
+      <a href="#top" class="brand" aria-label="Innoventix Hub home">
+        <img src="assets/logo/horizontal-white.png" alt="Innoventix Hub" class="brand-logo" />
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#stack">Stack</a>
+        <a href="#testimonials">Clients</a>
+        <a href="#team">Team</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="https://cal.com/ur-khan/15min" target="_blank" rel="noopener">
+        <span>Book a Free Call</span>
+        <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO (title + UGC videos + CTA all inside) -->
+    <section class="hero" id="work">
+      <div class="container hero-inner">
+        <h1 class="reveal" data-anim="fade-up">
+          <span class="line line-1">Next-Gen AI Automation &amp; Media House</span>
+          <span class="line line-2 grad-gold">Stop Guessing. Start Converting. AI UGC That Sells.</span>
+        </h1>
+      </div>
+
+      <!-- Live UGC shorts inside the hero -->
+      <div class="hero-shorts container marquee-container reveal" data-anim="fade-up">
+        <div class="marquee">
+          <div class="marquee-track shorts-track" id="shortsTrack"></div>
+        </div>
+      </div>
+
+      <div class="container hero-cta-wrap">
+        <div class="hero-cta reveal" data-anim="fade-up">
+          <a href="https://cal.com/ur-khan/15min" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <span>Book a Free Call</span>
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#work" class="btn btn-ghost btn-lg">
+            <span>See Our Work</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LONG-FORM VIDEO — hidden until content is ready. Restore by removing hidden attribute. -->
+    <section class="section intro-video" id="intro" hidden>
+      <div class="container">
+        <div class="section-head section-head-mini reveal" data-anim="fade-up">
+          <div class="eyebrow">What We Can Do</div>
+        </div>
+        <div class="lv-wrap reveal" data-anim="fade-up">
+          <div class="lv-frame">
+            <iframe
+              src="https://www.youtube.com/embed/x7B-N0Rz-rs?rel=0&modestbranding=1"
+              title="Innoventix Hub — What We Can Do"
+              frameborder="0"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section pain" id="pain">
+      <div class="container">
+        <div class="section-head reveal" data-anim="fade-up">
+          <div class="eyebrow">Sound familiar?</div>
+          <h2>Traditional content isn't <span class="grad-gold">keeping up</span> with your growth.</h2>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card reveal" data-anim="fade-up">
+            <div class="pain-icon">
+              <!-- Dollar sign icon -->
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 3v26"/>
+                <path d="M22 9c-1.5-1.5-3.5-2.2-6-2.2-3 0-6 1.4-6 4.4 0 3 3 4 6 4.8s6 1.8 6 4.8-3 4.4-6 4.4c-2.5 0-4.7-.8-6-2.4"/>
+              </svg>
+            </div>
+            <h3>Spending too much on traditional video production?</h3>
+            <p>Studios, actors, gear, revisions — costs pile up before you ever test what works.</p>
+          </article>
+          <article class="pain-card reveal" data-anim="fade-up" data-delay="120">
+            <div class="pain-icon">
+              <!-- Chart line + arrow (kept as-is, this is the good one) -->
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 22l7-8 5 5 12-13"/>
+                <path d="M28 6h-5m5 0v5"/>
+              </svg>
+            </div>
+            <h3>Your content isn't converting into actual sales?</h3>
+            <p>Views without buyers is a warning sign. The hook, script, and format decide everything.</p>
+          </article>
+          <article class="pain-card reveal" data-anim="fade-up" data-delay="240">
+            <div class="pain-icon">
+              <!-- Rocket icon for "scale" -->
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 4c4 0 8 4 8 8-4 0-8-4-8-8Z"/>
+                <path d="M20 4l-9 9c-1.5 1.5-2 3.5-2 5.5v3l4-2c2-1 4-1.5 5.5-3l9-9"/>
+                <path d="M14 22c-2 2-4 2-6 2 0-2 0-4 2-6"/>
+                <path d="M8 24l-2 4 4-2"/>
+              </svg>
+            </div>
+            <h3>Can't scale your product fast enough?</h3>
+            <p>One good creative isn't enough — you need dozens of variations, weekly, at ad speed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section roadmap" id="process">
+      <div class="container">
+        <div class="section-head reveal" data-anim="fade-up">
+          <div class="eyebrow">Our Roadmap</div>
+          <h2>Five steps from idea to <span class="grad-gold">scaled creative.</span></h2>
+        </div>
+
+        <ol class="roadmap-list">
+          <li class="rm-item reveal" data-anim="slide-right">
+            <div class="rm-num">01</div>
+            <div class="rm-body">
+              <h3>Discovery Call</h3>
+              <p>We meet, ask the sharp questions, and understand your product, ICP, and offer.</p>
+            </div>
+          </li>
+          <li class="rm-item reveal" data-anim="slide-right" data-delay="80">
+            <div class="rm-num">02</div>
+            <div class="rm-body">
+              <h3>Strategy, Problem Identification &amp; Guidance</h3>
+              <p>We map the funnel gaps and design a content system built specifically to close them.</p>
+            </div>
+          </li>
+          <li class="rm-item reveal" data-anim="slide-right" data-delay="160">
+            <div class="rm-num">03</div>
+            <div class="rm-body">
+              <h3>AI Production</h3>
+              <p>Concepts, avatars, voiceovers, edits — assembled with our AI stack at ad speed.</p>
+            </div>
+          </li>
+          <li class="rm-item reveal" data-anim="slide-right" data-delay="240">
+            <div class="rm-num">04</div>
+            <div class="rm-body">
+              <h3>Review &amp; Delivery</h3>
+              <p>You review, we polish. Assets land in your hands ready to plug into paid or organic.</p>
+            </div>
+          </li>
+          <li class="rm-item reveal" data-anim="slide-right" data-delay="320">
+            <div class="rm-num">05</div>
+            <div class="rm-body">
+              <h3>Scale &amp; Optimize</h3>
+              <p>We double down on winners, kill losers fast, and keep the creative flywheel spinning.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TOOLS SLIDER — no h2, sub-heading becomes lighter heading -->
+    <section class="section stack" id="stack">
+      <div class="container">
+        <div class="section-head section-head-mini reveal" data-anim="fade-up">
+          <div class="eyebrow">Our AI Stack</div>
+          <p class="stack-lead">Every layer engineered for output that sells.</p>
+        </div>
+      </div>
+
+      <div class="container marquee-container">
+        <div class="marquee marquee-tools reveal" data-anim="fade-up">
+          <div class="marquee-track tools-track" id="toolsTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (Upwork badge removed) -->
+    <section class="section testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal" data-anim="fade-up">
+          <div class="eyebrow">What Clients Say</div>
+          <h2>Real words. <span class="grad-gold">Real results.</span></h2>
+        </div>
+
+        <div class="tm-grid">
+          <article class="tm-card reveal" data-anim="fade-up">
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"We had a great experience working with Ubaid. He is extremely friendly, easy to communicate with and always highly cooperative. He has a strong understanding of what we need and quickly translates our vision into exactly what we had in mind. We highly recommend him."</blockquote>
+            <footer>
+              <div class="tm-avatar" style="background:linear-gradient(135deg,#c9a84c,#8b7025)">DN</div>
+              <div>
+                <strong>David Notzon</strong>
+                <span>Germany · May 2026</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="tm-card reveal" data-anim="fade-up" data-delay="120">
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Ubaid Ur Rehman was a very proficient Video Editor. He always delivered work on time and was always open to feedback. It was great working with him."</blockquote>
+            <footer>
+              <div class="tm-avatar" style="background:linear-gradient(135deg,#7aa8f5,#3c65b4)">HA</div>
+              <div>
+                <strong>Huzaifa Ahmed</strong>
+                <span>Client · May 2026</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="tm-card reveal" data-anim="fade-up" data-delay="240">
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Even though results weren't what we hoped, working with Ubaid was wonderful. He implemented every video well and we are very happy with his work quality. We would love to continue producing with him in the future."</blockquote>
+            <footer>
+              <div class="tm-avatar" style="background:linear-gradient(135deg,#a97af5,#5f3cb4)">DP</div>
+              <div>
+                <strong>David — Pieno Workspace</strong>
+                <span>Germany</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM (4 members) -->
+    <section class="section team" id="team">
+      <div class="container">
+        <div class="section-head reveal" data-anim="fade-up">
+          <div class="eyebrow">The Team</div>
+          <h2>A tight crew. <span class="grad-gold">Big output.</span></h2>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card reveal" data-anim="fade-up">
+            <div class="team-photo">
+              <img src="assets/team/ubaid.jpg" alt="Ubaid ur Rehman" loading="lazy" />
+            </div>
+            <h3>Ubaid ur Rehman</h3>
+            <p class="team-role">CEO &amp; Strategy Maker</p>
+          </article>
+
+          <article class="team-card reveal" data-anim="fade-up" data-delay="80">
+            <div class="team-photo">
+              <img src="assets/team/atiq.jpg" alt="Atiq ur Rehman" loading="lazy" />
+            </div>
+            <h3>Atiq ur Rehman</h3>
+            <p class="team-role">Creative Manager</p>
+          </article>
+
+          <article class="team-card reveal" data-anim="fade-up" data-delay="160">
+            <div class="team-photo">
+              <img src="assets/team/haider.jpg" alt="Haider" loading="lazy" />
+            </div>
+            <h3>Haider</h3>
+            <p class="team-role">AI Content Creator</p>
+          </article>
+
+          <article class="team-card reveal" data-anim="fade-up" data-delay="240">
+            <div class="team-photo">
+              <div class="team-silhouette" aria-hidden="true">
+                <svg viewBox="0 0 100 100" width="90" height="90"><circle cx="50" cy="36" r="18" fill="currentColor" opacity=".9"/><path d="M14 96c4-20 18-32 36-32s32 12 36 32" fill="currentColor" opacity=".9"/></svg>
+              </div>
+            </div>
+            <h3>Hussain</h3>
+            <p class="team-role">Video Editor</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section cta-final">
+      <div class="container">
+        <div class="cta-card reveal" data-anim="fade-up">
+          <div>
+            <div class="eyebrow">Let's build together</div>
+            <h2>Ready to turn views into <span class="grad-gold">buyers?</span></h2>
+            <p>Book a free 15-minute strategy call. We'll unpack your funnel and show you exactly where AI creative can move the needle.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="https://cal.com/ur-khan/15min" target="_blank" rel="noopener">
+            <span>Book a Free Call</span>
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M5 10h10M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <img src="assets/logo/horizontal-white.png" alt="Innoventix Hub" class="brand-logo" />
+        </a>
+        <p>Next-Gen AI Automation &amp; Media House.<br/>Stop guessing. Start converting.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:ur-khan@outlook.com">ur-khan@outlook.com</a></li>
+          <li><a href="tel:+19177954404">+1 (917) 795-4404</a></li>
+          <li><a href="https://cal.com/ur-khan/15min" target="_blank" rel="noopener">Book a Free Call</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Social</h4>
+        <ul class="socials">
+          <li>
+            <a href="https://www.linkedin.com/in/ubaid-ur-rehman-khan-online/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-1 1.9-2 3.9-2 4.2 0 5 2.8 5 6.4V21h-4v-5.6c0-1.4 0-3.2-1.9-3.2s-2.2 1.5-2.2 3.1V21h-4V9Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="YouTube" title="YouTube channel — coming soon">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M23 12s0-3.6-.5-5.3c-.3-.9-1-1.6-1.9-1.9C18.9 4.3 12 4.3 12 4.3s-6.9 0-8.6.5c-.9.3-1.6 1-1.9 1.9C1 8.4 1 12 1 12s0 3.6.5 5.3c.3.9 1 1.6 1.9 1.9 1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5c.9-.3 1.6-1 1.9-1.9.5-1.7.5-5.3.5-5.3ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg>
+              <span>YouTube — soon</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Innoventix Hub. All rights reserved.</span>
+      <span class="footer-tagline">Built with AI-native workflows.</span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
