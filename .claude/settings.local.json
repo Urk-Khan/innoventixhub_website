@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Rename-Item -Path \"C:\\\\Users\\\\elitebook\\\\Downloads\\\\Begin Processing \\(1\\)\" -NewName \"INNOVENTIX HUB\" -Force)"
+    ]
+  }
+}
