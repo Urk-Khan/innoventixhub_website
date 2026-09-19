@@ -31,7 +31,8 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
-      port: parseInt(process.env.PORT || '8443'),
+      port: parseInt(process.env.PORT || '80'),
+      allowedHosts: ['innoventixhub.tech', 'www.innoventixhub.tech'],
       strictPort: true,
       watch: {
         ignored: [
