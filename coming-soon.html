@@ -1,0 +1,400 @@
+<title>Innoventix Hub — Coming Soon</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  :root {
+    --color-dark-navy: #0B1220;
+    --color-white: #FFFFFF;
+    --color-navy: #1D3A6E;
+    --color-automation: #3ECF9E;
+    --color-slate: #94A3B8;
+    --color-bg-light: #f8f9fa;
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-dark-navy: #0B1220;
+      --color-white: #FFFFFF;
+      --color-navy: #1D3A6E;
+      --color-automation: #3ECF9E;
+      --color-slate: #94A3B8;
+      --color-bg-light: #1a1a1e;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-dark-navy: #0B1220;
+    --color-white: #FFFFFF;
+    --color-navy: #1D3A6E;
+    --color-automation: #3ECF9E;
+    --color-slate: #94A3B8;
+    --color-bg-light: #1a1a1e;
+    color-scheme: dark;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    background: var(--color-dark-navy);
+    color: var(--color-white);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 40px;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  .logo-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-automation);
+    letter-spacing: -0.5px;
+  }
+
+  .main-content {
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-white);
+    letter-spacing: -1px;
+    animation: fadeInUp 0.8s ease 0.1s both;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--color-slate);
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .status-badge {
+    display: inline-block;
+    background: rgba(62, 207, 158, 0.15);
+    border: 1px solid var(--color-automation);
+    color: var(--color-automation);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+
+  .description {
+    font-size: 16px;
+    color: var(--color-slate);
+    margin-bottom: 40px;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  @media (min-width: 480px) {
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .feature-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(62, 207, 158, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .feature-text {
+    font-size: 13px;
+    color: var(--color-slate);
+  }
+
+  .cta-section {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  @media (min-width: 480px) {
+    .email-form {
+      flex-direction: row;
+    }
+  }
+
+  input[type="email"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(62, 207, 158, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  input[type="email"]:focus {
+    border-color: var(--color-automation);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(62, 207, 158, 0.1);
+  }
+
+  input[type="email"]::placeholder {
+    color: var(--color-slate);
+  }
+
+  .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary {
+    background: var(--color-automation);
+    color: var(--color-dark-navy);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(62, 207, 158, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .success-message {
+    display: none;
+    color: var(--color-automation);
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .success-message.show {
+    display: block;
+    animation: fadeInUp 0.4s ease;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(62, 207, 158, 0.1);
+    margin: 40px 0;
+    animation: fadeInUp 0.8s ease 0.7s both;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.8s both;
+  }
+
+  .social-link {
+    color: var(--color-slate);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .social-link:hover {
+    color: var(--color-automation);
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--color-slate);
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease 0.9s both;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animated background elements */
+  .bg-accent {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(62, 207, 158, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .bg-accent-1 {
+    top: -100px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .bg-accent-2 {
+    bottom: -100px;
+    left: -100px;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(30px); }
+  }
+</style>
+
+<div class="bg-accent bg-accent-1"></div>
+<div class="bg-accent bg-accent-2"></div>
+
+<div class="container">
+  <div class="logo">
+    <div class="logo-text">Innoventix Hub</div>
+  </div>
+
+  <div class="main-content">
+    <div class="status-badge">🔧 Under Development</div>
+    <h1>Something Amazing is Coming</h1>
+    <p class="subtitle">We're redesigning our website to serve you better.</p>
+
+    <p class="description">
+      Our new platform will bring faster performance, better user experience, and more powerful tools to help you succeed. Stay tuned.
+    </p>
+
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-text">Faster & Smarter</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-text">Better Experience</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-text">New Features</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✨</div>
+        <div class="feature-text">More Powerful</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <p style="color: var(--color-slate); font-size: 14px; margin-bottom: 16px;">
+      Get notified when we launch
+    </p>
+    <form class="email-form" id="emailForm">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        required
+        id="emailInput"
+      >
+      <button type="submit" class="btn btn-primary">Notify Me</button>
+    </form>
+    <div class="success-message" id="successMessage">
+      ✓ Thanks! We'll email you when we're live.
+    </div>
+  </form>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="social-links">
+    <a href="#" class="social-link">LinkedIn</a>
+    <a href="#" class="social-link">Twitter</a>
+    <a href="#" class="social-link">Instagram</a>
+  </div>
+
+  <div class="footer-text">
+    In the meantime, feel free to reach out: <strong>hello@innoventixhub.com</strong>
+  </div>
+</div>
+
+<script>
+  const emailForm = document.getElementById('emailForm');
+  const emailInput = document.getElementById('emailInput');
+  const successMessage = document.getElementById('successMessage');
+
+  emailForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Show success message
+    successMessage.classList.add('show');
+    emailInput.value = '';
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      successMessage.classList.remove('show');
+    }, 5000);
+  });
+</script>
