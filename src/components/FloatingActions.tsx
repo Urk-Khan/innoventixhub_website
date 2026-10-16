@@ -7,7 +7,7 @@ export default function FloatingActions() {
   const [chatOpen, setChatOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end gap-3">
+    <div className="floating-actions fixed right-4 z-40 flex flex-col items-end gap-3">
       {chatOpen ? (
         <div className="glass w-[min(360px,calc(100vw-2rem))] rounded-3xl p-4 shadow-2xl" role="dialog" aria-label="Chat">
           <div className="mb-3 flex items-center justify-between">

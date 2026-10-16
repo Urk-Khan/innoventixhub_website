@@ -27,10 +27,18 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    return hashRedirects.map((item) => ({
-      ...item,
-      permanent: true,
-    }));
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.innoventixhub.tech" }],
+        destination: "https://innoventixhub.tech/:path*",
+        permanent: true,
+      },
+      ...hashRedirects.map((item) => ({
+        ...item,
+        permanent: true,
+      })),
+    ];
   },
   async headers() {
     return [

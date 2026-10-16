@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { serviceNav, site } from "@/config/site";
 
-export const metadata = { robots: { index: false, follow: false } };
+export const metadata = {
+  title: "Page not found | Innoventix Hub",
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

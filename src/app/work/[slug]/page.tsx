@@ -38,7 +38,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       ]))} />
       <article className="wrap max-w-3xl">
         <p className="text-sm text-amber">{item.group}</p>
-        <h1 className="mt-3 text-4xl font-black">{item.title}</h1>
+        <h1 className="mt-3 break-words text-3xl font-black [overflow-wrap:anywhere] sm:text-4xl">{item.title}</h1>
         {item.image ? <img src={item.image} alt={item.imageAlt || ""} width={1440} height={900} className="mt-6 w-full rounded-3xl" /> : null}
         <h2 className="mt-8 text-2xl font-black">The challenge</h2>
         <p className="mt-2 text-cream/80">{item.challenge}</p>

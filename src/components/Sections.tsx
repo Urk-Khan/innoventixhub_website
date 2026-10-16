@@ -54,9 +54,9 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
 export function LogoMarquee({ label = "Brands we've worked with" }: { label?: string }) {
   const logos = [...clientLogos, ...clientLogos];
   return (
-    <section className="border-y border-white/10 py-8" aria-label={label}>
+    <section className="overflow-hidden border-y border-white/10 py-8" aria-label={label}>
       <p className="wrap mb-5 text-center text-xs font-bold tracking-[0.16em] text-mist/70 uppercase">{label}</p>
-      <div className="marquee overflow-hidden">
+      <div className="marquee w-full min-w-0 overflow-hidden">
         <div className="marquee-track items-center px-8">
           {logos.map((logo, index) => (
             <img
@@ -109,9 +109,9 @@ export function CtaBand({
   secondary?: "voice" | "whatsapp" | "book" | "none";
 }) {
   return (
-    <section className="section pt-0">
-      <div className="wrap">
-        <div className="relative overflow-hidden rounded-[2rem] bg-navy px-6 py-14 text-center md:px-16">
+    <section className="section overflow-hidden pt-0">
+      <div className="wrap min-w-0">
+        <div className="relative w-full min-w-0 max-w-full overflow-hidden rounded-[2rem] bg-navy px-6 py-14 text-center md:px-16">
           <div className="pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-amber/20 blur-3xl" />
           <h2 className="relative text-3xl font-black md:text-5xl">{title}</h2>
           <p className="relative mx-auto mt-4 max-w-2xl text-cream/80">{copy}</p>
