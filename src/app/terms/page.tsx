@@ -28,7 +28,7 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main id="main" className="section">
+    <main id="main" className="section lg:pt-40">
       <JsonLd data={graph(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }]))} />
       <div className="wrap grid gap-10 lg:grid-cols-[240px_1fr]">
         <aside className="lg:sticky lg:top-24 lg:self-start">

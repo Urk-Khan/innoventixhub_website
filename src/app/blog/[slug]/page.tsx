@@ -31,7 +31,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const related = getPosts().filter((item) => item.slug !== slug).slice(0, 3);
 
   return (
-    <main id="main" className="section">
+    <main id="main" className="section lg:pt-40">
       <JsonLd data={graph({
         "@type": "BlogPosting",
         headline: post.meta.title,

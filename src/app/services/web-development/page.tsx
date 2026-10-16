@@ -54,18 +54,30 @@ export default function WebPage() {
         }),
         faqSchema(faqs),
       )} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowcopper-e4e0c4f3.svg" alt="" className="glow-copper" />
+        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:pb-24 lg:pt-40">
+          <div>
           <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
           <p className="eyebrow mt-6">Web development · Next.js · Shopify · WordPress · UI/UX</p>
           <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Websites That Sell for <RotatingWord words={["D2C Brands", "Shopify Stores", "Growing SMBs", "Service Businesses"]} /></h1>
           <p className="mt-5 max-w-2xl text-lg text-cream/80">We design and build fast, SEO-ready websites, stores and landing pages built to rank and to turn visitors into customers, then hand you a site you fully own. Built for D2C brands and SMBs in the US, UK & EU.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><BookButton /><Link href="/work" className="inline-flex items-center rounded-full border border-white/25 px-5 py-3 text-sm font-bold">See Our Work</Link></div>
+          <div className="mt-8 flex flex-wrap gap-3"><BookButton /><Link href="/work" className="btn-secondary">See Our Work</Link></div>
           <ul className="mt-6 space-y-1 text-sm text-cream/80">
             <li>SEO-ready: speed, clean code, meta tags, schema, sitemap, Search Console</li>
             <li>Custom builds, no templates</li>
             <li>You own the code and content</li>
           </ul>
+          </div>
+          <div className="glass overflow-hidden rounded-[24px] p-4" aria-hidden="true">
+            <div className="mb-3 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-white/30" /><span className="h-2.5 w-2.5 rounded-full bg-white/20" /><span className="h-2.5 w-2.5 rounded-full bg-amber" /></div>
+            <div className="rounded-xl bg-[#0f2138] p-4">
+              <div className="h-3 w-24 rounded-full bg-white/20" />
+              <div className="mt-4 h-8 w-3/4 rounded-lg bg-amber/80" />
+              <div className="mt-4 grid grid-cols-3 gap-2">{[0, 1, 2].map((item) => <div key={item} className="h-16 rounded-lg bg-white/10" />)}</div>
+              <p className="mt-4 text-xs font-bold text-[#5bd49a]">Live · SEO-ready</p>
+            </div>
+          </div>
         </div>
       </section>
       <LogoMarquee />

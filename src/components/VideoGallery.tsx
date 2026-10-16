@@ -148,23 +148,38 @@ export function HomeShorts() {
 
   return (
     <>
-      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 md:justify-center">
+      <div className="overflow-x-auto">
+      <div data-hscroll-track className="flex w-max gap-5 pb-4">
         {featured.map(({ video, caption }, index) => (
           <button
             key={video.id}
             type="button"
+            onMouseEnter={(event) => {
+              const preview = event.currentTarget.querySelector("video");
+              preview?.play().catch(() => undefined);
+            }}
+            onMouseLeave={(event) => {
+              const preview = event.currentTarget.querySelector("video");
+              if (!preview) return;
+              preview.pause();
+              preview.currentTime = 0;
+            }}
             onClick={() => setActive(video)}
-            className={`relative shrink-0 overflow-hidden rounded-2xl ${index === 2 ? "w-48 md:w-56" : "w-36 md:w-44"}`}
+            className={`phone-frame relative shrink-0 overflow-hidden ${index === 2 ? "w-[190px] md:w-[220px]" : "w-[150px] md:w-[180px]"}`}
           >
-            <span className="block aspect-[9/16]">
+            <span className="relative block aspect-[9/16]">
               <img src={videoPoster(video.id)} alt="" className="h-full w-full object-cover" />
-            </span>
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink to-transparent p-3 text-left text-xs font-bold">
-              UGC Short
-              <span className="mt-1 block text-cream/80">{caption}</span>
+              <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-amber text-navy shadow-[0_0_20px_rgba(255,181,71,0.55)]">
+                <span className="ml-0.5 border-y-[7px] border-l-[11px] border-y-transparent border-l-navy" />
+              </span>
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f2138] to-transparent p-3 text-left text-xs font-bold">
+                UGC Short
+                <span className="mt-1 block font-semibold text-pearl/80">{caption}</span>
+              </span>
             </span>
           </button>
         ))}
+      </div>
       </div>
       <Lightbox video={active} onClose={() => setActive(null)} />
     </>

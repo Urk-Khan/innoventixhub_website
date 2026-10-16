@@ -1,28 +1,32 @@
 import Link from "next/link";
-import { clientLogos, site } from "@/config/site";
+import { site } from "@/config/site";
 import { testimonials } from "@/content/testimonials";
+import { CtaGlow } from "@/components/visuals";
+
+const brandLogos = [
+  { name: "Climb", src: "/assets/logoclimbwhitemono-c71c6c53.png", width: 113, height: 30 },
+  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
+  { name: "Persist Brands", src: "/assets/logopersistbrandswhitemono-467bd0e5.png", width: 141, height: 42 },
+  { name: "Image2work", src: "/assets/logoimage2workwhitemono-e3743e74.png", width: 131, height: 30 },
+  { name: "Pete's Builders", src: "/assets/logopetesbuilderswhitemono-ed5ef66d.png", width: 106, height: 52 },
+  { name: "Broomstick", src: "/assets/logobroomstickwhitemono-065306f6.png", width: 185, height: 24 },
+];
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
 }
 
 export function BookButton({ children = "Book A Free Consultation", ghost = false }: { children?: React.ReactNode; ghost?: boolean }) {
-  const className = ghost
-    ? "inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-3 text-sm font-bold text-cream hover:border-amber hover:text-amber"
-    : "inline-flex items-center justify-center rounded-full bg-amber px-5 py-3 text-sm font-bold text-ink hover:bg-[#ffc56a]";
   return (
-    <a href={site.calendlyUrl} className={className}>
-      {children}
+    <a href={site.calendlyUrl} className={ghost ? "btn-secondary" : "btn-primary"}>
+      {children}{ghost ? null : <span aria-hidden="true">→</span>}
     </a>
   );
 }
 
 export function VoiceButton({ children = "Talk to Inbound Agent", ghost = false }: { children?: React.ReactNode; ghost?: boolean }) {
-  const className = ghost
-    ? "inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-3 text-sm font-bold text-cream hover:border-amber hover:text-amber"
-    : "inline-flex items-center justify-center rounded-full bg-amber px-5 py-3 text-sm font-bold text-ink hover:bg-[#ffc56a]";
   return (
-    <a href={`tel:${site.voiceAgentTel}`} className={className}>
+    <a href={`tel:${site.voiceAgentTel}`} className={ghost ? "btn-secondary" : "btn-primary"}>
       {children}
     </a>
   );
@@ -30,9 +34,7 @@ export function VoiceButton({ children = "Talk to Inbound Agent", ghost = false 
 
 export function WhatsAppButton({ children = "WhatsApp us" }: { children?: React.ReactNode }) {
   return (
-    <a href={site.whatsappUrl} className="inline-flex items-center justify-center rounded-full border border-white/25 px-5 py-3 text-sm font-bold text-cream hover:border-amber hover:text-amber">
-      {children}
-    </a>
+    <a href={site.whatsappUrl} className="btn-secondary">{children}</a>
   );
 }
 
@@ -52,20 +54,20 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
 }
 
 export function LogoMarquee({ label = "Brands we've worked with" }: { label?: string }) {
-  const logos = [...clientLogos, ...clientLogos];
+  const logos = [...brandLogos, ...brandLogos];
   return (
-    <section className="overflow-hidden border-y border-white/10 py-8" aria-label={label}>
-      <p className="wrap mb-5 text-center text-xs font-bold tracking-[0.16em] text-mist/70 uppercase">{label}</p>
+    <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label}>
+      <p className="mb-6 text-center text-xs font-semibold tracking-[1.92px] text-mist uppercase">{label}</p>
       <div className="marquee w-full min-w-0 overflow-hidden">
-        <div className="marquee-track items-center px-8">
+        <div className="marquee-track px-8">
           {logos.map((logo, index) => (
             <img
               key={`${logo.name}-${index}`}
               src={logo.src}
-              alt={index < clientLogos.length ? logo.name : ""}
+              alt={index < brandLogos.length ? logo.name : ""}
               width={logo.width}
               height={logo.height}
-              className="h-10 w-auto opacity-80"
+              className="h-8 w-auto opacity-70 md:h-10"
             />
           ))}
         </div>
@@ -79,15 +81,15 @@ export function Testimonials({ title = "Real words. Real results." }: { title?: 
     <section className="section">
       <div className="wrap">
         <Eyebrow>What clients say</Eyebrow>
-        <h2 className="mt-4 text-3xl font-black md:text-4xl">{title}</h2>
-        <ul className="mt-8 grid gap-4 md:grid-cols-3">
+        <h2 className="mt-5 text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+        <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {testimonials.map((item) => (
-            <li key={item.name} className="glass flex h-full flex-col rounded-3xl p-6">
-              <p className="text-amber" aria-label="5 out of 5 stars">★★★★★</p>
-              <blockquote className="mt-4 flex-1 text-sm leading-6 text-cream/90">“{item.quote}”</blockquote>
+            <li key={item.name} className="glass glass-card flex h-full flex-col rounded-[20px] p-6">
+              <p className="tracking-[2px] text-amber" aria-label="5 out of 5 stars">★★★★★</p>
+              <blockquote className="mt-4 flex-1 text-[15px] leading-7 text-pearl">“{item.quote}”</blockquote>
               <footer className="mt-6">
-                <p className="font-bold">{item.name}</p>
-                <p className="text-sm text-mist/70">{item.meta}</p>
+                <p className="font-bold text-white">{item.name}</p>
+                <p className="text-sm text-mist">{item.meta}</p>
               </footer>
             </li>
           ))}
@@ -109,13 +111,12 @@ export function CtaBand({
   secondary?: "voice" | "whatsapp" | "book" | "none";
 }) {
   return (
-    <section className="section overflow-hidden pt-0">
+    <section className="section overflow-hidden pt-8">
       <div className="wrap min-w-0">
-        <div className="relative w-full min-w-0 max-w-full overflow-hidden rounded-[2rem] bg-navy px-6 py-14 text-center md:px-16">
-          <div className="pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-amber/20 blur-3xl" />
-          <h2 className="relative text-3xl font-black md:text-5xl">{title}</h2>
-          <p className="relative mx-auto mt-4 max-w-2xl text-cream/80">{copy}</p>
-          <div className="relative mt-8 flex flex-wrap justify-center gap-3">
+        <CtaGlow>
+          <h2 className="text-4xl text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-mist">{copy}</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             {primary === "book" ? <BookButton /> : null}
             {primary === "voice" ? <VoiceButton>{`Talk to Inbound Agent: ${site.voiceAgentDisplay}`}</VoiceButton> : null}
             {primary === "audit" ? <a href="#free-audit" className="inline-flex rounded-full bg-amber px-5 py-3 text-sm font-bold text-ink">Get My Free SEO Audit</a> : null}
@@ -123,7 +124,7 @@ export function CtaBand({
             {secondary === "whatsapp" ? <WhatsAppButton /> : null}
             {secondary === "book" ? <BookButton ghost /> : null}
           </div>
-        </div>
+        </CtaGlow>
       </div>
     </section>
   );
@@ -204,16 +205,20 @@ function Mark({ value }: { value: CompareCell }) {
 
 export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="divide-y divide-white/10 rounded-3xl border border-white/10">
+    <div className="space-y-3">
       {items.map((item) => (
-        <details key={item.q} className="group p-5">
-          <summary className="cursor-pointer list-none font-bold marker:content-none [&::-webkit-details-marker]:hidden">
+        <details key={item.q} className="faq glass glass-card group rounded-[18px] px-5 py-4">
+          <summary className="cursor-pointer font-bold text-white">
             <span className="flex items-center justify-between gap-4">
               {item.q}
-              <span aria-hidden="true" className="text-amber group-open:rotate-45">+</span>
+              <span aria-hidden="true" className="grid h-7 w-7 place-items-center rounded-full border border-white/15 text-amber transition group-open:rotate-45">+</span>
             </span>
           </summary>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-cream/80">{item.a}</p>
+          <div className="faq-body">
+            <div>
+              <p className="max-w-3xl pb-2 pt-3 text-[15px] leading-7 text-pearl/85">{item.a}</p>
+            </div>
+          </div>
         </details>
       ))}
     </div>
@@ -224,8 +229,8 @@ export function SectionIntro({ eyebrow, title, copy }: { eyebrow?: string; title
   return (
     <div className="max-w-3xl">
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className={`text-3xl font-black md:text-4xl ${eyebrow ? "mt-4" : ""}`}>{title}</h2>
-      {copy ? <p className="mt-3 text-cream/75">{copy}</p> : null}
+      <h2 className={`text-3xl text-white md:text-[44px] md:leading-[52px] ${eyebrow ? "mt-5" : ""}`}>{title}</h2>
+      {copy ? <p className="mt-4 max-w-2xl text-[17px] leading-7 text-pearl/80">{copy}</p> : null}
     </div>
   );
 }

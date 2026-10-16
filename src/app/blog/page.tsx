@@ -13,7 +13,7 @@ export default function BlogIndexPage() {
   const posts = getPosts();
   const [featured, ...rest] = posts;
   return (
-    <main id="main" className="section">
+    <main id="main" className="hero-stage section lg:pt-40">
       <div className="wrap">
         <p className="eyebrow">Insights</p>
         <h1 className="mt-4 text-4xl font-black md:text-5xl">Practical Notes on AI, Content and Growth.</h1>

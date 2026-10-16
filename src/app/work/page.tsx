@@ -13,8 +13,9 @@ export default function WorkPage() {
   return (
     <main id="main">
       <JsonLd data={graph(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Work", path: "/work" }]))} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowgold-2e04291d.svg" alt="" className="glow-gold" />
+        <div className="wrap relative z-10 py-14 lg:pb-16 lg:pt-40">
           <p className="eyebrow">Our work</p>
           <h1 className="mt-5 text-4xl font-black md:text-6xl">Real Work for Real Brands.</h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/80">A look at the ads, websites and automations we've built. Numbers marked SAMPLE are placeholders until verified client results are added.</p>

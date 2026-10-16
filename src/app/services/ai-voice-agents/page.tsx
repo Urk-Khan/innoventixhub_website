@@ -3,6 +3,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import Tabs from "@/components/Tabs";
 import VoicePricing from "@/components/VoicePricing";
 import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
+import { LivingCall } from "@/components/visuals";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, serviceSchema } from "@/lib/schema";
@@ -59,8 +60,9 @@ export default function VoicePage() {
         }),
         faqSchema(faqs),
       )} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowgold-30af2e67.svg" alt="" className="glow-gold" />
+        <div className="wrap relative z-10 py-14 lg:pb-24 lg:pt-40">
           <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
           <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
           <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
@@ -72,18 +74,7 @@ export default function VoicePage() {
           <p className="mt-4 text-sm text-mist/80">Live demo line, call it now. No forms, no signup.</p>
         </div>
       </section>
-      <section className="section">
-        <div className="wrap grid gap-6 lg:grid-cols-3">
-          <article className="glass rounded-3xl p-5"><h2 className="font-bold">It's 2 AM. A customer calls.</h2><p className="mt-2 text-sm text-cream/75">Incoming call · 2:14 AM</p></article>
-          <article className="glass-strong rounded-3xl p-5 text-sm">
-            <p>Caller: “Hi, do you have anything open tomorrow?”</p>
-            <p className="mt-2">AI: “Yes, I have 10:30 or 2:00. Which works better?”</p>
-            <p className="mt-2">Caller: “2 works.”</p>
-            <p className="mt-2">AI: “Booked. You'll get a text confirmation now.”</p>
-          </article>
-          <article className="glass rounded-3xl p-5"><h2 className="font-bold">Every call answered. Every lead captured.</h2><p className="mt-2 text-sm">Calendar booked → CRM updated → SMS sent → Summary to Slack</p><p className="mt-3 text-amber">Answered in 1 ring · 24/7</p></article>
-        </div>
-      </section>
+      <LivingCall />
       <LogoMarquee label="Brands we've worked with" />
       <section className="section">
         <div className="wrap">

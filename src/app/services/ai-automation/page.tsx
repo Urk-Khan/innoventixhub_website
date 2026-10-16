@@ -3,6 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Tabs from "@/components/Tabs";
 import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
+import { WorkflowAssembly } from "@/components/visuals";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, serviceSchema } from "@/lib/schema";
@@ -61,31 +62,30 @@ export default function AutomationPage() {
         }),
         faqSchema(faqs),
       )} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowcopper-bad11725.svg" alt="" className="glow-copper" />
+        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20 lg:pt-40">
+          <div>
           <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
           <p className="eyebrow mt-6">AI Automation · n8n · GoHighLevel · CRM · Python</p>
           <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
           <p className="mt-5 max-w-2xl text-lg text-cream/80">We build n8n, GoHighLevel, CRM and custom Python automations that capture leads, follow up in seconds, sync your tools and remove hours of manual work every week, so your team can focus on growth.</p>
           <div className="mt-8 flex flex-wrap gap-3"><BookButton /><VoiceButton ghost /></div>
           <p className="mt-4 text-sm text-mist/80">Built for D2C brands and SMBs in the US, UK & EU</p>
+          </div>
+          <div className="glass relative hidden min-h-[280px] overflow-hidden rounded-[28px] p-6 lg:block" aria-hidden="true">
+            <svg viewBox="0 0 360 220" className="h-full w-full">
+              <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#ffb547" strokeWidth="2" />
+            </svg>
+            <div className="absolute inset-6 grid grid-cols-2 gap-3">
+              {["Lead form", "OpenAI", "HubSpot", "Slack"].map((name) => (
+                <div key={name} className="glass-strong h-fit rounded-2xl px-3 py-2 text-sm font-bold">{name}</div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-      <section className="section" aria-label="The Workflow Assembly">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">The Workflow Assembly</h2>
-          <p className="mt-3 max-w-2xl text-cream/75">Your tools today: disconnected. We connect them, and it runs on its own.</p>
-          <ol className="mt-8 grid gap-3 md:grid-cols-3">
-            {[
-              ["Your tools today: disconnected.", "Gmail, Shopify, Sheets, HubSpot, GHL, Slack, Stripe and OpenAI sit apart."],
-              ["We connect them.", "Nodes snap into a workflow and amber wires draw between them."],
-              ["…and it runs on its own.", "Lead captured → Qualified → CRM updated → Follow-up sent. Running 24/7."],
-            ].map(([title, body]) => (
-              <li key={title} className="glass rounded-3xl p-5"><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm text-cream/75">{body}</p></li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <WorkflowAssembly />
       <LogoMarquee label="Brands we've worked with" />
       <section className="section">
         <div className="wrap">

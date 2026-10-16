@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="19.04" height="34.31" viewBox="0 0 19.04 34.31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Wire glow &#194;&#183; gh&#226;&#134;&#146;sl" filter="url(#filter0_d_0_130)">
+<path d="M3.055 31.255C12.455 31.255 6.585 3.055 15.985 3.055" stroke-width="1.41" stroke-linecap="round" stroke="url(#paint0_linear_0_130)"/>
+</g>
+<defs>
+<filter id="filter0_d_0_130" x="-5.96046e-08" y="-5.96046e-08" width="19.04" height="34.31" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1.175"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.709804 0 0 0 0 0.278431 0 0 0 0.55 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_130"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_130" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_0_130" x1="3.055" y1="17.155" x2="15.985" y2="17.155" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFB547" stop-opacity="0.35"/>
+<stop offset="1" stop-color="#FFD98A" stop-opacity="0.35"/>
+</linearGradient>
+</defs>
+</svg>

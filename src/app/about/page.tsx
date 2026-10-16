@@ -27,15 +27,16 @@ export default function AboutPage() {
         breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]),
         { "@type": "AboutPage", name: "About Innoventix Hub", url: `${site.url}/about`, mainEntity: { "@id": `${site.url}/#organization` } },
       )} />
-      <section className="bg-navy">
-        <div className="wrap grid items-center gap-10 py-16 lg:grid-cols-2">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/amberglow-778d81b5.svg" alt="" className="glow-copper" />
+        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-2 lg:pb-16 lg:pt-40">
           <div>
             <p className="eyebrow">About Innoventix Hub</p>
             <h1 className="mt-5 text-4xl font-black md:text-5xl">A Small, Focused Team Building Growth Systems for Ambitious Brands.</h1>
             <p className="mt-5 text-lg text-cream/80">We're a self-funded software and media house, started in January 2025. We make AI UGC ads, build AI voice agents and automate busywork, plus websites and SEO, for D2C brands and SMBs in the US, UK and EU.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <BookButton />
-              <a href="#team" className="inline-flex items-center rounded-full border border-white/25 px-5 py-3 text-sm font-bold">Meet the Team</a>
+              <a href="#team" className="btn-secondary">Meet the Team</a>
             </div>
           </div>
           <Image src="/team/office-group.jpg" alt="The Innoventix Hub team together in the office" width={1400} height={1400} className="h-auto w-full rounded-[2rem] object-cover" priority />

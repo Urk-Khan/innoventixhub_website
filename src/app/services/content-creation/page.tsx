@@ -63,18 +63,21 @@ export default function ContentPage() {
           ),
         )}
       />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowcopper-959c59f0.svg" alt="" className="glow-copper" />
+        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24 lg:pt-40">
+          <div>
           <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
           <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">Stop Guessing. Start Converting. AI UGC Ads and Video That Sell.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-cream/80">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
+          <h1 className="mt-5 text-4xl font-black leading-[1.05] text-white md:text-6xl">Stop Guessing. Start Converting. AI UGC Ads and Video That Sell.</h1>
+          <p className="mt-5 max-w-xl text-lg text-cream/80">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BookButton />
             <VoiceButton ghost />
           </div>
           <p className="mt-4 text-sm text-mist/80">Home / Services / Content Creation · 20+ live samples below</p>
-          <HomeShorts />
+          </div>
+          <div className="min-w-0"><HomeShorts /></div>
         </div>
       </section>
       <LogoMarquee label="Trusted by D2C brands across the US, UK & EU" />

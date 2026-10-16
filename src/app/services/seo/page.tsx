@@ -59,8 +59,9 @@ export default function SeoPage() {
           description: "A named specialist is assigned to each account. Credentials are added when confirmed.",
         },
       )} />
-      <section className="bg-navy">
-        <div className="wrap grid items-center gap-8 py-16 lg:grid-cols-2">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowgold-ef5c9281.svg" alt="" className="glow-gold" />
+        <div className="wrap relative z-10 grid items-center gap-8 py-14 lg:grid-cols-2 lg:pb-24 lg:pt-40">
           <div>
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">SEO · Technical · Local · E-commerce · AI search</p>

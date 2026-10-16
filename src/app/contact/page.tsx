@@ -22,8 +22,9 @@ export default function ContactPage() {
   return (
     <main id="main">
       <JsonLd data={graph(professionalServiceSchema(), breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]), faqSchema(faqs))} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
+      <section className="hero-stage bg-navy">
+        <img src="/assets/glowcopper-53cf29bb.svg" alt="" className="glow-copper" />
+        <div className="wrap relative z-10 py-14 lg:pb-20 lg:pt-40">
           <p className="eyebrow">Contact</p>
           <h1 className="mt-5 max-w-3xl text-4xl font-black md:text-6xl">Let's Talk About What You're Building.</h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/80">Book a free consultation, send us a message, or call our AI agent right now. A real person replies to every enquiry within 1 business day.</p>
