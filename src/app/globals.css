@@ -459,6 +459,111 @@ details.faq .faq-body > div {
   35%, 100% { transform: scaleY(1); }
 }
 
+[data-pin].is-motion [data-from] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+[data-pin].is-motion [data-from].is-on {
+  opacity: 1;
+  transform: none;
+}
+
+[data-flow-node].is-on {
+  border-color: rgba(255, 181, 71, 0.85);
+  box-shadow: 0 0 22px rgba(255, 181, 71, 0.55);
+}
+
+.wire-draw {
+  stroke-dasharray: 6 8;
+  animation: dash 2.4s linear infinite;
+}
+
+[data-pin].is-motion .wire-draw {
+  animation: none;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--progress, 0));
+}
+
+[data-wave].is-on {
+  animation: wave 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  from { transform: scaleY(0.35); }
+  to { transform: scaleY(1); }
+}
+
+.ripple.is-on { animation: pulse-ring 2.2s ease-out infinite; }
+.accept.is-on { animation: accept-pulse 1.1s ease-in-out infinite; }
+.orb.is-on { animation: floaty 3.2s ease-in-out infinite; }
+.rec-dot.is-on span { animation: rec-blink 1s steps(2) infinite; }
+
+@keyframes accept-pulse {
+  50% { box-shadow: 0 0 24px rgba(255, 181, 71, 0.75); transform: scale(1.06); }
+}
+
+@keyframes rec-blink {
+  50% { opacity: 0.25; }
+}
+
+[data-step-dot].is-on {
+  border-color: #ffb547;
+  box-shadow: 0 0 18px rgba(255, 181, 71, 0.7);
+}
+
+[data-step-dot].is-on span { background: #ffb547; }
+
+.web-build .type-line {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.web-build.is-playing .type-line {
+  width: 0;
+  animation: typing 4s steps(28, end) infinite;
+}
+
+@keyframes typing { to { width: 100%; } }
+
+.web-build.is-playing .asm { animation: assemble 4s ease infinite; }
+
+@keyframes assemble {
+  0%, 8% { opacity: 0; transform: translateY(12px); }
+  42%, 100% { opacity: 1; transform: none; }
+}
+
+.web-build .load-bar { width: 100%; transform: scaleX(1); transform-origin: left center; }
+.web-build.is-playing .load-bar { animation: stall 2.8s ease-in-out infinite; }
+.web-build.is-playing .live-badge { animation: pop-in 4s ease infinite; }
+
+@keyframes pop-in {
+  0%, 50% { opacity: 0; }
+  68%, 100% { opacity: 1; }
+}
+
+.scan-card .scan-bar { width: 100%; transform: scaleX(1); animation: none; }
+.scan-card.is-playing .scan-bar { animation: scan-run 4s ease infinite; }
+.scan-card.is-playing .report-ready { animation: pop-in 4s ease infinite; }
+
+@keyframes scan-run {
+  0% { transform: scaleX(0.05); }
+  75%, 100% { transform: scaleX(1); }
+}
+
+.serp-list.is-playing .you { animation: serp-rise 4s ease infinite; }
+.serp-list.is-playing .top3 { animation: pop-in 4s ease infinite; }
+
+@keyframes serp-rise {
+  0%, 20% { transform: translateY(2.5rem); }
+  58%, 100% { transform: translateY(0); }
+}
+
+.about-network .node-glow { animation-play-state: paused; }
+.about-network.is-playing .node-glow { animation-play-state: running; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

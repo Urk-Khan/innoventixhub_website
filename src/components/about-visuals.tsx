@@ -12,7 +12,7 @@ const orbitNodes = [
 
 export function ServiceNetwork() {
   return (
-    <div className="@container mx-auto mt-10 w-full max-w-[1100px]">
+    <div data-loop className="about-network @container mx-auto mt-10 w-full max-w-[1100px]">
       <div className="relative w-full" style={{ height: "min(550px, calc(100cqw * 550 / 1100))" }}>
         <div
           className="absolute left-0 top-0 h-[550px] w-[1100px] origin-top-left overflow-hidden rounded-[28px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.45),0_0_80px_rgba(255,181,71,0.2)]"
@@ -57,19 +57,33 @@ const slides = [
 export function StoryCarousel() {
   const [index, setIndex] = useState(0);
   const paused = useRef(false);
+  const inView = useRef(true);
   const startX = useRef(0);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const node = root.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      inView.current = entry.isIntersecting;
+    }, { threshold: 0.35 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (media.matches) return;
     const timer = window.setInterval(() => {
-      if (!paused.current) setIndex((current) => (current + 1) % slides.length);
+      if (!paused.current && inView.current) setIndex((current) => (current + 1) % slides.length);
     }, 3000);
     return () => window.clearInterval(timer);
   }, []);
 
   return (
     <div
+      ref={root}
+      data-loop
       className="glass relative h-[460px] overflow-hidden rounded-[22px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}

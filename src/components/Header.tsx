@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { serviceNav, site } from "@/config/site";
@@ -37,8 +37,8 @@ export default function Header() {
       </a>
 
       <div className="pointer-events-auto flex h-[60px] items-center justify-between px-5 lg:hidden">
-        <Link href="/" aria-label="Innoventix Hub home">
-          <Image src="/brand/logo-white.png" alt="Innoventix Hub" width={168} height={50} className="h-7 w-auto" priority />
+        <Link href="/" aria-label="Innoventix Hub home" className="block h-7">
+          <BrandLogo variant="horizontal" className="h-7 w-auto" />
         </Link>
         <button
           type="button"
@@ -57,7 +57,7 @@ export default function Header() {
       <div className="pointer-events-none hidden justify-center px-6 pt-8 lg:flex">
         <div className={`pointer-events-auto flex h-[60px] w-full max-w-[1200px] items-center justify-between rounded-full border border-white/12 py-2 pl-6 pr-2 ${scrolled ? "bg-[rgba(38,74,117,0.7)] backdrop-blur-[24px]" : "bg-[rgba(38,74,117,0.7)] backdrop-blur-[12px]"}`}>
           <Link href="/" className="shrink-0" aria-label="Innoventix Hub home">
-            <Image src="/brand/logo-white.png" alt="Innoventix Hub" width={168} height={50} className="h-[34px] w-auto" priority />
+            <BrandLogo variant="horizontal" className="h-[34px] w-auto" />
           </Link>
           <nav className="flex items-center gap-8 text-sm font-medium text-pearl" aria-label="Primary">
             <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -71,20 +71,13 @@ export default function Header() {
                 Services
                 <Chevron open={servicesOpen} />
               </button>
-              <div id="services-menu" className={`absolute left-1/2 top-full z-20 w-[680px] -translate-x-1/2 pt-4 ${servicesOpen ? "block" : "hidden"}`}>
-                <div className="glass-strong grid grid-cols-2 gap-4 rounded-3xl p-5">
+              <div id="services-menu" className={`absolute left-1/2 top-full z-20 w-[320px] -translate-x-1/2 pt-4 ${servicesOpen ? "block" : "hidden"}`}>
+                <div className="glass-strong rounded-3xl p-3">
                   {serviceNav.map((service) => (
-                    <div key={service.href}>
-                      <Link href={service.href} className="font-bold text-amber hover:text-white">{service.label}</Link>
-                      <p className="mb-2 text-xs text-mist">{service.blurb}</p>
-                      <ul className="space-y-1">
-                        {service.children.map((child) => (
-                          <li key={child.href}>
-                            <Link href={child.href} className="text-sm text-pearl/85 hover:text-white">{child.label}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <Link key={service.href} href={service.href} className="block rounded-2xl px-3 py-3 hover:bg-white/5">
+                      <span className="font-bold text-amber">{service.label}</span>
+                      <span className="mt-1 block text-xs text-mist">{service.blurb}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -102,16 +95,10 @@ export default function Header() {
       {open ? (
         <nav id="mobile-nav" className="pointer-events-auto glass-strong mx-4 max-h-[75vh] overflow-auto rounded-3xl p-4 lg:hidden" aria-label="Mobile">
           {serviceNav.map((service) => (
-            <div key={service.href} className="border-b border-white/10 py-3">
-              <Link href={service.href} className="font-bold text-amber">{service.label}</Link>
-              <ul className="mt-2 space-y-1">
-                {service.children.map((child) => (
-                  <li key={child.href}>
-                    <Link href={child.href} className="text-sm text-pearl/85">{child.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Link key={service.href} href={service.href} className="block border-b border-white/10 py-3">
+              <span className="font-bold text-amber">{service.label}</span>
+              <span className="mt-1 block text-xs text-mist">{service.blurb}</span>
+            </Link>
           ))}
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="block border-b border-white/10 py-3">{link.label}</Link>

@@ -68,14 +68,22 @@ export default function WebPage() {
               <li>You own the code and content</li>
             </ul>
           </div>
-          <div className="glass mx-auto mt-12 max-w-[860px] overflow-hidden rounded-[24px] p-4 text-left" aria-hidden="true">
+          <div data-loop className="web-build glass mx-auto mt-12 max-w-[860px] overflow-hidden rounded-[24px] p-4 text-left">
             <div className="mb-3 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-white/30" /><span className="h-2.5 w-2.5 rounded-full bg-white/20" /><span className="h-2.5 w-2.5 rounded-full bg-amber" /></div>
-            <div className="rounded-xl bg-[#0f2138] p-4">
-              <div className="h-3 w-24 rounded-full bg-white/20" />
-              <div className="mt-4 h-8 w-3/4 rounded-lg bg-amber/80" />
-              <div className="mt-4 grid grid-cols-3 gap-2">{[0, 1, 2].map((item) => <div key={item} className="h-16 rounded-lg bg-white/10" />)}</div>
-              <p className="mt-4 text-xs font-bold text-[#5bd49a]">Live · SEO-ready</p>
+            <div className="grid gap-4 rounded-xl bg-[#0f2138] p-4 md:grid-cols-[0.8fr_1.2fr]">
+              <pre className="overflow-hidden font-mono text-[11px] leading-5 text-pearl/80">
+                <span className="type-line" style={{ animationDelay: "0s" }}>const page = await build(brand)</span>
+                <span className="type-line" style={{ animationDelay: "0.35s" }}>seo.ready = true</span>
+                <span className="type-line" style={{ animationDelay: "0.7s" }}>await ship()</span>
+              </pre>
+              <div>
+                <div className="asm asm-1 h-3 w-24 rounded-full bg-white/20" />
+                <div className="asm asm-2 mt-4 h-8 w-3/4 rounded-lg bg-amber/80" />
+                <div className="mt-4 grid grid-cols-3 gap-2">{[0, 1, 2].map((item) => <div key={item} className="asm h-16 rounded-lg bg-white/10" style={{ animationDelay: `${0.4 + item * 0.15}s` }} />)}</div>
+              </div>
             </div>
+            <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/10"><div className="load-bar h-full origin-left bg-amber" /></div>
+            <p className="live-badge mt-4 text-xs font-bold text-[#5bd49a]">Live · SEO-ready</p>
           </div>
         </div>
       </section>

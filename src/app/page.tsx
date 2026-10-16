@@ -137,12 +137,14 @@ export default function HomePage() {
           <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">From idea to revenue in four steps.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
           <ol className="relative mt-16 grid gap-10 md:grid-cols-4">
-            <div className="pointer-events-none absolute left-[10%] right-[10%] top-[11px] hidden h-px bg-white/15 md:block" aria-hidden="true" />
-            <div className="bar-fill pointer-events-none absolute left-[10%] right-[10%] top-[11px] hidden h-px origin-left bg-amber md:block" aria-hidden="true" />
+            <svg data-line className="pointer-events-none absolute left-[12%] right-[12%] top-[11px] hidden h-[2px] w-[76%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 1 H100" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+            </svg>
             {steps.map((step) => (
               <li key={step.n} className="relative">
-                <span className="relative z-10 mx-auto grid size-6 place-items-center rounded-full border-2 border-amber bg-navy shadow-[0_0_18px_rgba(255,181,71,0.7)]">
-                  <span className="size-2.5 rounded-full bg-amber" />
+                <span data-step-dot className="relative z-10 mx-auto grid size-6 place-items-center rounded-full border-2 border-white/25 bg-navy">
+                  <span className="size-2.5 rounded-full bg-white/40" />
                 </span>
                 <h3 className="mt-6 text-xl text-white">{step.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>
@@ -152,14 +154,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-navy-deep">
+      <section data-bento className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Why Innoventix</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">Built to grow, not just to ship.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
           <ul className="mt-12 grid gap-5 text-left md:grid-cols-2">
             {reasons.map((item) => (
-              <li key={item.title} className="glass flex min-h-[300px] flex-col justify-end rounded-[28px] p-8 md:min-h-[340px]">
+              <li key={item.title} data-bento-card className="glass flex min-h-[300px] flex-col justify-end rounded-[28px] p-8 md:min-h-[340px]">
                 <ReasonVisual kind={item.visual} label={item.kicker} />
                 <h3 className="mt-6 text-2xl text-white">{item.title}</h3>
                 <p className="mt-2 text-[15px] leading-7 text-pearl/80">{item.body}</p>
@@ -187,7 +189,7 @@ function ReasonVisual({ kind, label }: { kind: string; label: string }) {
     return (
       <div className="flex h-44 items-end gap-3" aria-hidden="true">
         {[42, 68, 54, 100, 76].map((height) => (
-          <span key={height} className="bar-fill w-8 origin-bottom rounded-t-md bg-amber/90 md:w-10" style={{ height: `${height}%` }} />
+          <span key={height} data-bento-bar className="w-8 origin-bottom rounded-t-md bg-amber/90 md:w-10" style={{ height: `${height}%` }} />
         ))}
       </div>
     );
@@ -196,7 +198,7 @@ function ReasonVisual({ kind, label }: { kind: string; label: string }) {
     return (
       <div aria-hidden="true">
         <div className="h-3 overflow-hidden rounded-full bg-white/10">
-          <div className="bar-fill h-full w-4/5 origin-left rounded-full bg-amber" />
+          <div data-bento-progress className="h-full w-4/5 origin-left rounded-full bg-amber" />
         </div>
         <p className="mt-3 text-xs font-bold tracking-wide text-amber">{label} · Live</p>
       </div>
@@ -204,16 +206,19 @@ function ReasonVisual({ kind, label }: { kind: string; label: string }) {
   }
   if (kind === "nodes") {
     return (
-      <div className="flex h-24 items-center gap-3" aria-hidden="true">
-        <span className="size-4 rounded-full bg-pillar-content shadow-[0_0_16px_rgba(255,181,71,0.6)]" />
-        <span className="h-px w-10 bg-amber/50" />
-        <span className="size-4 rounded-full bg-pillar-voice" />
-        <span className="h-px w-10 bg-white/25" />
-        <span className="size-4 rounded-full bg-pillar-web" />
-        <span className="h-px w-10 bg-white/25" />
-        <span className="size-4 rounded-full bg-pillar-seo" />
-      </div>
+      <svg viewBox="0 0 260 36" className="h-16 w-full max-w-sm" aria-hidden="true">
+        <path data-bento-wire d="M16 18 H244" stroke="#ffb547" strokeWidth="2" fill="none" />
+        <circle data-bento-glow r="5" cy="18" cx="16" fill="#ffc970" />
+        {[16, 92, 168, 244].map((cx) => (
+          <circle key={cx} data-bento-dot cx={cx} cy="18" r="6" fill="#8fae8b" />
+        ))}
+      </svg>
     );
   }
-  return <p className="text-[88px] font-bold leading-none text-amber md:text-[112px]">{label}</p>;
+  return (
+    <p className="text-[88px] font-bold leading-none text-amber md:text-[112px]">
+      <span data-count="24">24</span>
+      <span className="text-[0.45em]">/7</span>
+    </p>
+  );
 }

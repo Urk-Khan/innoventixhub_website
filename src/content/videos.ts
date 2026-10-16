@@ -60,3 +60,32 @@ export function videoEmbedUrl(id: string) {
 export function videoPoster(id: string) {
   return `/ugc/${id}.jpg`;
 }
+
+/**
+ * Playable UGC slide. `mp4` stays empty until a file is added — the repo and
+ * Figma kit only include posters and YouTube ids. The slider plays the
+ * YouTube Short when `mp4` is blank.
+ */
+export type UgcSlide = {
+  id: string;
+  caption: string;
+  poster: string;
+  mp4: string;
+};
+
+export const homeUgcSlides: UgcSlide[] = featuredShortIds.map((id, index) => ({
+  id,
+  caption: homeShortCaptions[index] || "AI UGC ad",
+  poster: videoPoster(id),
+  mp4: "",
+}));
+
+export const contentFanSlides: UgcSlide[] = [
+  { id: "xWf4itxXMDI", caption: "AI UGC ad", poster: "/assets/shortytxwf4itxxmdi-061beb17.jpg", mp4: "" },
+  { id: "VIbDM1AbB4E", caption: "AI UGC ad", poster: "/assets/shortytvibdm1abb4e-3a7edbb0.jpg", mp4: "" },
+  { id: "E02ClYrTJdk", caption: "AI UGC ad", poster: "/assets/shortyte02clyrtjdk-59537514.jpg", mp4: "" },
+  { id: "3-PuCBGkI_I", caption: "Featured sample", poster: "/assets/shortfeaturedyt3pucbgkii-49965680.jpg", mp4: "" },
+  { id: "-2Tx14I5o1I", caption: "AI UGC ad", poster: "/assets/shortyt2tx14i5o1i-6ca41b33.jpg", mp4: "" },
+  { id: "OyFjwMt-bf8", caption: "AI UGC ad", poster: "/assets/shortytoyfjwmtbf8-17bc5666.jpg", mp4: "" },
+  { id: "_Bkbsy8ncWw", caption: "AI UGC ad", poster: "/assets/shortytbkbsy8ncww-180101b5.jpg", mp4: "" },
+];
