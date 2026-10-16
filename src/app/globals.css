@@ -349,6 +349,42 @@ h1, h2, h3, .font-black {
   animation: dash 2.4s linear infinite;
 }
 
+.bar-fill {
+  animation: bar-grow 1.6s ease forwards;
+}
+
+.stall-bar {
+  width: 100%;
+  transform-origin: left center;
+  animation: stall 2.8s ease-in-out infinite;
+}
+
+.scan-bar {
+  width: 100%;
+  transform-origin: left center;
+  animation: bar-grow 2.2s ease forwards;
+}
+
+.pulse-dot {
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 181, 71, 0.7);
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes stall {
+  0% { transform: scaleX(0.08); }
+  45% { transform: scaleX(0.62); }
+  70% { transform: scaleX(0.62); }
+  100% { transform: scaleX(1); }
+}
+
 .cta-card {
   position: relative;
   overflow: hidden;

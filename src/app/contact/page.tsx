@@ -1,6 +1,6 @@
 import JsonLd from "@/components/JsonLd";
 import EnquiryForm from "@/components/EnquiryForm";
-import { BookButton, CtaBand, FaqList } from "@/components/Sections";
+import { BookButton, CtaBand, FaqSection } from "@/components/Sections";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, professionalServiceSchema } from "@/lib/schema";
@@ -34,63 +34,78 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="section">
-        <div className="wrap grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <article className="glass rounded-3xl p-5">
-            <h2 className="font-bold">Book a call</h2>
-            <p className="mt-2 text-sm text-cream/75">Pick a time that suits you. 30 minutes, no pressure.</p>
-            <a href="#booking" className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation</a>
-          </article>
-          <article className="glass rounded-3xl p-5">
-            <h2 className="font-bold">Talk to our Inbound Agent</h2>
-            <p className="mt-2 text-sm text-cream/75">Hear our AI voice agent in action. It answers 24/7, books calls and takes messages.</p>
-            <a href={`tel:${site.voiceAgentTel}`} className="mt-4 inline-block text-sm font-bold text-amber">Talk to Inbound Agent</a>
-            <p className="mt-2 text-xs text-mist/70">This is an AI agent. Calls may be recorded.</p>
-          </article>
-          <article className="glass rounded-3xl p-5">
-            <h2 className="font-bold">WhatsApp or call</h2>
-            <p className="mt-2 text-sm">{site.phoneWhatsappDisplay}</p>
-            <div className="mt-4 flex gap-3 text-sm font-bold">
-              <a className="text-amber" href={site.whatsappUrl}>WhatsApp Us</a>
-              <a className="text-amber" href={`tel:${site.phoneWhatsappTel}`}>Call</a>
-            </div>
-          </article>
-          <article className="glass rounded-3xl p-5">
-            <h2 className="font-bold">Email</h2>
-            <p className="mt-2 text-sm">General: <a className="text-amber" href={`mailto:${site.emailGeneral}`}>{site.emailGeneral}</a></p>
-            <p className="mt-1 text-sm">Founder: <a className="text-amber" href={`mailto:${site.emailFounder}`}>{site.emailFounder}</a></p>
-          </article>
+        <div className="wrap text-center">
+          <p className="pill">Ways to reach us</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Pick the way that suits you</h2>
+          <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <li className="glass glass-card rounded-[22px] p-6 text-left">
+              <span className="grid size-12 place-items-center rounded-[14px] border border-amber/40 bg-amber/15 text-amber">▦</span>
+              <h2 className="mt-4 font-bold text-white">Book a call</h2>
+              <p className="mt-2 text-sm leading-6 text-pearl/75">Pick a time that suits you. 30 minutes, no pressure.</p>
+              <a href="#booking" className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
+            </li>
+            <li className="glass glass-card rounded-[22px] p-6 text-left">
+              <span className="pulse-dot grid size-12 place-items-center rounded-full border border-amber/40 bg-amber/15 text-amber">☎</span>
+              <h2 className="mt-4 font-bold text-white">Talk to our Inbound Agent</h2>
+              <p className="mt-2 text-sm leading-6 text-pearl/75">Hear our AI voice agent. It answers 24/7, books calls and takes messages.</p>
+              <a href={`tel:${site.voiceAgentTel}`} className="mt-4 inline-block text-sm font-bold text-amber">Talk to Inbound Agent</a>
+              <p className="mt-2 text-xs text-mist">This is an AI agent. Calls may be recorded.</p>
+            </li>
+            <li className="glass glass-card rounded-[22px] p-6 text-left">
+              <span className="grid size-12 place-items-center rounded-[14px] border border-amber/40 bg-amber/15 text-amber">💬</span>
+              <h2 className="mt-4 font-bold text-white">WhatsApp or call</h2>
+              <p className="mt-2 text-sm text-pearl">{site.phoneWhatsappDisplay}</p>
+              <div className="mt-4 flex gap-3 text-sm font-bold">
+                <a className="text-amber" href={site.whatsappUrl}>WhatsApp Us</a>
+                <a className="text-amber" href={`tel:${site.phoneWhatsappTel}`}>Call</a>
+              </div>
+            </li>
+            <li className="glass glass-card rounded-[22px] p-6 text-left">
+              <span className="grid size-12 place-items-center rounded-[14px] border border-amber/40 bg-amber/15 text-amber">✉</span>
+              <h2 className="mt-4 font-bold text-white">Email</h2>
+              <p className="mt-2 text-sm">General: <a className="text-amber" href={`mailto:${site.emailGeneral}`}>{site.emailGeneral}</a></p>
+              <p className="mt-1 text-sm">Founder: <a className="text-amber" href={`mailto:${site.emailFounder}`}>{site.emailFounder}</a></p>
+            </li>
+          </ul>
         </div>
       </section>
-      <section id="booking" className="section scroll-mt-28 pt-0">
+      <section id="booking" className="section scroll-mt-28 bg-navy-deep">
         <div className="wrap grid gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-black">Book your free consultation</h2>
-            <p className="mt-2 text-sm text-cream/75">You'll talk to the person who'll work on your project, not a salesperson.</p>
+            <p className="pill">Calendar</p>
+            <h2 className="mt-6 text-3xl text-white md:text-[40px] md:leading-[48px]">Book your free consultation</h2>
+            <p className="mt-3 text-pearl/75">You&apos;ll talk to the person who&apos;ll work on your project, not a salesperson.</p>
             <iframe
               title="Book a free consultation"
-              src={`${site.calendlyUrl}?hide_event_type_details=1&background_color=0c1117&text_color=f7f4ef&primary_color=ffb547`}
-              className="mt-4 h-[680px] w-full rounded-3xl border border-white/10"
+              src={`${site.calendlyUrl}?hide_event_type_details=1&background_color=132a45&text_color=f5f7fa&primary_color=ffb547`}
+              className="mt-6 h-[680px] w-full rounded-[24px] border border-white/10"
             />
-            <p className="mt-3 text-sm"><a className="text-amber underline" href={site.calendlyUrl}>Open the booking page</a></p>
+            <p className="mt-3 text-sm"><a className="font-bold text-amber" href={site.calendlyUrl}>Open the booking page</a></p>
           </div>
           <div>
-            <h2 className="text-2xl font-black">Prefer to write? Send a message.</h2>
-            <div className="mt-4"><EnquiryForm /></div>
+            <p className="pill">Message</p>
+            <h2 className="mt-6 text-3xl text-white md:text-[40px] md:leading-[48px]">Prefer to write? Send a message.</h2>
+            <div className="mt-6"><EnquiryForm /></div>
           </div>
         </div>
       </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-2xl font-black">What happens next</h2>
-          <ol className="mt-4 grid gap-3 md:grid-cols-3">
+      <section className="section">
+        <div className="wrap text-center">
+          <p className="pill">Next</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px]">What happens next</h2>
+          <ol className="relative mt-12 grid gap-8 md:grid-cols-3">
+            <div className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-px bg-amber/50 md:block" aria-hidden="true" />
             {["We read your message or join your call.", "We give honest advice and a clear next step.", "If it's a fit, you get a fixed written proposal. No obligation."].map((step, index) => (
-              <li key={step} className="glass rounded-3xl p-5 text-sm"><span className="text-amber">{index + 1}</span><p className="mt-2">{step}</p></li>
+              <li key={step} className="relative text-center">
+                <span className="relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy font-bold text-amber">{index + 1}</span>
+                <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-pearl/85">{step}</p>
+              </li>
             ))}
           </ol>
         </div>
       </section>
-      <section className="section pt-0"><div className="wrap"><h2 className="text-2xl font-black">FAQ</h2><div className="mt-4"><FaqList items={faqs} /></div></div></section>
-      <CtaBand title="Let's build your AI growth engine." copy="30-minute call. No pitch deck. A clear plan for your brand." />
+      <FaqSection items={faqs} />
+      <CtaBand title="Ready when you are." copy="30-minute call. No pitch deck. A clear plan for your brand." />
       <p className="sr-only"><BookButton /></p>
     </main>
   );

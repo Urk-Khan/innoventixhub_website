@@ -2,7 +2,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Tabs from "@/components/Tabs";
-import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
+import { BookButton, Breadcrumbs, CardGrid, CaseRail, Comparison, CtaBand, FaqSection, LogoMarquee, QuoteSplit, SectionIntro, Testimonials, ToolGrid, VoiceButton } from "@/components/Sections";
 import { WorkflowAssembly } from "@/components/visuals";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
@@ -28,11 +28,27 @@ const faqs = [
 
 function panel(line: string, includes: string[], timeline: string) {
   return (
-    <div className="glass rounded-3xl p-6">
-      <p>{line}</p>
-      <ul className="mt-4 space-y-1 text-sm">{includes.map((item) => <li key={item}>✓ {item}</li>)}</ul>
-      <p className="mt-4 text-sm text-amber">Timeline: {timeline}</p>
-      <a href={site.calendlyUrl} className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation</a>
+    <div className="glass grid items-center gap-6 rounded-[24px] p-6 text-left lg:grid-cols-2">
+      <div>
+        <p className="text-pearl/85">{line}</p>
+        <ul className="mt-4 space-y-1 text-sm">{includes.map((item) => <li key={item}>✓ {item}</li>)}</ul>
+        <p className="mt-4 text-sm font-bold text-amber">Timeline: {timeline}</p>
+        <a href={site.calendlyUrl} className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
+      </div>
+      <div className="rounded-2xl border border-white/10 bg-[#0f2138] p-4">
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold text-amber">
+          {includes.slice(0, 4).map((item, index) => (
+            <span key={item} className="flex items-center gap-2">
+              {index > 0 ? <span className="text-white/30">→</span> : null}
+              <span className="rounded-full border border-amber/30 px-2 py-1">{item.split(" ")[0]}</span>
+            </span>
+          ))}
+        </div>
+        <svg viewBox="0 0 320 70" className="mt-4 h-16 w-full" aria-hidden="true">
+          <path className="wire-dash" d="M16 36 H300" fill="none" stroke="#ffb547" strokeWidth="2" />
+        </svg>
+        <p className="text-center text-xs font-bold text-[#5bd49a]">Running · monitored</p>
+      </div>
     </div>
   );
 }
@@ -87,21 +103,19 @@ export default function AutomationPage() {
       </section>
       <WorkflowAssembly />
       <LogoMarquee label="Brands we've worked with" />
+      <CardGrid
+        tone="deep"
+        eyebrow="The problem"
+        title="Sound familiar?"
+        items={[
+          { icon: "⏱", title: "Leads going cold?", body: "Form fills sit in an inbox for hours. By the time someone replies, the buyer has moved on." },
+          { icon: "⎘", title: "Copy-paste all day?", body: "Your team moves data between Shopify, sheets, email and your CRM by hand, and mistakes creep in." },
+          { icon: "⧉", title: "Tools that don't talk?", body: "You pay for 10 apps, but none of them share data, so nobody sees the full picture." },
+        ]}
+      />
       <section className="section">
         <div className="wrap">
-          <h2 className="text-3xl font-black">Sound familiar?</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              ["Leads going cold?", "Form fills sit in an inbox for hours. By the time someone replies, the buyer has moved on."],
-              ["Copy-paste all day?", "Your team moves data between Shopify, sheets, email and your CRM by hand, and mistakes creep in."],
-              ["Tools that don't talk?", "You pay for 10 apps, but none of them share data, so nobody sees the full picture."],
-            ].map(([t, b]) => <li key={t} className="glass rounded-3xl p-6"><h3 className="font-bold">{t}</h3><p className="mt-2 text-sm text-cream/75">{b}</p></li>)}
-          </ul>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <SectionIntro title="What we automate" />
+          <SectionIntro eyebrow="What we automate" title="n8n, GoHighLevel, CRM and custom Python" />
           <div className="mt-8">
             <Tabs
               label="Automation types"
@@ -115,37 +129,22 @@ export default function AutomationPage() {
           </div>
         </div>
       </section>
-      <section className="section bg-[#091018]">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">What this looks like in your business</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              ["Speed-to-lead", "New form/ad lead → AI qualifies → CRM updated → SMS + email in under a minute → call booked."],
-              ["Shopify order ops", "New order → inventory sheet updated → Slack alert → review request sent 7 days later."],
-              ["Abandoned-cart recovery", "Cart abandoned → GHL email + SMS sequence → discount on day 2 → stop on purchase."],
-              ["Invoices & finance", "Deal won → invoice generated → payment reminder → finance tracker updated."],
-              ["Content calendar", "Idea in sheet → AI drafts → approval in Slack → scheduled post."],
-              ["Reporting", "Every Monday → pull data from ads, store and CRM → AI summary emailed to the team."],
-            ].map(([t, b]) => <li key={t} className="glass rounded-3xl p-5"><h3 className="font-bold">{t}</h3><p className="mt-2 text-sm text-cream/75">{b}</p></li>)}
-          </ul>
-          <p className="mt-6 text-sm"><Link href="/work" className="text-amber">See automation projects we've built</Link></p>
-        </div>
-      </section>
-      <section className="section">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Results &gt; Promises</h2>
-          <p className="mt-2 text-cream/75">Real automations we've built for real businesses.</p>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {["n8n canvas", "GHL workflow", "dashboard"].map((shot) => (
-              <li key={shot} className="rounded-3xl bg-cream p-5 text-ink">
-                <p className="text-xs font-bold">SAMPLE</p>
-                <h3 className="mt-3 text-2xl font-black">[Stat from client]</h3>
-                <div className="mt-4 rounded-xl bg-navy/10 p-8 text-xs">{shot}</div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <CardGrid
+        tone="deep"
+        eyebrow="Use cases"
+        title="What this looks like in your business"
+        columns={6}
+        items={[
+          { icon: "→", title: "Speed-to-lead", body: "New form/ad lead → AI qualifies → CRM updated → SMS + email in under a minute → call booked." },
+          { icon: "→", title: "Shopify order ops", body: "New order → inventory sheet updated → Slack alert → review request sent 7 days later." },
+          { icon: "→", title: "Abandoned-cart recovery", body: "Cart abandoned → GHL email + SMS sequence → discount on day 2 → stop on purchase." },
+          { icon: "→", title: "Invoices & finance", body: "Deal won → invoice generated → payment reminder → finance tracker updated." },
+          { icon: "→", title: "Content calendar", body: "Idea in sheet → AI drafts → approval in Slack → scheduled post." },
+          { icon: "→", title: "Reporting", body: "Every Monday → pull data from ads, store and CRM → AI summary emailed to the team." },
+        ]}
+      />
+      <p className="wrap -mt-10 pb-8 text-center text-sm"><Link href="/work" className="font-bold text-amber">See automation projects we&apos;ve built →</Link></p>
+      <CaseRail eyebrow="Results" title="Results > Promises" copy="Real automations we've built for real businesses." tags={["n8n canvas", "GHL workflow", "dashboard"]} />
       <Comparison
         title="See the difference"
         columns={["Innoventix Hub", "Doing it manually", "Typical freelancer"]}
@@ -169,43 +168,20 @@ export default function AutomationPage() {
           { title: "Monitor & optimize", body: "We watch it run and improve it (optional care plan)." },
         ]}
       />
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-2xl font-black">Tool stack</h2>
-          <p className="mt-2 text-sm text-cream/75">We pick the right tool for the job, not the one we're paid to sell.</p>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-            {["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"].map((tool) => <li key={tool} className="glass rounded-full px-4 py-2">{tool}</li>)}
-          </ul>
-        </div>
-      </section>
+      <ToolGrid eyebrow="Tool stack" title="We pick the tool that fits" copy="We pick the right tool for the job, not the one we're paid to sell." tools={["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"]} />
       <Testimonials />
-      <section className="section pt-0">
-        <div className="wrap grid gap-6 lg:grid-cols-2">
-          <article className="glass rounded-3xl p-6">
-            <p className="text-xs font-bold tracking-wide text-amber">Free audit first · fixed-price proposal in 48 hours</p>
-            <h2 className="mt-3 text-3xl font-black">Custom quote after a free audit</h2>
-            <p className="mt-3 text-sm text-cream/80">No packages to squeeze into. You get a fixed price for exactly what you need. Every business runs differently, so every automation is scoped to fit. Book a free automation audit. We'll map your workflows and send a fixed-price proposal within 48 hours.</p>
-            <ul className="mt-4 space-y-1 text-sm">{["Free workflow audit", "Visual blueprint you approve", "Build, testing & error handling", "Documentation & team training"].map((item) => <li key={item}>✓ {item}</li>)}</ul>
-            <div className="mt-5"><BookButton /></div>
-          </article>
-          <article className="glass-strong rounded-3xl p-6">
-            <h2 className="text-2xl font-black">Works-As-Agreed Guarantee</h2>
-            <p className="mt-3 text-sm">If the automation doesn’t do what we agreed in the signed blueprint, we fix it free. If we still can’t make it work as specified within 30 days of launch, you get a full refund for that workflow.</p>
-            <ul className="mt-4 space-y-1 text-sm text-cream/80">
-              <li>Scope is the approved blueprint.</li>
-              <li>Third-party app or API changes and scope changes are excluded.</li>
-              <li>You provide access and credentials on time.</li>
-              <li>Claims within 30 days of go-live.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">FAQ</h2>
-          <div className="mt-6"><FaqList items={faqs} /></div>
-        </div>
-      </section>
+      <QuoteSplit
+        eyebrow="Pricing"
+        title="Custom quote after a free audit"
+        copy="No packages to squeeze into. You get a fixed price for exactly what you need. Book a free automation audit and we'll send a fixed-price proposal within 48 hours."
+        includesTitle="What the quote covers"
+        includes={["Free workflow audit", "Visual blueprint you approve", "Build, testing and error handling", "Documentation and team training"]}
+        sideEyebrow="Works-As-Agreed"
+        sideTitle="Works-As-Agreed Guarantee"
+        sideBody="If the automation doesn't do what we agreed in the signed blueprint, we fix it free. If we still can't make it work as specified within 30 days of launch, you get a full refund for that workflow."
+        sideNotes={["Scope is the approved blueprint.", "Third-party app or API changes and scope changes are excluded.", "You provide access and credentials on time.", "Claims within 30 days of go-live."]}
+      />
+      <FaqSection items={faqs} />
       <CtaBand title="Stop Doing It by Hand." copy="Book a free 30-minute automation audit. We'll show you which tasks to automate first and what it will save you." />
     </main>
   );

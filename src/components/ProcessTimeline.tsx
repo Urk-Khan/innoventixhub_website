@@ -59,8 +59,10 @@ export default function ProcessTimeline({
   return (
     <section ref={root} className="section">
       <div className="wrap">
-        <p className="eyebrow">Our process</p>
-        <h2 className="mt-5 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+        <div className="text-center">
+          <p className="pill">Our process</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+        </div>
         <ol className="relative mt-14 space-y-8">
           <div className="absolute bottom-6 left-[19px] top-6 w-px bg-white/15 md:left-1/2" aria-hidden="true">
             <div data-fill className="h-full origin-top scale-y-0 bg-amber shadow-[0_0_16px_rgba(255,181,71,0.65)]" />

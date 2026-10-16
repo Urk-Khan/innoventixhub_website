@@ -30,26 +30,45 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const next = allWork[(index + 1) % allWork.length];
 
   return (
-    <main id="main" className="section lg:pt-40">
+    <main id="main" className="pb-16">
       <JsonLd data={graph(breadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Work", path: "/work" },
         { name: item.title, path: `/work/${item.slug}` },
       ]))} />
-      <article className="wrap max-w-3xl">
-        <p className="text-sm text-amber">{item.group}</p>
-        <h1 className="mt-3 break-words text-3xl font-black [overflow-wrap:anywhere] sm:text-4xl">{item.title}</h1>
-        {item.image ? <img src={item.image} alt={item.imageAlt || ""} width={1440} height={900} className="glass mt-6 w-full rounded-[24px] object-cover" /> : null}
-        <h2 className="mt-8 text-2xl font-black">The challenge</h2>
-        <p className="mt-2 text-cream/80">{item.challenge}</p>
-        <h2 className="mt-8 text-2xl font-black">What we built</h2>
-        <p className="mt-2 text-cream/80">{item.built}</p>
-        <h2 className="mt-8 text-2xl font-black">Results</h2>
-        <p className="mt-2 text-amber">{item.metric}</p>
-        <h2 className="mt-8 text-2xl font-black">Tools used</h2>
-        <p className="mt-2">{item.tools.join(" · ")}</p>
-        <p className="mt-10"><Link href={`/work/${next.slug}`} className="text-amber">Next project: {next.title}</Link></p>
-        <a href={site.calendlyUrl} className="btn-primary mt-6">Book A Free Consultation</a>
+      <header className="hero-stage px-5 pb-12 pt-28 text-center lg:pt-[200px]">
+        <p className="text-sm text-mist"><Link href="/">Home</Link> / <Link href="/work">Work</Link> / {item.group}</p>
+        <p className="eyebrow mt-6">{item.group}</p>
+        <h1 className="mx-auto mt-6 max-w-4xl break-words text-4xl font-bold text-white [overflow-wrap:anywhere] md:text-[56px] md:leading-[1.05]">{item.title}</h1>
+        <p className="mx-auto mt-5 max-w-2xl text-pearl/75">{item.summary}</p>
+      </header>
+      <article className="wrap max-w-4xl">
+        {item.image ? <img src={item.image} alt={item.imageAlt || ""} width={1440} height={900} className="glass w-full rounded-[24px] object-cover object-top" /> : (
+          <div className="glass grid h-56 place-items-center rounded-[24px] text-sm text-mist">Workflow diagram</div>
+        )}
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {[
+            ["The challenge", item.challenge],
+            ["What we built", item.built],
+          ].map(([title, body]) => (
+            <section key={title} className="glass rounded-[22px] p-6">
+              <h2 className="text-xl font-bold text-white">{title}</h2>
+              <p className="mt-3 text-sm leading-6 text-pearl/80">{body}</p>
+            </section>
+          ))}
+        </div>
+        <section className="glass mt-4 rounded-[22px] p-6">
+          <h2 className="text-xl font-bold text-white">Results</h2>
+          <p className="mt-3 text-sm font-bold text-amber">{item.metric}</p>
+        </section>
+        <section className="mt-4">
+          <h2 className="text-sm font-bold tracking-[1.6px] text-mist uppercase">Tools used</h2>
+          <ul className="mt-3 flex flex-wrap gap-2">{item.tools.map((tool) => <li key={tool} className="glass rounded-full px-4 py-2 text-sm font-bold">{tool}</li>)}</ul>
+        </section>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+          <Link href={`/work/${next.slug}`} className="font-bold text-amber">Next project: {next.title} →</Link>
+          <a href={site.calendlyUrl} className="btn-primary">Book A Free Consultation <span aria-hidden="true">→</span></a>
+        </div>
       </article>
     </main>
   );
