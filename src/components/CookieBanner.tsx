@@ -1,13 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const KEY = "ih-cookie-choice";
 
 export default function CookieBanner() {
+  const bannerRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [settings, setSettings] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const banner = bannerRef.current;
+    if (!visible || !banner) {
+      root.style.removeProperty("--cookie-banner-offset");
+      return;
+    }
+    const apply = () => root.style.setProperty("--cookie-banner-offset", `${banner.offsetHeight}px`);
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(banner);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--cookie-banner-offset");
+    };
+  }, [visible, settings]);
 
   useEffect(() => {
     if (!window.localStorage.getItem(KEY)) setVisible(true);
@@ -30,7 +48,7 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 p-4" role="dialog" aria-label="Cookie consent">
+    <div ref={bannerRef} className="fixed inset-x-0 bottom-0 z-50 p-4" role="dialog" aria-label="Cookie consent">
       <div className="glass mx-auto max-w-3xl rounded-3xl p-5 shadow-2xl">
         <p className="text-sm leading-6 text-cream">
           We use essential cookies to run this site and, with your OK, analytics cookies to improve it.

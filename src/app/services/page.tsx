@@ -13,7 +13,7 @@ export const metadata = pageMeta({
 
 export default function ServicesPage() {
   return (
-    <main id="main" className="section">
+    <main id="main" className="section lg:pt-40">
       <JsonLd
         data={graph(
           breadcrumbSchema([

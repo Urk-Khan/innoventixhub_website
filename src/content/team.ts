@@ -11,7 +11,7 @@ export const team: TeamMember[] = [
   {
     name: "Ubaid ur Rehman Khan",
     role: "Founder & CEO",
-    image: "/team/ubaid-cutout.png",
+    image: "/team/ubaid-ur-rehman-khan-founder-ceo.jpg",
     imageAlt: "Ubaid ur Rehman Khan, Founder and CEO of Innoventix Hub",
     initials: "UK",
   },

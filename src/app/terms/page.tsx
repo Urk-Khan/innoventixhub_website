@@ -28,9 +28,14 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main id="main" className="section">
+    <main id="main">
       <JsonLd data={graph(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }]))} />
-      <div className="wrap grid gap-10 lg:grid-cols-[240px_1fr]">
+      <section className="hero-stage px-5 pb-10 pt-28 text-center lg:pt-[200px]">
+        <p className="eyebrow">Legal</p>
+        <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Terms of Service</h1>
+        <p className="mx-auto mt-5 max-w-[680px] text-[15px] text-mist">Last updated: October 16, 2026</p>
+      </section>
+      <div className="wrap grid gap-10 pb-20 lg:grid-cols-[240px_1fr]">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-xs font-bold tracking-wide text-amber">ON THIS PAGE</p>
           <ol className="mt-3 space-y-2 text-sm">
@@ -40,8 +45,6 @@ export default function TermsPage() {
           </ol>
         </aside>
         <article>
-          <h1 className="text-4xl font-black">Terms of Service</h1>
-          <p className="mt-3 text-sm text-mist/80">Last updated: October 16, 2026</p>
           {sections.map(([title, body], index) => (
             <section key={title} id={`t-${index}`} className="mt-8 scroll-mt-28">
               <h2 className="text-xl font-bold">{index + 1}. {title}</h2>

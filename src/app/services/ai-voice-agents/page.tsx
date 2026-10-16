@@ -2,7 +2,8 @@ import JsonLd from "@/components/JsonLd";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Tabs from "@/components/Tabs";
 import VoicePricing from "@/components/VoicePricing";
-import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
+import { BookButton, Breadcrumbs, CardGrid, CaseRail, Comparison, CtaBand, FaqSection, LogoMarquee, SectionIntro, Testimonials, ToolGrid, VoiceButton } from "@/components/Sections";
+import { LivingCall } from "@/components/visuals";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, serviceSchema } from "@/lib/schema";
@@ -27,11 +28,22 @@ const faqs = [
 
 function panel(line: string, includes: string[]) {
   return (
-    <div className="glass rounded-3xl p-6">
-      <p>{line}</p>
-      <ul className="mt-4 grid gap-1 text-sm sm:grid-cols-2">{includes.map((item) => <li key={item}>✓ {item}</li>)}</ul>
-      <p className="mt-4 text-sm text-amber">2–4 weeks to launch</p>
-      <a href={site.calendlyUrl} className="mt-3 inline-block text-sm font-bold text-amber">Book A Free Consultation</a>
+    <div className="glass grid items-center gap-6 rounded-[24px] p-6 text-left lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p className="text-pearl/85">{line}</p>
+        <ul className="mt-4 grid gap-1 text-sm sm:grid-cols-2">{includes.map((item) => <li key={item}>✓ {item}</li>)}</ul>
+        <p className="mt-4 text-sm font-bold text-amber">2–4 weeks to launch</p>
+        <a href={site.calendlyUrl} className="mt-3 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
+      </div>
+      <div className="rounded-[24px] border border-white/10 bg-[#0f2138] p-4">
+        <div className="mb-3 flex items-center gap-2 text-xs text-mist"><span className="pulse-dot inline-flex size-2 rounded-full bg-[#5bd49a]" /> Live call</div>
+        <div className="flex h-10 items-end gap-1">
+          {Array.from({ length: 13 }).map((_, index) => (
+            <span key={index} className="w-1.5 rounded-full bg-amber" style={{ height: `${12 + ((index * 17) % 28)}px`, animation: `floaty ${1.2 + (index % 4) * 0.15}s ease-in-out infinite` }} />
+          ))}
+        </div>
+        <p className="mt-3 text-xs text-pearl/70">Ava · booking the next open slot</p>
+      </div>
     </div>
   );
 }
@@ -59,47 +71,42 @@ export default function VoicePage() {
         }),
         faqSchema(faqs),
       )} />
-      <section className="bg-navy">
-        <div className="wrap py-16">
-          <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
-          <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-cream/80">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
-            <BookButton ghost />
+      <section className="hero-stage overflow-hidden bg-navy">
+        <img src="/assets/glowgold-30af2e67.svg" alt="" className="glow-gold" />
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
+            <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
+            <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
+            <h1 className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
+              <BookButton ghost />
+            </div>
+            <p className="mt-5 text-[13px] text-mist">Live demo line, call it now. No forms, no signup.</p>
           </div>
-          <p className="mt-4 text-sm text-mist/80">Live demo line, call it now. No forms, no signup.</p>
+          <div className="relative mx-auto mt-10 grid h-[280px] w-[280px] place-items-center" aria-hidden="true">
+            <span className="absolute size-[220px] rounded-full border border-amber/30" />
+            <span className="absolute size-[160px] rounded-full border border-amber/50" />
+            <span className="grid size-[96px] place-items-center rounded-full bg-amber text-[13px] font-bold text-navy shadow-[0_0_40px_rgba(255,181,71,0.55)]">Voice</span>
+          </div>
         </div>
       </section>
-      <section className="section">
-        <div className="wrap grid gap-6 lg:grid-cols-3">
-          <article className="glass rounded-3xl p-5"><h2 className="font-bold">It's 2 AM. A customer calls.</h2><p className="mt-2 text-sm text-cream/75">Incoming call · 2:14 AM</p></article>
-          <article className="glass-strong rounded-3xl p-5 text-sm">
-            <p>Caller: “Hi, do you have anything open tomorrow?”</p>
-            <p className="mt-2">AI: “Yes, I have 10:30 or 2:00. Which works better?”</p>
-            <p className="mt-2">Caller: “2 works.”</p>
-            <p className="mt-2">AI: “Booked. You'll get a text confirmation now.”</p>
-          </article>
-          <article className="glass rounded-3xl p-5"><h2 className="font-bold">Every call answered. Every lead captured.</h2><p className="mt-2 text-sm">Calendar booked → CRM updated → SMS sent → Summary to Slack</p><p className="mt-3 text-amber">Answered in 1 ring · 24/7</p></article>
-        </div>
-      </section>
+      <LivingCall />
       <LogoMarquee label="Brands we've worked with" />
+      <CardGrid
+        tone="deep"
+        eyebrow="The problem"
+        title="Sound familiar?"
+        items={[
+          { icon: "☎", title: "Calls going to voicemail?", body: "After hours, weekends, busy lunch rush: callers hang up and dial the next business." },
+          { icon: "⏱", title: "Leads waiting hours for a call back?", body: "By the time someone rings a new lead, they've already spoken to a competitor." },
+          { icon: "◎", title: "Staff stuck on the phone?", body: "Your team answers the same questions all day instead of serving customers and selling." },
+        ]}
+      />
       <section className="section">
         <div className="wrap">
-          <h2 className="text-3xl font-black">Sound familiar?</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              ["Calls going to voicemail?", "After hours, weekends, busy lunch rush: callers hang up and dial the next business."],
-              ["Leads waiting hours for a call back?", "By the time someone rings a new lead, they've already spoken to a competitor."],
-              ["Staff stuck on the phone?", "Your team answers the same questions all day instead of serving customers and selling."],
-            ].map(([t, b]) => <li key={t} className="glass rounded-3xl p-6"><h3 className="font-bold">{t}</h3><p className="mt-2 text-sm text-cream/75">{b}</p></li>)}
-          </ul>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <SectionIntro title="What we build" />
+          <SectionIntro eyebrow="What we build" title="Inbound receptionist and outbound agents" />
           <div className="mt-8">
             <Tabs label="Voice agent types" tabs={[
               { id: "inbound", label: "Inbound AI Receptionist", content: panel("An AI receptionist that picks up on the first ring, day or night, answers questions, books appointments and routes urgent calls to your team.", ["24/7 call answering", "FAQs trained on your business", "appointment booking & rescheduling", "call screening & routing", "warm transfer to a human", "message taking & SMS confirmations", "call recordings, transcripts & summaries"]) },
@@ -108,58 +115,60 @@ export default function VoicePage() {
           </div>
         </div>
       </section>
-      <section className="section bg-[#091018]">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Use cases by industry</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              ["E-commerce / D2C", "Order status and returns questions, COD and order confirmation calls, abandoned-cart callbacks, post-purchase review requests."],
-              ["Clinics, dental & wellness", "Appointment booking, reminders to cut no-shows, new-patient intake questions."],
-              ["Home services & trades", "Emergency call capture, quote requests, job booking and dispatch notes."],
-              ["Real estate", "Buyer and renter enquiry qualification, viewing bookings, follow-up on portal leads."],
-              ["Restaurants & hospitality", "Reservations, opening hours and menu questions, booking changes."],
-              ["Agencies & B2B services", "Inbound lead qualification, discovery call booking, reactivation of old leads."],
-            ].map(([t, b]) => <li key={t} className="glass rounded-3xl p-5"><h3 className="font-bold">{t}</h3><p className="mt-2 text-sm text-cream/75">{b}</p></li>)}
-          </ul>
-        </div>
-      </section>
+      <CardGrid
+        tone="deep"
+        eyebrow="Use cases"
+        title="Use cases by industry"
+        columns={6}
+        items={[
+          { icon: "▣", title: "E-commerce / D2C", body: "Order status and returns questions, COD and order confirmation calls, abandoned-cart callbacks, post-purchase review requests." },
+          { icon: "▣", title: "Clinics, dental & wellness", body: "Appointment booking, reminders to cut no-shows, new-patient intake questions." },
+          { icon: "▣", title: "Home services & trades", body: "Emergency call capture, quote requests, job booking and dispatch notes." },
+          { icon: "▣", title: "Real estate", body: "Buyer and renter enquiry qualification, viewing bookings, follow-up on portal leads." },
+          { icon: "▣", title: "Restaurants & hospitality", body: "Reservations, opening hours and menu questions, booking changes." },
+          { icon: "▣", title: "Agencies & B2B services", body: "Inbound lead qualification, discovery call booking, reactivation of old leads." },
+        ]}
+      />
       <section className="section">
-        <div className="wrap">
-          <div className="glass-strong rounded-[2rem] p-8 text-center">
-            <h2 className="text-3xl font-black">Hear the agent in action</h2>
-            <p className="mt-2 text-4xl font-black text-amber">{site.voiceAgentDisplay}</p>
-            <p className="mx-auto mt-3 max-w-xl text-sm text-cream/80">Don't take our word for it. Call our inbound AI receptionist right now: ask about services, book a consultation or try to trip it up.</p>
+        <div className="wrap grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="text-center lg:text-left">
+            <p className="pill">Live demo</p>
+            <h2 className="mt-6 text-3xl text-white md:text-[44px] md:leading-[52px]">Hear the agent in action</h2>
+            <p className="mt-3 text-3xl font-bold text-amber">{site.voiceAgentDisplay}</p>
+            <p className="mt-4 max-w-xl text-pearl/80">Don&apos;t take our word for it. Call our inbound AI receptionist right now: ask about services, book a consultation or try to trip it up.</p>
             <div className="mt-6"><VoiceButton>Talk to Inbound Agent</VoiceButton></div>
-            <p className="mt-3 text-xs text-mist/70">Calls may be recorded for quality.</p>
+            <p className="mt-3 text-xs text-mist">Calls may be recorded for quality.</p>
+          </div>
+          <div className="glass relative mx-auto w-full max-w-sm rounded-[28px] p-5">
+            <div className="mb-4 flex items-center justify-between text-xs text-mist">
+              <span className="pulse-dot inline-flex size-2.5 rounded-full bg-[#5bd49a]" />
+              <span>Incoming · answered in 1 ring</span>
+            </div>
+            <div className="space-y-2 text-sm">
+              <p className="ml-8 rounded-2xl bg-white/10 px-3 py-2">Can I book a consultation this week?</p>
+              <p className="mr-8 rounded-2xl bg-amber/15 px-3 py-2 text-pearl">Thursday at 10:30 works. I&apos;ll text you the confirmation.</p>
+            </div>
+            <ul className="mt-4 flex flex-wrap gap-2 text-[11px] font-bold text-amber">
+              {["Calendar booked", "CRM updated", "SMS sent"].map((chip) => <li key={chip} className="rounded-full border border-amber/30 px-2 py-1">{chip}</li>)}
+            </ul>
           </div>
         </div>
       </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">What powers your AI voice agent</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              ["Human-sounding voices", "Natural voices, accents and pacing."],
-              ["Trained on your business", "Website, docs, FAQs and policies."],
-              ["Books straight into your calendar", "Google Calendar, Calendly, Outlook."],
-              ["Warm transfer to a human", "Hands off urgent or complex calls with context."],
-              ["CRM & workflow sync", "Every call logged, tagged and triggering follow-ups."],
-              ["Transcripts, recordings & insights", "Summaries, sentiment and extracted data after each call."],
-            ].map(([t, b]) => <li key={t} className="glass rounded-3xl p-5"><h3 className="font-bold">{t}</h3><p className="mt-2 text-sm text-cream/75">{b}</p></li>)}
-          </ul>
-          <p className="mt-6 text-sm text-cream/80">Built responsibly: call-recording disclosure, GDPR-aware data handling, encrypted storage, opt-out and do-not-call respect, human handoff anytime.</p>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Results &gt; Promises</h2>
-          <ul className="mt-6 grid gap-4 md:grid-cols-3">
-            {["Call dashboard", "Transcript", "Calendar bookings"].map((item) => (
-              <li key={item} className="rounded-3xl bg-cream p-5 text-ink"><p className="text-xs font-bold">SAMPLE</p><h3 className="mt-2 text-xl font-black">[Stat from client]</h3><p className="mt-4 text-xs">{item}</p></li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <CardGrid
+        eyebrow="Under the hood"
+        title="What powers your AI voice agent"
+        columns={6}
+        items={[
+          { icon: "♪", title: "Human-sounding voices", body: "Natural voices, accents and pacing." },
+          { icon: "▣", title: "Trained on your business", body: "Website, docs, FAQs and policies." },
+          { icon: "▣", title: "Books straight into your calendar", body: "Google Calendar, Calendly, Outlook." },
+          { icon: "▣", title: "Warm transfer to a human", body: "Hands off urgent or complex calls with context." },
+          { icon: "▣", title: "CRM & workflow sync", body: "Every call logged, tagged and triggering follow-ups." },
+          { icon: "▣", title: "Transcripts, recordings & insights", body: "Summaries, sentiment and extracted data after each call." },
+        ]}
+      />
+      <p className="wrap -mt-8 pb-4 text-center text-sm text-pearl/80">Built responsibly: call-recording disclosure, GDPR-aware data handling, encrypted storage, opt-out and do-not-call respect, human handoff anytime.</p>
+      <CaseRail eyebrow="Results" title="Results > Promises" tags={["Call dashboard", "Transcript", "Calendar bookings"]} />
       <Comparison
         title="See the difference"
         columns={["Innoventix AI Voice Agent", "Human receptionist", "Outsourced call center"]}
@@ -186,29 +195,15 @@ export default function VoicePage() {
           { title: "Go live & optimise", body: "Monitor transcripts and keep improving answers." },
         ]}
       />
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-2xl font-black">Integrations</h2>
-          <p className="mt-2 text-sm text-cream/75">Plugs into the tools you already use.</p>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-            {["HubSpot", "Salesforce", "GoHighLevel", "Pipedrive", "Google Calendar", "Calendly", "Outlook", "Shopify", "Twilio", "Slack", "WhatsApp", "Stripe", "n8n", "Zapier", "Make"].map((tool) => <li key={tool} className="glass rounded-full px-4 py-2">{tool}</li>)}
-          </ul>
-        </div>
-      </section>
+      <ToolGrid eyebrow="Integrations" title="Plugs into the tools you already use" tools={["HubSpot", "Salesforce", "GoHighLevel", "Pipedrive", "Google Calendar", "Calendly", "Outlook", "Shopify", "Twilio", "Slack", "WhatsApp", "Stripe", "n8n", "Zapier", "Make"]} />
       <Testimonials />
-      <section className="section pt-0">
+      <section className="section">
         <div className="wrap">
-          <h2 className="text-3xl font-black md:text-5xl">Simple plans that pay for themselves in missed calls.</h2>
-          <p className="mt-3 text-cream/75">Pick the minutes you need. Every plan includes setup, so you go live without a build fee.</p>
+          <SectionIntro eyebrow="Pricing" title="Simple plans that pay for themselves in missed calls." copy="Pick the minutes you need. Every plan includes setup, so you go live without a build fee." />
           <VoicePricing />
         </div>
       </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">FAQ</h2>
-          <div className="mt-6"><FaqList items={faqs} /></div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
       <CtaBand
         title="Your next customer is calling. Let AI pick up."
         copy="Call our live agent or book a free consultation, and we'll map exactly which calls to automate first."
