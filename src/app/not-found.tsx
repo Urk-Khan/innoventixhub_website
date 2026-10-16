@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import { serviceNav, site } from "@/config/site";
 
 export const metadata = {
@@ -11,7 +12,7 @@ export default function NotFound() {
     <main id="main" className="hero-stage section lg:pt-40">
       <img src="/assets/glowcopper-92d117a3.svg" alt="" className="glow-copper" />
       <div className="wrap relative z-10 max-w-3xl text-center">
-        <div className="relative mx-auto mb-6 grid h-24 w-24 place-items-center rounded-full border border-dashed border-amber/60 text-3xl" aria-hidden="true">⚡</div>
+        <BrandLogo variant="square" className="mx-auto mb-6 h-24 w-24 object-contain" />
         <p className="text-6xl font-black text-amber">404</p>
         <h1 className="mt-4 text-4xl font-black">This page took a wrong turn.</h1>
         <p className="mt-3 text-cream/80">The link might be old, or the page has moved. Here's where you can go instead.</p>

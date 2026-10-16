@@ -71,14 +71,14 @@ export default function SeoPage() {
             <p className="mt-3 text-xs text-mist/70">Reviewed by a real SEO specialist. Reply within 2 business days. No obligation.</p>
             <div className="mt-4"><BookButton ghost /></div>
           </div>
-          <div className="glass mx-auto mt-12 max-w-[520px] rounded-3xl p-6 text-left text-sm">
+          <div data-loop className="serp-list glass mx-auto mt-12 max-w-[520px] rounded-3xl p-6 text-left text-sm">
             <p className="text-xs text-mist/70">Illustrative example</p>
             <p className="mt-3 font-bold">best organic skincare uk</p>
             <p className="mt-4 rounded-xl bg-amber/15 p-3">AI answer cites yourbrand.com</p>
-            <ol className="mt-4 space-y-2">
-              <li>1. yourbrand.com</li>
-              <li className="text-amber">2. yourbrand.com · Top 3</li>
-              <li>3. competitor.com</li>
+            <ol className="relative mt-4 h-28">
+              <li className="you absolute inset-x-0 top-0 rounded-xl bg-amber/15 px-3 py-2 font-bold text-amber">yourbrand.com <span className="top3">· Top 3</span></li>
+              <li className="absolute inset-x-0 top-10 text-mist">competitor.com</li>
+              <li className="absolute inset-x-0 top-16 text-mist">another.com</li>
             </ol>
           </div>
         </div>
@@ -104,13 +104,13 @@ export default function SeoPage() {
             </ul>
             <div className="mt-6"><SeoAuditForm /></div>
           </div>
-          <article className="glass rounded-[24px] p-6">
+          <article data-loop className="scan-card glass rounded-[24px] p-6">
             <p className="text-xs font-bold tracking-[1.6px] text-amber uppercase">What we check</p>
             <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
               {["Page speed & Core Web Vitals", "Indexing & crawl errors", "Titles & meta descriptions", "Schema markup", "Internal links", "Backlink profile", "Google Business Profile", "AI-answer readiness"].map((item) => <li key={item} className="rounded-xl border border-white/10 px-3 py-2">✓ {item}</li>)}
             </ul>
-            <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/10"><div className="scan-bar h-full bg-amber" /></div>
-            <p className="mt-3 text-sm font-bold text-[#5bd49a]">Report ready · top fixes in plain English</p>
+            <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/10"><div className="scan-bar h-full origin-left bg-amber" /></div>
+            <p className="report-ready mt-3 text-sm font-bold text-[#5bd49a]">Report ready · top fixes in plain English</p>
             <p className="mt-2 text-xs text-mist">Illustrative. A specialist replies within 2 business days.</p>
           </article>
         </div>
@@ -154,12 +154,12 @@ export default function SeoPage() {
           <p className="pill">Proof</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">What you&apos;ll see</h2>
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
-            <article className="glass rounded-[22px] p-6 text-left text-sm">
+            <article data-loop className="serp-list glass rounded-[22px] p-6 text-left text-sm">
               <p className="text-xs font-bold tracking-wide text-mist">Illustrative SERP</p>
               <p className="mt-4 font-bold text-white">best organic skincare uk</p>
-              <ol className="mt-4 space-y-2">
-                <li className="rounded-xl bg-white/5 px-3 py-2 text-mist">Before · yourbrand.com on page 2</li>
-                <li className="rounded-xl bg-amber/15 px-3 py-2 font-bold text-amber">After · yourbrand.com · Top 3</li>
+              <ol className="relative mt-4 h-24">
+                <li className="you absolute inset-x-0 top-0 rounded-xl bg-amber/15 px-3 py-2 font-bold text-amber">yourbrand.com <span className="top3">· Top 3</span></li>
+                <li className="absolute inset-x-0 top-12 rounded-xl bg-white/5 px-3 py-2 text-mist">competitor.com</li>
               </ol>
             </article>
             <article className="glass rounded-[22px] p-6 text-left text-sm">

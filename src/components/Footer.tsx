@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import { serviceNav, site } from "@/config/site";
 
 export default function Footer() {
@@ -8,7 +9,8 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-navy-soft">
       <div className="wrap grid gap-10 pb-12 pt-16 md:grid-cols-[1.3fr_0.8fr_0.7fr_1fr] md:pt-20">
         <div className="max-w-[340px]">
-          <p className="font-display text-[28px] tracking-[-0.28px] text-white">Innoventix Hub</p>
+          <BrandLogo variant="square" className="h-16 w-16 object-contain" />
+          <p className="mt-4 font-display text-[28px] tracking-[-0.28px] text-white">Innoventix Hub</p>
           <p className="mt-4 text-[15px] leading-[1.55] text-mist">
             AI content, voice agents and automation for D2C brands and SMBs in the USA, UK and Europe.
           </p>

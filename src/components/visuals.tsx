@@ -1,113 +1,59 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+export { default as CommandCenter } from "./HomeOrbit";
 
-const nodes = [
-  { label: "Content", detail: "UGC Ads · Short-form · Long-form", href: "/services/content-creation", color: "#e8a07a", subs: ["AI UGC Ads", "Short-form", "Long-form"] },
-  { label: "Automation", detail: "n8n · GHL · CRM · Python", href: "/services/ai-automation", color: "#6ba3a0", subs: ["n8n", "GoHighLevel", "CRM", "Python"] },
-  { label: "Voice", detail: "Inbound receptionist · Outbound", href: "/services/ai-voice-agents", color: "#7a9ebf", subs: ["Inbound", "Outbound"] },
-  { label: "Web", detail: "Next.js · Shopify · Landing pages", href: "/services/web-development", color: "#8fae8b", subs: ["Next.js", "Shopify", "Landing pages"] },
-  { label: "SEO", detail: "Technical · On-page · Off-page · Local", href: "/services/seo", color: "#d4a574", subs: ["Technical", "On-page", "Local", "AI search"] },
+const flowNodes = [
+  { name: "Lead form", from: 0, x: "8%", y: "16%" },
+  { name: "Router", from: 0.22, x: "38%", y: "16%" },
+  { name: "OpenAI", from: 0.36, x: "68%", y: "16%" },
+  { name: "HubSpot", from: 0.5, x: "22%", y: "58%" },
+  { name: "GoHighLevel", from: 0.64, x: "52%", y: "58%" },
+  { name: "Slack", from: 0.78, x: "74%", y: "40%" },
 ];
 
-const nodeArt = [
-  { icon: "/assets/nodecontent-b074dbce.svg", halo: "/assets/nodehalocontent-b683a965.svg" },
-  { icon: "/assets/nodeautomation-6a606aff.svg", halo: "/assets/nodehaloautomation-e0b2c692.svg" },
-  { icon: "/assets/nodevoice-b254a067.svg", halo: "/assets/nodehalovoice-000093b4.svg" },
-  { icon: "/assets/nodeweb-db7784ed.svg", halo: "/assets/nodehaloweb-43d429c3.svg" },
-  { icon: "/assets/nodeseo-905fb957.svg", halo: "/assets/nodehaloseo-efae0018.svg" },
+const flowPills = [
+  { label: "Lead captured", from: 0.2 },
+  { label: "Qualified", from: 0.4 },
+  { label: "CRM updated", from: 0.6 },
+  { label: "Follow-up sent", from: 0.8 },
 ];
-
-export function CommandCenter() {
-  const [active, setActive] = useState<number | null>(null);
-  const radius = 268;
-
-  return (
-    <div className="relative mx-auto h-[460px] w-full max-w-[1100px] sm:h-[620px] lg:h-[760px]" aria-label="Five services around the Innoventix hub">
-      <div className="absolute left-1/2 top-1/2 h-[760px] w-[1100px] origin-center -translate-x-1/2 -translate-y-1/2 scale-[0.34] sm:scale-[0.56] lg:scale-100">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,181,71,0.28),transparent_68%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2">
-          <img src="/assets/orbitring300-4cf18727.png" alt="" className="orbit-spin h-full w-full max-w-none opacity-80" />
-        </div>
-        <img src="/assets/orbitring180-830ed194.png" alt="" className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70" />
-        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1100 760" aria-hidden="true">
-          {nodes.map((_, index) => {
-            const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
-            const x = 550 + Math.cos(angle) * radius;
-            const y = 380 + Math.sin(angle) * radius;
-            return <line key={index} x1="550" y1="380" x2={x} y2={y} stroke="rgba(255,181,71,0.45)" strokeWidth="1.5" />;
-          })}
-        </svg>
-        <div className="absolute left-1/2 top-1/2 z-20 flex h-[148px] w-[148px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-amber/60 bg-navy text-center shadow-[0_0_80px_rgba(255,181,71,0.45)]">
-          <span className="text-xs font-bold tracking-[0.22em] text-amber">INNOVENTIX</span>
-          <span className="mt-1 text-lg font-bold tracking-[0.18em] text-white">HUB</span>
-        </div>
-        {nodes.map((node, index) => {
-          const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          const dim = active !== null && active !== index;
-          return (
-            <div key={node.label} className="absolute z-10" style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}>
-              <div className="-translate-x-1/2 -translate-y-1/2">
-                <Link
-                  href={node.href}
-                  className="glass glass-card relative flex w-[190px] items-center gap-3 rounded-2xl px-3 py-3 text-left"
-                  style={{ opacity: dim ? 0.35 : 1, borderColor: active === index ? node.color : undefined, boxShadow: `0 0 28px ${node.color}55` }}
-                  onMouseEnter={() => setActive(index)}
-                  onFocus={() => setActive(index)}
-                  onMouseLeave={() => setActive(null)}
-                  onBlur={() => setActive(null)}
-                >
-                  <span className="relative grid size-12 shrink-0 place-items-center">
-                    <img src={nodeArt[index].halo} alt="" className="node-glow absolute inset-0 h-full w-full" style={{ animationDelay: `${index * 0.8}s` }} />
-                    <img src={nodeArt[index].icon} alt="" className="relative h-8 w-8" />
-                  </span>
-                  <span>
-                    <span className="block text-sm font-bold" style={{ color: node.color }}>{node.label}</span>
-                    <span className="mt-0.5 block text-[11px] leading-4 text-mist">{node.detail}</span>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-const flowNodes = ["Lead form", "Router", "OpenAI", "HubSpot", "GoHighLevel", "Slack"];
 
 export function WorkflowAssembly() {
   return (
-    <section data-pin className="relative h-[150vh] lg:h-[250vh]" aria-label="The Workflow Assembly">
-      <div className="sticky top-0 flex min-h-[100svh] items-center overflow-hidden py-24">
-        <div className="wrap grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <section data-pin className="relative" aria-label="The Workflow Assembly">
+      <div data-pin-target className="flex min-h-[100svh] items-center overflow-hidden py-24">
+        <div className="wrap grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="eyebrow">Workflow</p>
             <h2 className="mt-4 text-3xl text-white md:text-5xl">The Workflow Assembly</h2>
-            <div className="mt-6 space-y-4">
-              <p data-stage className="text-lg text-pearl/90">Your tools today: disconnected. Gmail, Shopify, Sheets, HubSpot, GHL, Slack, Stripe and OpenAI sit apart.</p>
-              <p data-stage hidden className="text-lg text-pearl/90">We connect them. Nodes snap into a workflow and amber wires draw between them.</p>
-              <p data-stage hidden className="text-lg text-pearl/90">And it runs on its own. Lead captured → Qualified → CRM updated → Follow-up sent. Running 24/7.</p>
-            </div>
-          </div>
-          <div className="glass relative overflow-hidden rounded-[28px] p-6">
-            <svg viewBox="0 0 520 280" className="h-auto w-full" aria-hidden="true">
-              <path className="wire-dash" d="M70 70 H180 V150 H300 V70 H430" fill="none" stroke="#ffb547" strokeWidth="2" />
-              <path className="wire-dash" d="M180 150 H300 V210 H430" fill="none" stroke="#ffc970" strokeWidth="2" opacity="0.7" />
-            </svg>
-            <div className="absolute inset-0 grid grid-cols-3 content-center gap-3 p-6 sm:grid-cols-3">
-              {flowNodes.map((name, index) => (
-                <div key={name} className="glass-strong rounded-2xl px-3 py-3 text-center text-xs font-bold text-white shadow-[0_0_18px_rgba(255,181,71,0.25)]" style={{ animationDelay: `${index * 0.35}s` }}>
-                  <span className="mb-1 mr-1 inline-block h-1.5 w-1.5 rounded-full bg-amber" />
-                  {name}
-                </div>
+            <p className="mt-6 text-lg text-pearl/90">Your tools sit apart until the workflow connects them. Leads are captured, qualified, written to the CRM and followed up while it runs.</p>
+            <p data-running className="mt-6 text-sm font-bold tracking-wide text-amber">Running 0/6</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {flowPills.map((pill) => (
+                <li key={pill.label} data-from={pill.from} className="rounded-full border border-amber/40 bg-amber/10 px-3 py-1 text-xs font-bold text-amber">{pill.label}</li>
               ))}
-            </div>
-            <p className="relative mt-2 text-center text-xs font-semibold tracking-wide text-amber">Lead captured → Qualified → CRM updated → Follow-up sent</p>
+            </ul>
+          </div>
+          <div className="glass relative h-[420px] overflow-hidden rounded-[28px]">
+            <svg viewBox="0 0 640 420" className="absolute inset-0 h-full w-full" aria-hidden="true">
+              <path className="wire-draw" pathLength="1" d="M90 90 H270 V250 H430" fill="none" stroke="#ffb547" strokeWidth="2" />
+              <path className="wire-draw" pathLength="1" d="M270 90 H470 V180 H560" fill="none" stroke="#ffc970" strokeWidth="2" />
+              <circle className="wire-pulse" r="5" fill="#ffb547">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M90 90 H270 V250 H430" />
+              </circle>
+            </svg>
+            {flowNodes.map((node) => (
+              <div
+                key={node.name}
+                data-flow-node
+                data-from={node.from}
+                className="absolute w-[28%] rounded-2xl border border-white/15 bg-[rgba(19,42,69,0.88)] px-3 py-3 text-center text-xs font-bold text-white"
+                style={{ left: node.x, top: node.y }}
+              >
+                <span className="mb-1 mr-1 inline-block size-1.5 rounded-full bg-amber" />
+                {node.name}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -115,34 +61,76 @@ export function WorkflowAssembly() {
   );
 }
 
+const bubbles = [
+  { text: "Hi, do you have anything open tomorrow?", from: 0.42, mine: true },
+  { text: "Yes — 10:30 or 2:00. Which works better?", from: 0.52, mine: false },
+  { text: "2 works.", from: 0.64, mine: true },
+  { text: "Booked. You'll get a text confirmation now.", from: 0.74, mine: false },
+];
+
+const callChips = [
+  { label: "Calendar booked", from: 0.58 },
+  { label: "CRM updated", from: 0.68 },
+  { label: "SMS sent", from: 0.78 },
+  { label: "Summary to Slack", from: 0.88 },
+];
+
 export function LivingCall() {
   return (
-    <section data-pin className="relative h-[150vh] lg:h-[250vh]" aria-label="The Living Call">
-      <div className="sticky top-0 flex min-h-[100svh] items-center py-24">
+    <section data-pin className="relative" aria-label="The Living Call">
+      <div data-pin-target className="flex min-h-[100svh] items-center overflow-hidden py-24">
         <div className="wrap grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="eyebrow">The living call</p>
             <h2 className="mt-4 text-3xl text-white md:text-5xl">Every call answered. Every lead captured.</h2>
-            <p data-stage className="mt-4 text-pearl/80">It's 2 AM. A customer calls. Incoming call · 2:14 AM.</p>
-            <p data-stage hidden className="mt-4 text-pearl/80">The agent books the slot, confirms by text, and stays on the line until it's done.</p>
-            <p data-stage hidden className="mt-4 text-pearl/80">Calendar booked → CRM updated → SMS sent → Summary to Slack. Answered in 1 ring · 24/7.</p>
+            <p className="mt-4 text-pearl/80">It&apos;s 2 AM. A customer calls. The agent answers, books the slot, and sends the summary on.</p>
+            <ul className="mt-6 space-y-2 text-sm font-bold text-amber">
+              <li data-from="0" data-to="0.28">Answering call…</li>
+              <li data-from="0.28" data-to="0.55">Booking appointment…</li>
+              <li data-from="0.55">Calling new lead…</li>
+            </ul>
           </div>
-          <div className="glass relative mx-auto w-full max-w-md rounded-[28px] p-5">
-            <div className="mb-4 flex items-center justify-between text-xs text-mist">
-              <span className="inline-flex items-center gap-2"><span className="h-2 w-2 animate-pulse rounded-full bg-[#e5787b]" /> Rec</span>
-              <span>Answering call…</span>
+          <div className="relative mx-auto w-full max-w-lg">
+            <div data-from="0.16" className="ripple pointer-events-none absolute left-1/2 top-8 ml-[-5rem] size-40 rounded-full border border-amber/50" />
+            <div data-from="0.2" className="ripple pointer-events-none absolute left-1/2 top-8 ml-[-5rem] size-40 rounded-full border border-amber/40" style={{ animationDelay: "0.4s" }} />
+            <div data-from="0.24" className="ripple pointer-events-none absolute left-1/2 top-8 ml-[-5rem] size-40 rounded-full border border-amber/30" style={{ animationDelay: "0.8s" }} />
+            <div className="glass relative rounded-[28px] p-5">
+              <div className="mb-4 flex items-center justify-between text-xs text-mist">
+                <span data-from="0.05" className="rec-dot inline-flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-[#e5787b]" /> Rec
+                </span>
+                <span data-from="0" data-to="0.3" className="rounded-full border border-white/15 px-3 py-1">Incoming · 2:14 AM</span>
+                <button type="button" data-from="0.12" data-to="0.34" className="accept rounded-full bg-amber px-3 py-1 font-bold text-navy">Accept</button>
+              </div>
+              <div data-from="0.3" className="orb mx-auto mb-4 grid size-16 place-items-center rounded-full bg-[radial-gradient(circle,#ffc970,#ffb547_55%,transparent_70%)] shadow-[0_0_30px_rgba(255,181,71,0.55)]" />
+              <div className="space-y-3 text-sm">
+                {bubbles.map((bubble) => (
+                  <p
+                    key={bubble.text}
+                    data-from={bubble.from}
+                    className={`max-w-[80%] rounded-2xl px-3 py-2 ${bubble.mine ? "ml-auto rounded-br-md bg-white/10" : "rounded-bl-md bg-amber/15 text-amber-bright"}`}
+                  >
+                    {bubble.text}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-4 flex h-12 items-end justify-center gap-1" aria-hidden="true">
+                {Array.from({ length: 13 }).map((_, index) => (
+                  <span
+                    key={index}
+                    data-wave
+                    data-from="0.34"
+                    className="w-1.5 origin-bottom rounded-full bg-amber"
+                    style={{ height: `${10 + ((index * 17) % 28)}px`, animationDelay: `${index * 0.05}s` }}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="space-y-3 text-sm">
-              <p className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-white/10 px-3 py-2">Hi, do you have anything open tomorrow?</p>
-              <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-amber/15 px-3 py-2 text-amber-bright">Yes, I have 10:30 or 2:00. Which works better?</p>
-              <p className="ml-auto max-w-[80%] rounded-2xl rounded-br-md bg-white/10 px-3 py-2">2 works.</p>
-              <p className="max-w-[80%] rounded-2xl rounded-bl-md bg-amber/15 px-3 py-2 text-amber-bright">Booked. You'll get a text confirmation now.</p>
-            </div>
-            <div className="mt-4 flex h-10 items-end justify-center gap-1" aria-hidden="true">
-              {Array.from({ length: 13 }).map((_, index) => (
-                <span key={index} className="w-1.5 origin-bottom rounded-full bg-amber" style={{ height: `${8 + ((index * 17) % 24)}px`, animation: `bar-grow 1.2s ${index * 0.05}s ease-in-out infinite alternate` }} />
+            <ul className="mt-4 flex flex-wrap justify-center gap-2">
+              {callChips.map((chip) => (
+                <li key={chip.label} data-from={chip.from} className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-bold text-white">{chip.label}</li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

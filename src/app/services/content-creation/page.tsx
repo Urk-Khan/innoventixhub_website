@@ -1,10 +1,10 @@
 import JsonLd from "@/components/JsonLd";
 import LiveAds from "@/components/LiveAds";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import { WorkGallery } from "@/components/VideoGallery";
+import { UgcSlider, WorkGallery } from "@/components/VideoGallery";
 import { BookButton, Breadcrumbs, CardGrid, CaseRail, Comparison, CtaBand, FaqSection, LogoMarquee, OfferGrid, SectionIntro, Testimonials, ToolGrid, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
-import { ugcVideos, videoEmbedUrl, videoPoster } from "@/content/videos";
+import { contentFanSlides, ugcVideos, videoEmbedUrl, videoPoster } from "@/content/videos";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, serviceSchema, videoSchema } from "@/lib/schema";
 
@@ -38,24 +38,6 @@ const heroShorts = [
   { src: "/assets/shortytoyfjwmtbf8-17bc5666.jpg", w: 208, h: 370 },
   { src: "/assets/shortytbkbsy8ncww-180101b5.jpg", w: 176, h: 313 },
 ];
-
-function ShortsFan() {
-  return (
-    <div className="mx-auto mt-4 flex h-[230px] items-end justify-center overflow-hidden sm:h-[360px] lg:mt-12 lg:h-[540px]" aria-label="AI UGC sample ads">
-      <div className="flex origin-bottom scale-[0.42] items-end gap-5 sm:scale-[0.66] lg:scale-100">
-      {heroShorts.map((short) => (
-        <a key={short.src} href="#work" className={`relative shrink-0 overflow-hidden rounded-[20px] ${short.featured ? "border-[3px] border-amber shadow-[0_0_60px_rgba(255,181,71,0.5)]" : "border border-white/12"}`} style={{ width: short.w, height: short.h }}>
-          <img src={short.src} alt="" className="h-full w-full object-cover" />
-          <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0b1a2e]/90" />
-          <span className="absolute left-1/2 top-1/2 grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/20 backdrop-blur-sm" style={{ width: short.featured ? 64 : 42, height: short.featured ? 64 : 42 }}>
-            <span className="ml-1 border-y-[7px] border-l-[12px] border-y-transparent border-l-white" />
-          </span>
-        </a>
-      ))}
-      </div>
-    </div>
-  );
-}
 
 const crumbs = [
   { name: "Home", path: "/" },
@@ -105,7 +87,7 @@ export default function ContentPage() {
             </div>
             <p className="mt-5 text-[13px] text-mist">Home / Services / Content Creation · 20+ live samples below</p>
           </div>
-          <ShortsFan />
+          <UgcSlider slides={contentFanSlides} label="AI UGC sample ads" />
           <p className="mx-auto mt-6 w-fit rounded-full bg-amber px-3.5 py-2 text-[13px] font-bold text-navy">● Featured sample · tap to watch</p>
         </div>
       </section>
