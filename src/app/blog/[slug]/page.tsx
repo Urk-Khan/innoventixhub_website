@@ -31,7 +31,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const related = getPosts().filter((item) => item.slug !== slug).slice(0, 3);
 
   return (
-    <main id="main" className="section lg:pt-40">
+    <main id="main" className="pb-20">
       <JsonLd data={graph({
         "@type": "BlogPosting",
         headline: post.meta.title,
@@ -40,6 +40,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         author: { "@type": "Person", name: post.meta.author, jobTitle: post.meta.role },
         publisher: { "@id": `${site.url}/#organization` },
       })} />
+      <header className="hero-stage px-5 pb-12 pt-28 text-center lg:pt-[200px]">
+        <p className="text-sm text-mist/70"><Link href="/">Home</Link> / Insights / {post.meta.category}</p>
+        <p className="eyebrow mt-6">{post.meta.category}</p>
+        <h1 className="mx-auto mt-7 max-w-[920px] text-[34px] font-bold leading-[1.08] text-white sm:text-5xl lg:text-[56px]">{post.meta.title}</h1>
+        <p className="mt-5 text-sm text-mist">{post.meta.author} · {post.meta.role} · {post.meta.date} · {post.meta.readTime}</p>
+      </header>
       <article className="wrap grid gap-10 lg:grid-cols-[220px_1fr]">
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-xs font-bold text-amber">ON THIS PAGE</p>
@@ -50,11 +56,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </ul>
         </aside>
         <div>
-          <p className="text-sm text-mist/70"><Link href="/">Home</Link> / Insights / {post.meta.category}</p>
-          <p className="mt-4 text-xs font-bold text-amber">{post.meta.category}</p>
-          <h1 className="mt-2 text-4xl font-black">{post.meta.title}</h1>
-          <p className="mt-3 text-sm text-mist/80">{post.meta.author} · {post.meta.role} · {post.meta.date} · {post.meta.readTime}</p>
-          <div className="prose-invert mt-8 space-y-4 text-cream/90 [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-black [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-bold [&_li]:ml-5 [&_li]:list-disc [&_p]:leading-7">
+          <div className="prose-invert space-y-4 text-cream/90 [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-black [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-bold [&_li]:ml-5 [&_li]:list-disc [&_p]:leading-7">
             <MDXRemote source={post.content} components={{
               h2: (props) => <h2 id={slugify(String(props.children))} {...props} />,
               h3: (props) => <h3 id={slugify(String(props.children))} {...props} />,

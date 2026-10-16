@@ -61,17 +61,17 @@ export default function SeoPage() {
       )} />
       <section className="hero-stage bg-navy">
         <img src="/assets/glowgold-ef5c9281.svg" alt="" className="glow-gold" />
-        <div className="wrap relative z-10 grid items-center gap-8 py-14 lg:grid-cols-2 lg:pb-24 lg:pt-40">
-          <div>
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">SEO · Technical · Local · E-commerce · AI search</p>
-            <h1 className="mt-5 text-4xl font-black md:text-6xl">Get Found on Google and in AI Answers.</h1>
-            <p className="mt-4 text-lg text-cream/80">White-hat SEO for D2C brands and SMBs in the US, UK & EU. We fix what's holding your site back, build real authority and report every month.</p>
-            <div className="mt-6"><SeoAuditForm compact /></div>
+            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Get Found on Google and in AI Answers.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">White-hat SEO for D2C brands and SMBs in the US, UK & EU. We fix what&apos;s holding your site back, build real authority and report every month.</p>
+            <div className="mt-6 w-full max-w-xl"><SeoAuditForm compact /></div>
             <p className="mt-3 text-xs text-mist/70">Reviewed by a real SEO specialist. Reply within 2 business days. No obligation.</p>
             <div className="mt-4"><BookButton ghost /></div>
           </div>
-          <div className="glass rounded-3xl p-6 text-sm">
+          <div className="glass mx-auto mt-12 max-w-[520px] rounded-3xl p-6 text-left text-sm">
             <p className="text-xs text-mist/70">Illustrative example</p>
             <p className="mt-3 font-bold">best organic skincare uk</p>
             <p className="mt-4 rounded-xl bg-amber/15 p-3">AI answer cites yourbrand.com</p>

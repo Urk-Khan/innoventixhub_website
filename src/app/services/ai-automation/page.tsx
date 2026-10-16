@@ -64,20 +64,20 @@ export default function AutomationPage() {
       )} />
       <section className="hero-stage bg-navy">
         <img src="/assets/glowcopper-bad11725.svg" alt="" className="glow-copper" />
-        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20 lg:pt-40">
-          <div>
-          <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
-          <p className="eyebrow mt-6">AI Automation · n8n · GoHighLevel · CRM · Python</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-cream/80">We build n8n, GoHighLevel, CRM and custom Python automations that capture leads, follow up in seconds, sync your tools and remove hours of manual work every week, so your team can focus on growth.</p>
-          <div className="mt-8 flex flex-wrap gap-3"><BookButton /><VoiceButton ghost /></div>
-          <p className="mt-4 text-sm text-mist/80">Built for D2C brands and SMBs in the US, UK & EU</p>
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
+            <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
+            <p className="eyebrow mt-6">AI Automation · n8n · GoHighLevel · CRM · Python</p>
+            <h1 className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build n8n, GoHighLevel, CRM and custom Python automations that capture leads, follow up in seconds, sync your tools and remove hours of manual work every week, so your team can focus on growth.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4"><BookButton /><VoiceButton ghost /></div>
+            <p className="mt-5 text-[13px] text-mist">Built for D2C brands and SMBs in the US, UK & EU</p>
           </div>
-          <div className="glass relative hidden min-h-[280px] overflow-hidden rounded-[28px] p-6 lg:block" aria-hidden="true">
+          <div className="glass relative mx-auto mt-12 h-[280px] max-w-[1000px] overflow-hidden rounded-[28px] p-6" aria-hidden="true">
             <svg viewBox="0 0 360 220" className="h-full w-full">
               <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#ffb547" strokeWidth="2" />
             </svg>
-            <div className="absolute inset-6 grid grid-cols-2 gap-3">
+            <div className="absolute inset-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {["Lead form", "OpenAI", "HubSpot", "Slack"].map((name) => (
                 <div key={name} className="glass-strong h-fit rounded-2xl px-3 py-2 text-sm font-bold">{name}</div>
               ))}

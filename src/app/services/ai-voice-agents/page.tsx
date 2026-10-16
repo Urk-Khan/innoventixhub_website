@@ -60,18 +60,25 @@ export default function VoicePage() {
         }),
         faqSchema(faqs),
       )} />
-      <section className="hero-stage bg-navy">
+      <section className="hero-stage overflow-hidden bg-navy">
         <img src="/assets/glowgold-30af2e67.svg" alt="" className="glow-gold" />
-        <div className="wrap relative z-10 py-14 lg:pb-24 lg:pt-40">
-          <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
-          <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black md:text-6xl">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-cream/80">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
-            <BookButton ghost />
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
+            <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
+            <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
+            <h1 className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
+              <BookButton ghost />
+            </div>
+            <p className="mt-5 text-[13px] text-mist">Live demo line, call it now. No forms, no signup.</p>
           </div>
-          <p className="mt-4 text-sm text-mist/80">Live demo line, call it now. No forms, no signup.</p>
+          <div className="relative mx-auto mt-10 grid h-[280px] w-[280px] place-items-center" aria-hidden="true">
+            <span className="absolute size-[220px] rounded-full border border-amber/30" />
+            <span className="absolute size-[160px] rounded-full border border-amber/50" />
+            <span className="grid size-[96px] place-items-center rounded-full bg-amber text-[13px] font-bold text-navy shadow-[0_0_40px_rgba(255,181,71,0.55)]">Voice</span>
+          </div>
         </div>
       </section>
       <LivingCall />

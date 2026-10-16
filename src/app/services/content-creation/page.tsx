@@ -1,7 +1,7 @@
 import JsonLd from "@/components/JsonLd";
 import LiveAds from "@/components/LiveAds";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import { HomeShorts, WorkGallery } from "@/components/VideoGallery";
+import { WorkGallery } from "@/components/VideoGallery";
 import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
 import { ugcVideos, videoEmbedUrl, videoPoster } from "@/content/videos";
@@ -28,6 +28,34 @@ const faqs = [
   { q: "Can you turn my long videos into short clips?", a: "Yes. We repurpose your long-form videos into short, hook-first clips for TikTok, Reels and Shorts, so one recording feeds every channel." },
   { q: "Do you design YouTube thumbnails?", a: "Yes. We design brand-consistent thumbnails optimized for YouTube and can create variations to A/B test." },
 ];
+
+const heroShorts = [
+  { src: "/assets/shortytxwf4itxxmdi-061beb17.jpg", w: 176, h: 313 },
+  { src: "/assets/shortytvibdm1abb4e-3a7edbb0.jpg", w: 208, h: 370 },
+  { src: "/assets/shortyte02clyrtjdk-59537514.jpg", w: 240, h: 427 },
+  { src: "/assets/shortfeaturedyt3pucbgkii-49965680.jpg", w: 290, h: 516, featured: true },
+  { src: "/assets/shortyt2tx14i5o1i-6ca41b33.jpg", w: 240, h: 427 },
+  { src: "/assets/shortytoyfjwmtbf8-17bc5666.jpg", w: 208, h: 370 },
+  { src: "/assets/shortytbkbsy8ncww-180101b5.jpg", w: 176, h: 313 },
+];
+
+function ShortsFan() {
+  return (
+    <div className="mx-auto mt-4 flex h-[230px] items-end justify-center overflow-hidden sm:h-[360px] lg:mt-12 lg:h-[540px]" aria-label="AI UGC sample ads">
+      <div className="flex origin-bottom scale-[0.42] items-end gap-5 sm:scale-[0.66] lg:scale-100">
+      {heroShorts.map((short) => (
+        <a key={short.src} href="#work" className={`relative shrink-0 overflow-hidden rounded-[20px] ${short.featured ? "border-[3px] border-amber shadow-[0_0_60px_rgba(255,181,71,0.5)]" : "border border-white/12"}`} style={{ width: short.w, height: short.h }}>
+          <img src={short.src} alt="" className="h-full w-full object-cover" />
+          <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0b1a2e]/90" />
+          <span className="absolute left-1/2 top-1/2 grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/20 backdrop-blur-sm" style={{ width: short.featured ? 64 : 42, height: short.featured ? 64 : 42 }}>
+            <span className="ml-1 border-y-[7px] border-l-[12px] border-y-transparent border-l-white" />
+          </span>
+        </a>
+      ))}
+      </div>
+    </div>
+  );
+}
 
 const crumbs = [
   { name: "Home", path: "/" },
@@ -63,21 +91,22 @@ export default function ContentPage() {
           ),
         )}
       />
-      <section className="hero-stage bg-navy">
+      <section className="hero-stage overflow-hidden bg-navy">
         <img src="/assets/glowcopper-959c59f0.svg" alt="" className="glow-copper" />
-        <div className="wrap relative z-10 grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24 lg:pt-40">
-          <div>
-          <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
-          <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
-          <h1 className="mt-5 text-4xl font-black leading-[1.05] text-white md:text-6xl">Stop Guessing. Start Converting. AI UGC Ads and Video That Sell.</h1>
-          <p className="mt-5 max-w-xl text-lg text-cream/80">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <BookButton />
-            <VoiceButton ghost />
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
+            <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
+            <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
+            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <BookButton />
+              <VoiceButton ghost />
+            </div>
+            <p className="mt-5 text-[13px] text-mist">Home / Services / Content Creation · 20+ live samples below</p>
           </div>
-          <p className="mt-4 text-sm text-mist/80">Home / Services / Content Creation · 20+ live samples below</p>
-          </div>
-          <div className="min-w-0"><HomeShorts /></div>
+          <ShortsFan />
+          <p className="mx-auto mt-6 w-fit rounded-full bg-amber px-3.5 py-2 text-[13px] font-bold text-navy">● Featured sample · tap to watch</p>
         </div>
       </section>
       <LogoMarquee label="Trusted by D2C brands across the US, UK & EU" />

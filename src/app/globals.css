@@ -137,6 +137,58 @@ h1, h2, h3, .font-black {
   flex: none;
 }
 
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(38, 74, 117, 0.7);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 9px 14px;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.3);
+}
+
+.pill.plain {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #ffb547;
+  flex: none;
+}
+
+.orbit-core {
+  animation: core-pulse 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.node-glow {
+  animation: node-glow 4s ease-in-out infinite;
+}
+
+@keyframes core-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes node-glow {
+  0%, 20%, 100% { opacity: 0; }
+  6% { opacity: 1; }
+  14% { opacity: 0.15; }
+}
+
 .btn-primary,
 .btn-secondary {
   display: inline-flex;
