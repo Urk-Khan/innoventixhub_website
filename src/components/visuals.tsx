@@ -11,58 +11,69 @@ const nodes = [
   { label: "SEO", detail: "Technical · On-page · Off-page · Local", href: "/services/seo", color: "#d4a574", subs: ["Technical", "On-page", "Local", "AI search"] },
 ];
 
+const nodeArt = [
+  { icon: "/assets/nodecontent-b074dbce.svg", halo: "/assets/nodehalocontent-b683a965.svg" },
+  { icon: "/assets/nodeautomation-6a606aff.svg", halo: "/assets/nodehaloautomation-e0b2c692.svg" },
+  { icon: "/assets/nodevoice-b254a067.svg", halo: "/assets/nodehalovoice-000093b4.svg" },
+  { icon: "/assets/nodeweb-db7784ed.svg", halo: "/assets/nodehaloweb-43d429c3.svg" },
+  { icon: "/assets/nodeseo-905fb957.svg", halo: "/assets/nodehaloseo-efae0018.svg" },
+];
+
 export function CommandCenter() {
   const [active, setActive] = useState<number | null>(null);
+  const radius = 268;
 
   return (
-    <div className="orbit relative mx-auto h-[420px] w-full max-w-[640px] overflow-hidden sm:h-[560px]" aria-label="Five services around the Innoventix hub">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/15 sm:h-[420px] sm:w-[420px]" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[180px] w-[180px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-amber/25 sm:h-[280px] sm:w-[280px]" />
-      <div className="absolute left-1/2 top-1/2 z-20 flex h-[92px] w-[92px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-amber/50 bg-navy text-center shadow-[0_0_40px_rgba(255,181,71,0.35)] sm:h-[120px] sm:w-[120px]">
-        <span className="text-[11px] font-bold tracking-[0.16em] text-amber sm:text-xs">INNOVENTIX</span>
-        <span className="text-[10px] tracking-[0.2em] text-pearl/80">HUB</span>
-      </div>
-      <div className="absolute inset-0 origin-center scale-[0.72] sm:scale-100">
-        <div className="orbit-spin absolute inset-0">
+    <div className="relative mx-auto h-[460px] w-full max-w-[1100px] sm:h-[620px] lg:h-[760px]" aria-label="Five services around the Innoventix hub">
+      <div className="absolute left-1/2 top-1/2 h-[760px] w-[1100px] origin-center -translate-x-1/2 -translate-y-1/2 scale-[0.34] sm:scale-[0.56] lg:scale-100">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,181,71,0.28),transparent_68%)]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2">
+          <img src="/assets/orbitring300-4cf18727.png" alt="" className="orbit-spin h-full w-full max-w-none opacity-80" />
+        </div>
+        <img src="/assets/orbitring180-830ed194.png" alt="" className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70" />
+        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1100 760" aria-hidden="true">
+          {nodes.map((_, index) => {
+            const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
+            const x = 550 + Math.cos(angle) * radius;
+            const y = 380 + Math.sin(angle) * radius;
+            return <line key={index} x1="550" y1="380" x2={x} y2={y} stroke="rgba(255,181,71,0.45)" strokeWidth="1.5" />;
+          })}
+        </svg>
+        <div className="absolute left-1/2 top-1/2 z-20 flex h-[148px] w-[148px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-amber/60 bg-navy text-center shadow-[0_0_80px_rgba(255,181,71,0.45)]">
+          <span className="text-xs font-bold tracking-[0.22em] text-amber">INNOVENTIX</span>
+          <span className="mt-1 text-lg font-bold tracking-[0.18em] text-white">HUB</span>
+        </div>
         {nodes.map((node, index) => {
-          const angle = (index / nodes.length) * 360 - 90;
-          const rad = (angle * Math.PI) / 180;
-          const x = Math.round(Math.cos(rad) * 200);
-          const y = Math.round(Math.sin(rad) * 200);
+          const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
           const dim = active !== null && active !== index;
           return (
-            <div key={node.label} className="absolute" style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}>
-              <div className="orbit-unspin">
-                <div className="-translate-x-1/2 -translate-y-1/2">
-                  <button
-                    type="button"
-                    className="glass glass-card w-[132px] rounded-2xl px-3 py-2 text-left sm:w-[158px]"
-                    style={{ opacity: dim ? 0.3 : 1, borderColor: active === index ? node.color : undefined }}
-                    onMouseEnter={() => setActive(index)}
-                    onFocus={() => setActive(index)}
-                    onMouseLeave={() => setActive(null)}
-                    onBlur={() => setActive(null)}
-                    onClick={() => setActive(active === index ? null : index)}
-                  >
+            <div key={node.label} className="absolute z-10" style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}>
+              <div className="-translate-x-1/2 -translate-y-1/2">
+                <Link
+                  href={node.href}
+                  className="glass glass-card relative flex w-[190px] items-center gap-3 rounded-2xl px-3 py-3 text-left"
+                  style={{ opacity: dim ? 0.35 : 1, borderColor: active === index ? node.color : undefined, boxShadow: `0 0 28px ${node.color}55` }}
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                  onMouseLeave={() => setActive(null)}
+                  onBlur={() => setActive(null)}
+                >
+                  <span className="relative grid size-12 shrink-0 place-items-center">
+                    <img src={nodeArt[index].halo} alt="" className="node-glow absolute inset-0 h-full w-full" style={{ animationDelay: `${index * 0.8}s` }} />
+                    <img src={nodeArt[index].icon} alt="" className="relative h-8 w-8" />
+                  </span>
+                  <span>
                     <span className="block text-sm font-bold" style={{ color: node.color }}>{node.label}</span>
-                    <span className="mt-1 block text-[11px] leading-4 text-mist">{node.detail}</span>
-                  </button>
-                </div>
+                    <span className="mt-0.5 block text-[11px] leading-4 text-mist">{node.detail}</span>
+                  </span>
+                </Link>
               </div>
             </div>
           );
         })}
-        </div>
       </div>
-      {active !== null ? (
-        <div className="absolute inset-x-0 bottom-0 z-30 flex flex-wrap justify-center gap-2">
-          {nodes[active].subs.map((sub) => (
-            <Link key={sub} href={nodes[active].href} className="rounded-full border border-amber/40 bg-[rgba(255,181,71,0.12)] px-3 py-1 text-xs font-semibold text-amber-bright">
-              {sub}
-            </Link>
-          ))}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -142,7 +153,7 @@ export function LivingCall() {
 export function CtaGlow({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="cta-card px-6 py-16 text-center md:px-16 md:py-28"
+      className="cta-card flex min-h-[460px] items-center px-6 py-20 text-center md:min-h-[560px] md:px-16 md:py-28"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const x = ((event.clientX - rect.left) / rect.width) * 100;
@@ -154,7 +165,7 @@ export function CtaGlow({ children }: { children: React.ReactNode }) {
       }}
     >
       <div className="cta-glow" aria-hidden="true" />
-      <div className="relative">{children}</div>
+      <div className="relative w-full">{children}</div>
     </div>
   );
 }

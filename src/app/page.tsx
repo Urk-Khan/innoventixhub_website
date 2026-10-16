@@ -2,7 +2,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { HomeShorts } from "@/components/VideoGallery";
 import { CommandCenter } from "@/components/visuals";
-import { BookButton, CtaBand, FaqList, LogoMarquee, Testimonials, VoiceButton } from "@/components/Sections";
+import { BookButton, CtaBand, FaqSection, LogoMarquee, Testimonials, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { faqSchema, graph, professionalServiceSchema, websiteSchema } from "@/lib/schema";
@@ -41,8 +41,8 @@ const steps = [
 
 const reasons = [
   { kicker: "24/7", title: "24/7 AI", body: "Agents answer calls, chats and leads around the clock, in every time zone.", visual: "clock" },
-  { kicker: "Integrated", title: "Integrated services", body: "Content, voice, automation, web and SEO from one team.", visual: "nodes" },
   { kicker: "Reporting", title: "Transparent reporting", body: "Live dashboards and weekly reports. You always see the numbers.", visual: "bars" },
+  { kicker: "Integrated", title: "Integrated services", body: "Content, voice, automation, web and SEO from one team.", visual: "nodes" },
   { kicker: "Fast", title: "Fast delivery", body: "First ads in days, agents and automations live in weeks, not months.", visual: "progress" },
 ];
 
@@ -73,52 +73,43 @@ export default function HomePage() {
 
       <LogoMarquee label="Brands we've grown" />
 
-      <section className="section">
-        <div className="wrap grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="eyebrow">Command center</p>
-            <h2 className="mt-5 text-3xl text-white md:text-[44px] md:leading-[52px]">One hub. Five capabilities.</h2>
-            <p className="mt-4 max-w-md text-[17px] leading-7 text-pearl/80">
-              Every service plugs into the same core — so your content, calls and workflows work as one system.
-            </p>
-            <ul className="mt-6 space-y-2 text-sm">
-              <li><Link className="text-amber hover:text-amber-bright" href="/services/content-creation">Content — UGC ads, short-form, long-form</Link></li>
-              <li><Link className="text-amber hover:text-amber-bright" href="/services/ai-automation">Automation — n8n, GHL, CRM, Python</Link></li>
-              <li><Link className="text-amber hover:text-amber-bright" href="/services/ai-voice-agents">Voice — inbound receptionist, outbound</Link></li>
-              <li><Link className="text-amber hover:text-amber-bright" href="/services/web-development">Web — Next.js, Shopify, landing pages</Link></li>
-              <li><Link className="text-amber hover:text-amber-bright" href="/services/seo">SEO — technical, on-page, off-page, local</Link></li>
-            </ul>
-          </div>
-          <CommandCenter />
+      <section className="section overflow-hidden">
+        <div className="wrap text-center">
+          <p className="pill">Command center</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">One hub. Five capabilities.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-[17px] leading-7 text-pearl/80">
+            Every service plugs into the same core — so your content, calls and workflows work as one system.
+          </p>
         </div>
+        <CommandCenter />
       </section>
 
-      <section className="section overflow-hidden pt-0" data-hscroll>
-        <div className="wrap">
-          <p className="eyebrow">AI UGC ads</p>
-          <h2 className="mt-5 text-3xl text-white md:text-[44px]">See the ads.</h2>
-          <p className="mt-3 max-w-xl text-pearl/80">Scroll-stopping AI UGC built for TikTok, Reels and Shorts. Hover a card to play.</p>
-        </div>
-        <div className="wrap mt-8 min-w-0">
+      <section className="section overflow-hidden pt-0">
+        <div className="wrap text-center">
+          <p className="pill">AI UGC ads</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px]">See the ads.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-pearl/80">Scroll-stopping AI UGC built for TikTok, Reels and Shorts. Hover a card to play.</p>
           <HomeShorts />
-          <Link href="/services/content-creation#work" className="mt-4 inline-flex text-sm font-bold text-amber">See all samples →</Link>
+          <Link href="/services/content-creation#work" className="mt-6 inline-flex text-sm font-bold text-amber">See all samples →</Link>
         </div>
       </section>
 
       <section className="section overflow-hidden">
-        <div className="wrap grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative mx-auto h-[460px] w-full max-w-[420px]">
-            <img src="/assets/amberglow-bb194374.svg" alt="" className="pointer-events-none absolute -left-8 top-0 w-[120%] max-w-none opacity-80" />
-            <div className="arch absolute bottom-0 left-1/2 h-[420px] w-[280px] -translate-x-1/2 sm:w-[340px]" />
-            <img
-              src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
-              alt="Ubaid ur Rehman Khan, Founder and CEO"
-              width={460}
-              height={482}
-              className="absolute bottom-0 left-1/2 h-[430px] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
-            />
-            <p className="glass-strong absolute bottom-6 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full px-3 py-2 text-[12px] font-bold text-white">
-              <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-amber" />
+        <div className="wrap grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="mx-auto w-full max-w-[420px]">
+            <div className="relative h-[500px]">
+              <img src="/assets/amberglow-bb194374.svg" alt="" className="pointer-events-none absolute -left-10 top-0 w-[130%] max-w-none opacity-90" />
+              <div className="arch absolute inset-x-4 bottom-0 top-6" />
+              <img
+                src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
+                alt="Ubaid ur Rehman Khan, Founder and CEO"
+                width={460}
+                height={482}
+                className="absolute bottom-0 left-1/2 z-10 h-[92%] w-auto max-w-[74%] -translate-x-1/2 object-contain object-bottom"
+              />
+            </div>
+            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#0c1c30] px-4 py-3 text-[13px] font-bold text-white">
+              <span className="inline-block size-1.5 rounded-full bg-amber" />
               Ubaid ur Rehman Khan · Founder & CEO
             </p>
           </div>
@@ -141,18 +132,19 @@ export default function HomePage() {
       </section>
 
       <section className="section pt-0">
-        <div className="wrap">
-          <p className="eyebrow">Process</p>
-          <h2 className="mt-5 text-3xl text-white md:text-[44px]">From idea to revenue in four steps.</h2>
-          <p className="mt-3 text-pearl/80">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
-          <ol className="relative mt-12 grid gap-4 md:grid-cols-4">
-            <div className="absolute left-0 right-0 top-7 hidden h-px bg-white/15 md:block" aria-hidden="true">
-              <div className="h-full origin-left bg-amber" style={{ animation: "bar-grow 1.4s ease forwards" }} />
-            </div>
+        <div className="wrap text-center">
+          <p className="pill">Our process</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">From idea to revenue in four steps.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
+          <ol className="relative mt-16 grid gap-10 md:grid-cols-4">
+            <div className="pointer-events-none absolute left-[10%] right-[10%] top-[11px] hidden h-px bg-white/15 md:block" aria-hidden="true" />
+            <div className="bar-fill pointer-events-none absolute left-[10%] right-[10%] top-[11px] hidden h-px origin-left bg-amber md:block" aria-hidden="true" />
             {steps.map((step) => (
-              <li key={step.n} className="glass glass-card relative rounded-[20px] p-5">
-                <span className="mb-4 grid h-8 w-8 place-items-center rounded-full bg-amber text-xs font-bold text-navy">{step.n}</span>
-                <h3 className="text-xl text-white">{step.title}</h3>
+              <li key={step.n} className="relative">
+                <span className="relative z-10 mx-auto grid size-6 place-items-center rounded-full border-2 border-amber bg-navy shadow-[0_0_18px_rgba(255,181,71,0.7)]">
+                  <span className="size-2.5 rounded-full bg-amber" />
+                </span>
+                <h3 className="mt-6 text-xl text-white">{step.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>
               </li>
             ))}
@@ -160,16 +152,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-navy-deep/40 pt-0">
-        <div className="wrap">
-          <p className="eyebrow">Why Innoventix</p>
-          <h2 className="mt-5 text-3xl text-white md:text-[44px]">Built to grow, not just to ship.</h2>
-          <p className="mt-3 text-pearl/80">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
-          <ul className="mt-10 grid gap-4 md:grid-cols-2">
+      <section className="section bg-navy-deep">
+        <div className="wrap text-center">
+          <p className="pill">Why Innoventix</p>
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">Built to grow, not just to ship.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
+          <ul className="mt-12 grid gap-5 text-left md:grid-cols-2">
             {reasons.map((item) => (
-              <li key={item.title} className="glass rounded-[22px] p-6">
+              <li key={item.title} className="glass flex min-h-[300px] flex-col justify-end rounded-[28px] p-8 md:min-h-[340px]">
                 <ReasonVisual kind={item.visual} label={item.kicker} />
-                <h3 className="mt-4 text-2xl text-white">{item.title}</h3>
+                <h3 className="mt-6 text-2xl text-white">{item.title}</h3>
                 <p className="mt-2 text-[15px] leading-7 text-pearl/80">{item.body}</p>
               </li>
             ))}
@@ -179,13 +171,7 @@ export default function HomePage() {
 
       <Testimonials />
 
-      <section className="section pt-0">
-        <div className="wrap">
-          <p className="eyebrow">FAQ</p>
-          <h2 className="mt-5 text-3xl text-white md:text-[44px]">Questions, answered.</h2>
-          <div className="mt-8"><FaqList items={faqs} /></div>
-        </div>
-      </section>
+      <FaqSection items={faqs} />
 
       <CtaBand
         title="Let's build your AI growth engine."
@@ -199,39 +185,35 @@ export default function HomePage() {
 function ReasonVisual({ kind, label }: { kind: string; label: string }) {
   if (kind === "bars") {
     return (
-      <div className="flex h-16 items-end gap-2" aria-hidden="true">
-        {[40, 70, 52, 88].map((height) => (
-          <span key={height} className="w-4 origin-bottom rounded-sm bg-amber/80" style={{ height, animation: "bar-grow 0.8s ease both" }} />
+      <div className="flex h-44 items-end gap-3" aria-hidden="true">
+        {[42, 68, 54, 100, 76].map((height) => (
+          <span key={height} className="bar-fill w-8 origin-bottom rounded-t-md bg-amber/90 md:w-10" style={{ height: `${height}%` }} />
         ))}
       </div>
     );
   }
   if (kind === "progress") {
     return (
-      <div className="h-16" aria-hidden="true">
-        <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/10">
-          <div className="h-full w-4/5 origin-left rounded-full bg-amber" style={{ animation: "bar-grow 1s ease both" }} />
+      <div aria-hidden="true">
+        <div className="h-3 overflow-hidden rounded-full bg-white/10">
+          <div className="bar-fill h-full w-4/5 origin-left rounded-full bg-amber" />
         </div>
-        <p className="mt-2 text-xs font-bold tracking-wide text-amber">{label} · Live</p>
+        <p className="mt-3 text-xs font-bold tracking-wide text-amber">{label} · Live</p>
       </div>
     );
   }
   if (kind === "nodes") {
     return (
-      <div className="flex h-16 items-center gap-3" aria-hidden="true">
-        <span className="h-3 w-3 rounded-full bg-pillar-content" />
-        <span className="h-px w-8 bg-white/30" />
-        <span className="h-3 w-3 rounded-full bg-pillar-voice" />
-        <span className="h-px w-8 bg-white/30" />
-        <span className="h-3 w-3 rounded-full bg-pillar-web" />
+      <div className="flex h-24 items-center gap-3" aria-hidden="true">
+        <span className="size-4 rounded-full bg-pillar-content shadow-[0_0_16px_rgba(255,181,71,0.6)]" />
+        <span className="h-px w-10 bg-amber/50" />
+        <span className="size-4 rounded-full bg-pillar-voice" />
+        <span className="h-px w-10 bg-white/25" />
+        <span className="size-4 rounded-full bg-pillar-web" />
+        <span className="h-px w-10 bg-white/25" />
+        <span className="size-4 rounded-full bg-pillar-seo" />
       </div>
     );
   }
-  return (
-    <div className="relative h-16 w-16" aria-hidden="true">
-      <span className="absolute inset-2 rounded-full border border-amber/50" />
-      <span className="absolute left-1/2 top-1/2 h-5 w-px origin-bottom -translate-x-1/2 -translate-y-full bg-amber" />
-      <span className="absolute left-1/2 top-1/2 h-px w-4 bg-amber-bright" />
-    </div>
-  );
+  return <p className="text-[88px] font-bold leading-none text-amber md:text-[112px]">{label}</p>;
 }

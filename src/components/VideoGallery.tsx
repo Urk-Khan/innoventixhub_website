@@ -13,9 +13,9 @@ export function ShortsRow() {
 
   return (
     <div className="mt-10">
-      <div className="flex gap-4 overflow-x-auto pb-2 md:justify-center">
+      <div className="flex justify-center gap-4 overflow-x-auto pb-2">
         {featured.map((video, index) => (
-          <ShortCard key={video.id} video={video} caption={video.caption} featured={index === 2} />
+          <ShortCard key={video.id} video={video} caption={video.caption} featured={index === 2} row />
         ))}
       </div>
     </div>
@@ -72,11 +72,13 @@ function ShortCard({
   video,
   caption,
   featured = false,
+  row = false,
   onOpen,
 }: {
   video: UgcVideo;
   caption?: string;
   featured?: boolean;
+  row?: boolean;
   onOpen?: () => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -86,7 +88,7 @@ function ShortCard({
       <button
         type="button"
         onClick={() => (onOpen ? onOpen() : setOpen(true))}
-        className={`group relative block overflow-hidden rounded-2xl bg-navy text-left ${featured ? "w-44 shrink-0 md:w-52" : "w-40 shrink-0 md:w-full"}`}
+        className={`phone-frame group relative block overflow-hidden bg-navy text-left ${row ? (featured ? "w-[168px] shrink-0 md:w-[200px]" : "w-[140px] shrink-0 md:w-[168px]") : "w-full"}`}
       >
         <span className="relative block aspect-[9/16]">
           {video.available ? (
@@ -94,6 +96,9 @@ function ShortCard({
           ) : (
             <span className="flex h-full items-center justify-center p-4 text-center text-xs text-mist">Preview unavailable</span>
           )}
+          <span className="absolute left-1/2 top-[42%] grid size-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/20 backdrop-blur-sm">
+            <span className="ml-1 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
+          </span>
           <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-3 text-xs font-bold">{caption}</span>
         </span>
       </button>

@@ -110,17 +110,20 @@ export default function AboutPage() {
 
       <section className="overflow-hidden bg-navy py-20 lg:py-[110px]">
         <div className="wrap grid items-center gap-12 lg:grid-cols-[540px_minmax(0,1fr)]">
-          <div className="relative mx-auto h-[520px] w-full max-w-[540px]">
-            <img src="/assets/amberglow-84f416af.svg" alt="" className="pointer-events-none absolute -left-8 top-0 w-[120%] max-w-none" />
-            <div className="arch absolute bottom-8 left-1/2 h-[460px] w-[min(460px,88%)] -translate-x-1/2" />
-            <img
-              src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
-              alt="Ubaid ur Rehman Khan"
-              width={460}
-              height={482}
-              className="absolute bottom-8 left-1/2 h-[470px] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
-            />
-            <p className="pill plain absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap">
+          <div className="mx-auto w-full max-w-[480px]">
+            <div className="relative h-[540px]">
+              <img src="/assets/amberglow-84f416af.svg" alt="" className="pointer-events-none absolute -left-10 top-0 w-[130%] max-w-none" />
+              <div className="arch absolute inset-x-2 bottom-0 top-4" />
+              <img
+                src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
+                alt="Ubaid ur Rehman Khan"
+                width={460}
+                height={482}
+                className="absolute bottom-0 left-1/2 z-10 h-[94%] w-auto max-w-[72%] -translate-x-1/2 object-contain object-bottom"
+              />
+            </div>
+            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#0c1c30] px-4 py-3 text-[13px] font-bold text-white">
+              <span className="inline-block size-1.5 rounded-full bg-amber" />
               Ubaid ur Rehman Khan · Founder & CEO
             </p>
           </div>

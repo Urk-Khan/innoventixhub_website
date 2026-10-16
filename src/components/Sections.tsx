@@ -6,11 +6,9 @@ import { CtaGlow } from "@/components/visuals";
 
 const brandLogos = [
   { name: "Climb", src: "/assets/logoclimbwhitemono-c71c6c53.png", width: 113, height: 30 },
-  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
   { name: "Persist Brands", src: "/assets/logopersistbrandswhitemono-467bd0e5.png", width: 141, height: 42 },
   { name: "Image2work", src: "/assets/logoimage2workwhitemono-e3743e74.png", width: 131, height: 30 },
-  { name: "Pete's Builders", src: "/assets/logopetesbuilderswhitemono-ed5ef66d.png", width: 106, height: 52 },
-  { name: "Broomstick", src: "/assets/logobroomstickwhitemono-065306f6.png", width: 185, height: 24 },
+  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
 ];
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
