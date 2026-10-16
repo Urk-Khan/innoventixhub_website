@@ -1,8 +1,8 @@
 import JsonLd from "@/components/JsonLd";
 import LiveAds from "@/components/LiveAds";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import { HomeShorts, WorkGallery } from "@/components/VideoGallery";
-import { BookButton, Breadcrumbs, Comparison, CtaBand, FaqList, LogoMarquee, SectionIntro, Testimonials, VoiceButton } from "@/components/Sections";
+import { WorkGallery } from "@/components/VideoGallery";
+import { BookButton, Breadcrumbs, CardGrid, CaseRail, Comparison, CtaBand, FaqSection, LogoMarquee, OfferGrid, SectionIntro, Testimonials, ToolGrid, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
 import { ugcVideos, videoEmbedUrl, videoPoster } from "@/content/videos";
 import { pageMeta } from "@/lib/seo";
@@ -28,6 +28,34 @@ const faqs = [
   { q: "Can you turn my long videos into short clips?", a: "Yes. We repurpose your long-form videos into short, hook-first clips for TikTok, Reels and Shorts, so one recording feeds every channel." },
   { q: "Do you design YouTube thumbnails?", a: "Yes. We design brand-consistent thumbnails optimized for YouTube and can create variations to A/B test." },
 ];
+
+const heroShorts = [
+  { src: "/assets/shortytxwf4itxxmdi-061beb17.jpg", w: 176, h: 313 },
+  { src: "/assets/shortytvibdm1abb4e-3a7edbb0.jpg", w: 208, h: 370 },
+  { src: "/assets/shortyte02clyrtjdk-59537514.jpg", w: 240, h: 427 },
+  { src: "/assets/shortfeaturedyt3pucbgkii-49965680.jpg", w: 290, h: 516, featured: true },
+  { src: "/assets/shortyt2tx14i5o1i-6ca41b33.jpg", w: 240, h: 427 },
+  { src: "/assets/shortytoyfjwmtbf8-17bc5666.jpg", w: 208, h: 370 },
+  { src: "/assets/shortytbkbsy8ncww-180101b5.jpg", w: 176, h: 313 },
+];
+
+function ShortsFan() {
+  return (
+    <div className="mx-auto mt-4 flex h-[230px] items-end justify-center overflow-hidden sm:h-[360px] lg:mt-12 lg:h-[540px]" aria-label="AI UGC sample ads">
+      <div className="flex origin-bottom scale-[0.42] items-end gap-5 sm:scale-[0.66] lg:scale-100">
+      {heroShorts.map((short) => (
+        <a key={short.src} href="#work" className={`relative shrink-0 overflow-hidden rounded-[20px] ${short.featured ? "border-[3px] border-amber shadow-[0_0_60px_rgba(255,181,71,0.5)]" : "border border-white/12"}`} style={{ width: short.w, height: short.h }}>
+          <img src={short.src} alt="" className="h-full w-full object-cover" />
+          <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0b1a2e]/90" />
+          <span className="absolute left-1/2 top-1/2 grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/20 backdrop-blur-sm" style={{ width: short.featured ? 64 : 42, height: short.featured ? 64 : 42 }}>
+            <span className="ml-1 border-y-[7px] border-l-[12px] border-y-transparent border-l-white" />
+          </span>
+        </a>
+      ))}
+      </div>
+    </div>
+  );
+}
 
 const crumbs = [
   { name: "Home", path: "/" },
@@ -63,135 +91,111 @@ export default function ContentPage() {
           ),
         )}
       />
-      <section className="bg-navy">
-        <div className="wrap py-16">
-          <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
-          <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">Stop Guessing. Start Converting. AI UGC Ads and Video That Sell.</h1>
-          <p className="mt-5 max-w-2xl text-lg text-cream/80">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <BookButton />
-            <VoiceButton ghost />
+      <section className="hero-stage overflow-hidden bg-navy">
+        <img src="/assets/glowcopper-959c59f0.svg" alt="" className="glow-copper" />
+        <div className="relative z-10 px-5 pb-16 pt-28 text-center lg:pt-[200px]">
+          <div className="mx-auto flex max-w-[1000px] flex-col items-center">
+            <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
+            <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
+            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
+            <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <BookButton />
+              <VoiceButton ghost />
+            </div>
+            <p className="mt-5 text-[13px] text-mist">Home / Services / Content Creation · 20+ live samples below</p>
           </div>
-          <p className="mt-4 text-sm text-mist/80">Home / Services / Content Creation · 20+ live samples below</p>
-          <HomeShorts />
+          <ShortsFan />
+          <p className="mx-auto mt-6 w-fit rounded-full bg-amber px-3.5 py-2 text-[13px] font-bold text-navy">● Featured sample · tap to watch</p>
         </div>
       </section>
       <LogoMarquee label="Trusted by D2C brands across the US, UK & EU" />
       <LiveAds />
-      <section className="section">
+      <CardGrid
+        eyebrow="What we create"
+        title="One team for every video your brand needs"
+        items={[
+          { icon: "▶", title: "AI UGC Ads", badge: "Main focus", body: "AI creators, scripts and hooks built to win on paid social. 8–10 ads a month with 3 hooks each.", href: "#ai-ugc", link: "See AI UGC" },
+          { icon: "✂", title: "Short-Form Editing", body: "Reels, TikToks and Shorts edited for retention: hooks, captions, pacing and sound.", href: "#short-form", link: "See short-form" },
+          { icon: "Film", title: "Long-Form Editing", body: "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips.", href: "#long-form", link: "See long-form" },
+        ]}
+      />
+      <CardGrid
+        tone="deep"
+        eyebrow="The problem"
+        title="Sound familiar?"
+        items={[
+          { icon: "$!", title: "Spending too much on video production?", body: "Studios, actors, gear and revisions add up before you've even tested what works." },
+          { icon: "◎", title: "Views but no buyers?", body: "The hook, script and format decide conversions, not view counts." },
+          { icon: "⏱", title: "Can't make creatives fast enough?", body: "One good ad isn't enough. Paid social needs dozens of variations every week." },
+        ]}
+      />
+      <CardGrid
+        id="ai-ugc"
+        eyebrow="AI UGC ads"
+        title="Everything you need to test and scale creative"
+        columns={6}
+        items={[
+          "AI character creation & customization",
+          "AI product demo videos",
+          "Professional editing & post-production",
+          "Multiple hook/variation sets for A/B testing",
+          "Platform-ready formats (9:16, 1:1, 4:5, 16:9)",
+          "Fast turnaround (5–10 business days per video)",
+        ].map((title) => ({ icon: "✓", title, body: "" }))}
+      />
+      <section id="work" className="section scroll-mt-28 bg-navy-deep">
         <div className="wrap">
-          <SectionIntro eyebrow="What we create" title="One team for every video your brand needs" />
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              ["AI UGC Ads", "Main focus", "AI creators, scripts and hooks built to win on paid social. 8–10 ads a month with 3 hooks each.", "#ai-ugc", "See AI UGC"],
-              ["Short-Form Editing", "", "Reels, TikToks and Shorts edited for retention: hooks, captions, pacing and sound.", "#short-form", "See short-form"],
-              ["Long-Form Editing", "", "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips.", "#long-form", "See long-form"],
-            ].map(([title, badge, body, href, link]) => (
-              <li key={title} className="glass rounded-3xl p-6">
-                {badge ? <p className="text-xs font-bold tracking-wide text-amber">{badge}</p> : null}
-                <h3 className="mt-2 text-xl font-black">{title}</h3>
-                <p className="mt-2 text-sm text-cream/75">{body}</p>
-                <a href={href} className="mt-4 inline-block text-sm font-bold text-amber">{link} →</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <section className="section bg-navy-soft/30">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Sound familiar?</h2>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              ["Spending too much on video production?", "Studios, actors, gear and revisions add up before you've even tested what works."],
-              ["Views but no buyers?", "The hook, script and format decide conversions, not view counts."],
-              ["Can't make creatives fast enough?", "One good ad isn't enough. Paid social needs dozens of variations every week."],
-            ].map(([title, body]) => (
-              <li key={title} className="glass rounded-3xl p-6">
-                <h3 className="text-lg font-bold">{title}</h3>
-                <p className="mt-2 text-sm text-cream/75">{body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <section id="ai-ugc" className="section scroll-mt-28">
-        <div className="wrap">
-          <SectionIntro eyebrow="AI UGC ads" title="Everything you need to test and scale creative" />
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              "AI character creation & customization",
-              "AI product demo videos",
-              "Professional editing & post-production",
-              "Multiple hook/variation sets for A/B testing",
-              "Platform-ready formats (9:16, 1:1, 4:5, 16:9)",
-              "Fast turnaround (5–10 business days per video)",
-            ].map((item) => (
-              <li key={item} className="glass rounded-2xl p-4 text-sm">{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <section id="work" className="section scroll-mt-28 bg-[#091018]">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Real AI UGC ads we've made</h2>
-          <p className="mt-2 text-cream/75">Tap any video to watch.</p>
+          <SectionIntro eyebrow="Our work" title="Real AI UGC ads we've made" copy="Tap any video to watch." />
           <WorkGallery />
         </div>
       </section>
       <section id="short-form" className="section scroll-mt-28">
-        <div className="wrap grid gap-8 lg:grid-cols-2">
+        <div className="wrap grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <SectionIntro eyebrow="Short-form editing" title="Short-form that holds attention" copy="Reels, TikToks and YouTube Shorts edited for retention, so every clip earns its next second." />
-            <ul className="mt-6 space-y-2 text-sm">
-              {["Hook-first edits with pacing built for the feed", "Captions and subtitles (burned-in, SRT, multilingual)", "Color grading and a consistent visual style", "Sound design, music and talking-head cleanup (denoise, color correction)", "Clips cut from your long-form content"].map((item) => <li key={item}>✓ {item}</li>)}
+            <SectionIntro align="left" eyebrow="Short-form editing" title="Short-form that holds attention" copy="Reels, TikToks and YouTube Shorts edited for retention, so every clip earns its next second." />
+            <ul className="mt-6 space-y-2 text-sm text-pearl/85">
+              {["Hook-first edits with pacing built for the feed", "Captions and subtitles (burned-in, SRT, multilingual)", "Color grading and a consistent visual style", "Sound design, music and talking-head cleanup", "Clips cut from your long-form content"].map((item) => <li key={item}>✓ {item}</li>)}
             </ul>
-            <p className="mt-4 text-sm text-mist/80">Formats: 9:16 for TikTok, Reels and Shorts, with 1:1 and 4:5 for feed placements. Turnaround: delivered on a weekly schedule agreed on the call.</p>
+            <p className="mt-4 text-sm text-mist">Formats: 9:16, 1:1 and 4:5. Delivered on a weekly schedule agreed on the call.</p>
             <div className="mt-6"><BookButton /></div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="glass flex aspect-[9/16] items-end rounded-2xl p-3 text-xs text-mist">Sample: replace with client short-form edit</div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2">
+            {heroShorts.slice(0, 4).map((short) => (
+              <a key={short.src} href="#work" className="phone-frame relative block aspect-[9/16] overflow-hidden">
+                <img src={short.src} alt="" className="h-full w-full object-cover" />
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0b1a2e] to-transparent p-3 text-xs font-bold">Sample edit</span>
+              </a>
             ))}
           </div>
         </div>
       </section>
-      <section id="long-form" className="section scroll-mt-28 bg-navy/30">
-        <div className="wrap grid gap-8 lg:grid-cols-2">
+      <section id="long-form" className="section scroll-mt-28 bg-navy-deep">
+        <div className="wrap grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <SectionIntro eyebrow="Long-form editing" title="Long-form with story, pacing and polish" copy="YouTube videos, podcasts, tutorials, interviews and brand films, edited so viewers stay to the end and repurposed so one video feeds every channel." />
-            <ul className="mt-6 space-y-2 text-sm">
-              {["Long-form editing for podcasts, tutorials, interviews and documentary content", "Color grading and consistent visual treatment", "Captions and subtitles (SRT, burned-in, multilingual)", "YouTube-optimized, brand-consistent thumbnail design", "Talking-head cleanup (denoise, background removal, color correction)", "Short clips repurposed from every long video"].map((item) => <li key={item}>✓ {item}</li>)}
+            <SectionIntro align="left" eyebrow="Long-form editing" title="Long-form with story, pacing and polish" copy="YouTube videos, podcasts, tutorials, interviews and brand films, edited so viewers stay to the end and repurposed so one video feeds every channel." />
+            <ul className="mt-6 space-y-2 text-sm text-pearl/85">
+              {["Podcasts, tutorials, interviews and documentary edits", "Color grading and a consistent visual treatment", "Captions and subtitles (SRT, burned-in, multilingual)", "YouTube-optimized thumbnail design", "Talking-head cleanup", "Short clips repurposed from every long video"].map((item) => <li key={item}>✓ {item}</li>)}
             </ul>
-            <p className="mt-4 text-sm text-mist/80">Formats: 16:9 for YouTube and web, plus vertical cutdowns. Turnaround: 2–3 weeks per project. Process: Brief → First Cut → Revisions → Delivery.</p>
+            <p className="mt-4 text-sm text-mist">16:9 for YouTube and web, plus vertical cutdowns. 2–3 weeks. Brief → First Cut → Revisions → Delivery.</p>
             <div className="mt-6"><BookButton /></div>
           </div>
           <div className="space-y-3">
-            {Array.from({ length: 2 }).map((_, index) => (
-              <div key={index} className="glass flex aspect-video items-end rounded-2xl p-4 text-xs text-mist">Sample: replace with client long-form edit</div>
+            {heroShorts.slice(4, 6).map((short) => (
+              <div key={short.src} className="glass relative aspect-video overflow-hidden rounded-[20px]">
+                <img src={short.src} alt="" className="h-full w-full object-cover" />
+                <span className="absolute left-3 top-3 rounded-full bg-amber px-2 py-1 text-[11px] font-bold text-navy">SAMPLE</span>
+              </div>
             ))}
-            <div className="glass rounded-2xl p-4 text-xs text-mist">Thumbnail strip slot</div>
+            <div className="grid grid-cols-4 gap-2">
+              {heroShorts.slice(0, 4).map((short) => (
+                <img key={short.src} src={short.src} alt="" className="aspect-video rounded-lg object-cover" />
+              ))}
+            </div>
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Results &gt; Promises</h2>
-          <p className="mt-2 text-cream/75">Real numbers from brands we've worked with, across UGC, short-form and long-form.</p>
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
-            {["AI UGC", "Short-form", "Long-form"].map((tag) => (
-              <li key={tag} className="rounded-3xl bg-cream p-5 text-ink">
-                <p className="text-xs font-bold text-navy">SAMPLE</p>
-                <h3 className="mt-3 text-2xl font-black">[STAT HEADLINE from screenshot]</h3>
-                <p className="mt-2 text-sm">[What we did, 1–2 lines]</p>
-                <p className="mt-3 inline-block rounded-full bg-amber px-3 py-1 text-xs font-bold">{tag}</p>
-                <div className="mt-4 rounded-xl bg-navy/10 p-6 text-xs text-navy/70">Ads manager screenshot</div>
-                <a href={site.calendlyUrl} className="mt-4 inline-block text-sm font-bold">Book A Free Consultation</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <CaseRail eyebrow="Results" title="Results > Promises" copy="Real numbers from brands we've worked with, across UGC, short-form and long-form." tags={["AI UGC", "Short-form", "Long-form"]} />
       <Comparison
         title="See the difference"
         subtitle="How one AI-powered content team compares with building it in-house or hiring a typical agency."
@@ -216,58 +220,27 @@ export default function ContentPage() {
           { title: "Scale & Optimize", body: "We double down on winners, cut losers fast and keep fresh creatives coming." },
         ]}
       />
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-2xl font-black">Our AI stack</h2>
-          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-            {["Higgsfield", "Kling", "Veo", "ElevenLabs", "GPT", "Claude", "Nano Banana"].map((tool) => (
-              <li key={tool} className="glass rounded-full px-4 py-2">{tool}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ToolGrid eyebrow="Our AI stack" title="The tools behind the ads" tools={["Higgsfield", "Kling", "Veo", "ElevenLabs", "GPT", "Claude", "Nano Banana"]} />
       <Testimonials />
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">Simple starting points. Custom quotes.</h2>
-          <p className="mt-2 text-cream/75">Every brand is different, so we confirm scope on a free call. Here’s where most brands start.</p>
-          <ul className="mt-8 grid gap-4 lg:grid-cols-3">
-            <li className="glass-strong rounded-3xl p-6">
-              <h3 className="text-xl font-black">Monthly UGC Pack</h3>
-              <p className="text-sm text-cream/70">AI UGC ads built to find winners on paid social.</p>
-              <p className="mt-4 text-3xl font-black">$1,500<span className="text-base font-medium">/month</span></p>
-              <ul className="mt-4 space-y-1 text-sm">{["Full creative research", "Scripting: angles, hooks & scripts", "AI UGC generation", "8–10 videos/month, 3 hook variations", "Final edited ads, ready to run", "Brief-Match Guarantee"].map((item) => <li key={item}>✓ {item}</li>)}</ul>
-              <div className="mt-4"><BookButton /></div>
-            </li>
-            <li className="glass rounded-3xl p-6">
-              <h3 className="text-xl font-black">Short-Form Editing</h3>
-              <p className="text-sm text-cream/70">Reels, TikToks and Shorts edited for retention.</p>
-              <p className="mt-4 text-3xl font-black">$2,000<span className="text-base font-medium">/month</span></p>
-              <ul className="mt-4 space-y-1 text-sm">{["Hook-first edits & pacing", "Captions & subtitles", "Color grading & sound design", "Clips cut from your long-form", "Weekly delivery schedule"].map((item) => <li key={item}>✓ {item}</li>)}</ul>
-              <div className="mt-4"><BookButton /></div>
-            </li>
-            <li className="glass rounded-3xl p-6">
-              <h3 className="text-xl font-black">Long-Form Editing</h3>
-              <p className="text-sm text-cream/70">YouTube, podcast, tutorial and brand video editing.</p>
-              <p className="mt-4 text-3xl font-black">$2,000<span className="text-base font-medium">/project</span></p>
-              <ul className="mt-4 space-y-1 text-sm">{["Story-led long-form edit", "Color grading & captions", "YouTube thumbnail design", "Talking-head cleanup", "Repurposed short clips", "2–3 weeks per project"].map((item) => <li key={item}>✓ {item}</li>)}</ul>
-              <div className="mt-4"><BookButton /></div>
-            </li>
-          </ul>
-          <div className="glass mt-6 rounded-3xl p-6 text-sm">
+      <OfferGrid
+        eyebrow="Pricing"
+        title="Simple starting points. Custom quotes."
+        copy="Every brand is different, so we confirm scope on a free call. Here’s where most brands start."
+        offers={[
+          { featured: true, name: "Monthly UGC Pack", blurb: "AI UGC ads built to find winners on paid social.", price: "$1,500", unit: "/month", items: ["Full creative research", "Scripting: angles, hooks & scripts", "AI UGC generation", "8–10 videos/month, 3 hook variations", "Final edited ads, ready to run", "Brief-Match Guarantee"] },
+          { name: "Short-Form Editing", blurb: "Reels, TikToks and Shorts edited for retention.", price: "$2,000", unit: "/month", items: ["Hook-first edits & pacing", "Captions & subtitles", "Color grading & sound design", "Clips cut from your long-form", "Weekly delivery schedule"] },
+          { name: "Long-Form Editing", blurb: "YouTube, podcast, tutorial and brand video editing.", price: "$2,000", unit: "/project", items: ["Story-led long-form edit", "Color grading & captions", "YouTube thumbnail design", "Talking-head cleanup", "Repurposed short clips", "2–3 weeks per project"] },
+        ]}
+        note={(
+          <div className="glass mt-6 rounded-[20px] border-dashed border-amber/40 p-6 text-left text-sm">
             <p className="font-bold text-amber">Brief-Match Guarantee · Monthly UGC Pack</p>
-            <p className="mt-2">If your first batch doesn’t meet the creative brief we agree on together, we'll redo it free. Still not happy after the revision? Full refund within 30 days.</p>
-            <p className="mt-2 text-mist/70">Refund applies to brief match, not ad performance (ROAS depends on your offer, targeting and spend). Claims within 30 days of first delivery. Refunded videos may not be used.</p>
+            <p className="mt-2 text-pearl/85">If your first batch doesn’t meet the creative brief we agree on together, we&apos;ll redo it free. Still not happy after the revision? Full refund within 30 days.</p>
+            <p className="mt-2 text-mist">Refund applies to brief match, not ad performance (ROAS depends on your offer, targeting and spend). Claims within 30 days of first delivery. Refunded videos may not be used.</p>
+            <p className="mt-4 text-mist">Custom quote for larger volume or bundles. Every quote is confirmed on a free consultation.</p>
           </div>
-          <p className="mt-4 text-sm text-mist/80">Custom quote for larger volume or bundles. Every quote is confirmed on a free consultation.</p>
-        </div>
-      </section>
-      <section className="section pt-0">
-        <div className="wrap">
-          <h2 className="text-3xl font-black">FAQ</h2>
-          <div className="mt-6"><FaqList items={faqs} /></div>
-        </div>
-      </section>
+        )}
+      />
+      <FaqSection items={faqs} />
       <CtaBand
         title="Ready to turn views into buyers?"
         copy="Book a free 15-minute strategy call. We'll go through your funnel and show you where AI UGC and smarter editing can move the needle."

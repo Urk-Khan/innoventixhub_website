@@ -13,9 +13,9 @@ export function ShortsRow() {
 
   return (
     <div className="mt-10">
-      <div className="flex gap-4 overflow-x-auto pb-2 md:justify-center">
+      <div className="flex justify-center gap-4 overflow-x-auto pb-2">
         {featured.map((video, index) => (
-          <ShortCard key={video.id} video={video} caption={video.caption} featured={index === 2} />
+          <ShortCard key={video.id} video={video} caption={video.caption} featured={index === 2} row />
         ))}
       </div>
     </div>
@@ -72,11 +72,13 @@ function ShortCard({
   video,
   caption,
   featured = false,
+  row = false,
   onOpen,
 }: {
   video: UgcVideo;
   caption?: string;
   featured?: boolean;
+  row?: boolean;
   onOpen?: () => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -86,7 +88,7 @@ function ShortCard({
       <button
         type="button"
         onClick={() => (onOpen ? onOpen() : setOpen(true))}
-        className={`group relative block overflow-hidden rounded-2xl bg-navy text-left ${featured ? "w-44 shrink-0 md:w-52" : "w-40 shrink-0 md:w-full"}`}
+        className={`phone-frame group relative block overflow-hidden bg-navy text-left ${row ? (featured ? "w-[168px] shrink-0 md:w-[200px]" : "w-[140px] shrink-0 md:w-[168px]") : "w-full"}`}
       >
         <span className="relative block aspect-[9/16]">
           {video.available ? (
@@ -94,6 +96,9 @@ function ShortCard({
           ) : (
             <span className="flex h-full items-center justify-center p-4 text-center text-xs text-mist">Preview unavailable</span>
           )}
+          <span className="absolute left-1/2 top-[42%] grid size-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/20 backdrop-blur-sm">
+            <span className="ml-1 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
+          </span>
           <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-3 text-xs font-bold">{caption}</span>
         </span>
       </button>
@@ -148,23 +153,38 @@ export function HomeShorts() {
 
   return (
     <>
-      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 md:justify-center">
+      <div className="overflow-x-auto">
+      <div data-hscroll-track className="flex w-max gap-5 pb-4">
         {featured.map(({ video, caption }, index) => (
           <button
             key={video.id}
             type="button"
+            onMouseEnter={(event) => {
+              const preview = event.currentTarget.querySelector("video");
+              preview?.play().catch(() => undefined);
+            }}
+            onMouseLeave={(event) => {
+              const preview = event.currentTarget.querySelector("video");
+              if (!preview) return;
+              preview.pause();
+              preview.currentTime = 0;
+            }}
             onClick={() => setActive(video)}
-            className={`relative shrink-0 overflow-hidden rounded-2xl ${index === 2 ? "w-48 md:w-56" : "w-36 md:w-44"}`}
+            className={`phone-frame relative shrink-0 overflow-hidden ${index === 2 ? "w-[190px] md:w-[220px]" : "w-[150px] md:w-[180px]"}`}
           >
-            <span className="block aspect-[9/16]">
+            <span className="relative block aspect-[9/16]">
               <img src={videoPoster(video.id)} alt="" className="h-full w-full object-cover" />
-            </span>
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink to-transparent p-3 text-left text-xs font-bold">
-              UGC Short
-              <span className="mt-1 block text-cream/80">{caption}</span>
+              <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-amber text-navy shadow-[0_0_20px_rgba(255,181,71,0.55)]">
+                <span className="ml-0.5 border-y-[7px] border-l-[11px] border-y-transparent border-l-navy" />
+              </span>
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f2138] to-transparent p-3 text-left text-xs font-bold">
+                UGC Short
+                <span className="mt-1 block font-semibold text-pearl/80">{caption}</span>
+              </span>
             </span>
           </button>
         ))}
+      </div>
       </div>
       <Lightbox video={active} onClose={() => setActive(null)} />
     </>

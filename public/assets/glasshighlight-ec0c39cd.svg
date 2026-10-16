@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="101.52" height="101.52" viewBox="0 0 101.52 101.52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Glass highlight" filter="url(#filter0_f_0_54)">
+<circle cx="50.76" cy="50.76" r="34.56" fill="white" fill-opacity="0.35"/>
+</g>
+<defs>
+<filter id="filter0_f_0_54" x="0" y="0" width="101.52" height="101.52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="8.1" result="effect1_foregroundBlur_0_54"/>
+</filter>
+</defs>
+</svg>

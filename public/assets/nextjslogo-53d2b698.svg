@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Next.js logo" clip-path="url(#clip0_0_13)">
+<path id="Vector" d="M58.3281 68.6813C52.3688 72.6719 45.2031 75 37.5 75C16.8031 75 0 58.1969 0 37.5C0 16.8031 16.8031 0 37.5 0C58.1969 0 75 16.8031 75 37.5C75 48.6969 70.0813 58.7531 62.2906 65.6281L28.8094 22.5H22.5V52.4875H27.5469V28.9094L58.3281 68.6813ZM47.9156 42.0156L52.9156 48.4562V22.5H47.9156V42.0156Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_0_13">
+<rect width="75" height="75" fill="white"/>
+</clipPath>
+</defs>
+</svg>

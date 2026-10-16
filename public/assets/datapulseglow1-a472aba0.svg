@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="11.75" height="11.75" viewBox="0 0 11.75 11.75" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Data pulse (glow)" filter="url(#filter0_d_0_17)">
+<circle cx="5.875" cy="5.875" r="1.41" fill="#FFF4DC"/>
+</g>
+<defs>
+<filter id="filter0_d_0_17" x="1.78814e-07" y="1.78814e-07" width="11.75" height="11.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="0.705" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_0_17"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1.88"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.709804 0 0 0 0 0.278431 0 0 0 0.9 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_17"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_17" result="shape"/>
+</filter>
+</defs>
+</svg>

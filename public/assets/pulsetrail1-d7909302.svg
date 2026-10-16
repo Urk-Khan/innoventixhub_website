@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="47.8271" height="47.8271" viewBox="0 0 47.8271 47.8271" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Pulse trail 1" filter="url(#filter0_d_0_48)">
+<circle cx="23.9135" cy="23.9135" r="6.49687" fill="#FFF4DC" fill-opacity="0.55"/>
+</g>
+<defs>
+<filter id="filter0_d_0_48" x="9.53674e-07" y="9.53674e-07" width="47.8271" height="47.8271" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="2.75" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_0_48"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="7.33333"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.709804 0 0 0 0 0.278431 0 0 0 0.495 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_48"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_48" result="shape"/>
+</filter>
+</defs>
+</svg>

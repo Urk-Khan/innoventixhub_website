@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="644" height="644" viewBox="0 0 644 644" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle id="Amber glow" cx="322" cy="322" r="322" fill="url(#paint0_radial_0_80)"/>
+<defs>
+<radialGradient id="paint0_radial_0_80" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(322 322) scale(322)">
+<stop stop-color="#FFB547" stop-opacity="0.35"/>
+<stop offset="1" stop-color="#FFB547" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

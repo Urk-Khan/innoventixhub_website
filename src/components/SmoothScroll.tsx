@@ -13,7 +13,7 @@ export default function SmoothScroll() {
     if (reduce) return;
 
     const lenis = new Lenis({
-      lerp: 0.09,
+      duration: 1.15,
       smoothWheel: true,
     });
 
