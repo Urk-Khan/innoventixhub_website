@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -43,6 +44,7 @@ function applyPin(section: HTMLElement, progress: number) {
 }
 
 export default function MotionLayer() {
+  const pathname = usePathname();
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
@@ -281,7 +283,7 @@ export default function MotionLayer() {
       observer.disconnect();
       ctx.revert();
     };
-  }, []);
+  }, [pathname]); // layout persists across soft navigations: re-init for each page
 
   return null;
 }

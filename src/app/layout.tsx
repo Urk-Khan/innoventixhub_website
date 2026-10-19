@@ -5,8 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import CookieBanner from "@/components/CookieBanner";
-import SmoothScroll from "@/components/SmoothScroll";
-import MotionLayer from "@/components/MotionLayer";
+import MotionBoot from "@/components/MotionBoot";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/config/site";
 import { graph, organizationSchema } from "@/lib/schema";
@@ -39,8 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen font-sans antialiased">
         <JsonLd data={graph(organizationSchema())} />
-        <SmoothScroll />
-        <MotionLayer />
+        <MotionBoot />
         <Header />
         <div className="pt-[60px] lg:pt-0">{children}</div>
         <Footer />

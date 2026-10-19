@@ -48,9 +48,11 @@ export default function CaseSlider({ tags }: { tags: string[] }) {
         <button type="button" className="grid size-9 place-items-center rounded-full border border-white/15 text-pearl hover:border-white/30 disabled:opacity-30" aria-label="Previous result" disabled={index === 0} onClick={() => goTo(index - 1)}>
           <span aria-hidden="true">←</span>
         </button>
-        <div className="flex gap-2">
+        <div className="flex">
           {tags.map((tag, dot) => (
-            <button key={tag} type="button" aria-label={`Show ${tag}`} aria-current={dot === index} className={`size-2 rounded-full transition-colors ${dot === index ? "bg-amber" : "bg-white/30"}`} onClick={() => goTo(dot)} />
+            <button key={tag} type="button" aria-label={`Show ${tag}`} aria-current={dot === index} className="grid size-6 place-items-center" onClick={() => goTo(dot)}>
+              <span className={`size-2 rounded-full transition-colors ${dot === index ? "bg-amber" : "bg-white/30"}`} />
+            </button>
           ))}
         </div>
         <button type="button" className="grid size-9 place-items-center rounded-full border border-white/15 text-pearl hover:border-white/30 disabled:opacity-30" aria-label="Next result" disabled={index === tags.length - 1} onClick={() => goTo(index + 1)}>

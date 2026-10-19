@@ -33,7 +33,7 @@ export function WhatsAppButton({ children = "WhatsApp us" }: { children?: React.
 
 export function Breadcrumbs({ items }: { items: { name: string; href?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-mist/80">
+    <nav aria-label="Breadcrumb" className="text-sm text-mist">
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => (
           <li key={item.name} className="flex items-center gap-2">
