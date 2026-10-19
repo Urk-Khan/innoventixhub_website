@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const REVEAL_SELECTOR = "h1, h2, h3, p, img, li, .glass-card, .glass, article, .pill, .reveal-item";
+const SKIP_ANCESTOR = "[data-orbit], [data-pin], [data-no-reveal], [data-bento], .marquee, [data-slider], .ugc-slider, .swiper, [data-hscroll]";
 
 function collectRevealTargets(section: HTMLElement) {
   if (section.hasAttribute("data-no-reveal") || section.hasAttribute("data-pin") || section.hasAttribute("data-bento")) {
@@ -14,7 +15,7 @@ function collectRevealTargets(section: HTMLElement) {
   }
   const all = Array.from(section.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
   const clean = all.filter((el) => {
-    if (el.closest("[data-orbit], [data-pin], [data-no-reveal], [data-bento], .marquee")) return false;
+    if (el.closest(SKIP_ANCESTOR)) return false;
     if (el.classList.contains("glow-copper") || el.classList.contains("glow-gold") || el.classList.contains("arch")) return false;
     const cls = typeof el.className === "string" ? el.className : "";
     if (cls.includes("translate-")) return false;
@@ -250,6 +251,21 @@ export default function MotionLayer() {
 
     const refresh = () => ScrollTrigger.refresh();
     window.addEventListener("load", refresh);
+    void document.fonts.ready.then(refresh);
+
+    const images = Array.from(document.querySelectorAll<HTMLImageElement>("main img"));
+    let pending = 0;
+    images.forEach((img) => {
+      if (img.complete) return;
+      pending += 1;
+      const done = () => {
+        pending -= 1;
+        if (pending <= 0) refresh();
+      };
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    });
+
     return () => {
       window.removeEventListener("load", refresh);
       observer.disconnect();

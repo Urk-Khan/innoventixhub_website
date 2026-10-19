@@ -24,7 +24,11 @@ export default function SmoothScroll() {
     gsap.ticker.add(onTick);
     gsap.ticker.lagSmoothing(0);
 
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+
     return () => {
+      window.removeEventListener("load", refresh);
       gsap.ticker.remove(onTick);
       lenis.destroy();
     };
