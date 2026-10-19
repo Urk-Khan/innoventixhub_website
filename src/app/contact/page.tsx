@@ -94,10 +94,13 @@ export default function ContactPage() {
           <p className="pill">Next</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px]">What happens next</h2>
           <ol className="relative mt-12 grid gap-8 md:grid-cols-3">
-            <div className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-px bg-amber/50 md:block" aria-hidden="true" />
+            <svg data-line className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-[2px] w-[68%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 1 H100" stroke="rgba(255,181,71,0.25)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+            </svg>
             {["We read your message or join your call.", "We give honest advice and a clear next step.", "If it's a fit, you get a fixed written proposal. No obligation."].map((step, index) => (
               <li key={step} className="relative text-center">
-                <span className="relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy font-bold text-amber">{index + 1}</span>
+                <span data-step-dot className="step-num relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy font-bold text-amber">{index + 1}</span>
                 <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-pearl/85">{step}</p>
               </li>
             ))}

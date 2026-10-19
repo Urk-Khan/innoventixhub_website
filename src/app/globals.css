@@ -598,6 +598,11 @@ details.faq .faq-body > div {
 
 [data-step-dot].is-on span { background: #ffb547; }
 
+.step-num.is-on {
+  background: #ffb547;
+  color: #1e3a5f;
+}
+
 .web-build .type-line {
   display: block;
   overflow: hidden;

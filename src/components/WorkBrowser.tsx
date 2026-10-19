@@ -24,6 +24,7 @@ export default function WorkBrowser() {
           </button>
         ))}
       </div>
+      <div key={filter} className="tab-panel-in">
       {showUgc ? (
         <section className="section text-center">
           <p className="pill">AI UGC & Content</p>
@@ -94,6 +95,7 @@ export default function WorkBrowser() {
           <a href={site.calendlyUrl} className="btn-primary mt-6">Book A Free Consultation <span aria-hidden="true">→</span></a>
         </div>
       </section>
+      </div>
     </>
   );
 }
