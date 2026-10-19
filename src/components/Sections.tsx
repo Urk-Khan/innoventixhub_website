@@ -1,15 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { site } from "@/config/site";
+import { clientLogos, site } from "@/config/site";
 import { testimonials } from "@/content/testimonials";
 import { CtaGlow } from "@/components/visuals";
-
-const brandLogos = [
-  { name: "Climb", src: "/assets/logoclimbwhitemono-c71c6c53.png", width: 113, height: 30 },
-  { name: "Persist Brands", src: "/assets/logopersistbrandswhitemono-467bd0e5.png", width: 141, height: 42 },
-  { name: "Image2work", src: "/assets/logoimage2workwhitemono-e3743e74.png", width: 131, height: 30 },
-  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
-];
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
@@ -52,25 +45,62 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
   );
 }
 
+function ClientLogoMark({
+  logo,
+  alt,
+}: {
+  logo: (typeof clientLogos)[number];
+  alt: string;
+}) {
+  return (
+    <span
+      className="client-logo group relative inline-flex shrink-0 items-center justify-center opacity-70 transition-opacity duration-200 hover:opacity-100"
+      style={{ width: logo.width, height: logo.height }}
+    >
+      <img
+        src={logo.src}
+        alt={alt}
+        width={logo.width}
+        height={logo.height}
+        className={`h-full w-full object-contain ${logo.hoverColor ? "transition-opacity duration-200 group-hover:opacity-0" : ""}`}
+      />
+      {logo.hoverColor && logo.colorSrc ? (
+        <img
+          src={logo.colorSrc}
+          alt=""
+          aria-hidden="true"
+          width={logo.width}
+          height={logo.height}
+          className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+        />
+      ) : null}
+    </span>
+  );
+}
+
 export function LogoMarquee({ label = "Brands we've worked with" }: { label?: string }) {
-  const logos = [...brandLogos, ...brandLogos];
   return (
     <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label}>
       <p className="mb-6 text-center text-xs font-semibold tracking-[1.92px] text-mist uppercase">{label}</p>
       <div className="marquee w-full min-w-0 overflow-hidden">
         <div className="marquee-track px-8">
-          {logos.map((logo, index) => (
-            <img
-              key={`${logo.name}-${index}`}
-              src={logo.src}
-              alt={index < brandLogos.length ? logo.name : ""}
-              width={logo.width}
-              height={logo.height}
-              className="h-8 w-auto opacity-70 md:h-10"
-            />
+          {clientLogos.map((logo) => (
+            <ClientLogoMark key={logo.slug} logo={logo} alt={logo.name} />
           ))}
+          <div className="contents" aria-hidden="true">
+            {clientLogos.map((logo) => (
+              <ClientLogoMark key={`${logo.slug}-dup`} logo={logo} alt="" />
+            ))}
+          </div>
         </div>
       </div>
+      <ul className="marquee-static mx-auto max-w-[1200px] flex-wrap items-center justify-center gap-12 px-5">
+        {clientLogos.map((logo) => (
+          <li key={logo.slug}>
+            <ClientLogoMark logo={logo} alt={logo.name} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
