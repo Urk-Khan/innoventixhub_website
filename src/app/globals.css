@@ -499,6 +499,28 @@ details.faq .faq-body > div {
   transform: scale(1.04);
 }
 
+.arch-static {
+  animation: none !important;
+}
+
+.clock-hand {
+  transform-box: view-box;
+  transform-origin: 32px 32px;
+}
+
+[data-bento-card]:hover .clock-min {
+  animation: clock-tick 0.5s steps(6) forwards;
+}
+
+[data-bento-card]:hover .clock-hour {
+  animation: clock-tick 0.5s steps(2) 0.1s forwards;
+}
+
+@keyframes clock-tick {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(120deg); }
+}
+
 .arch {
   border-radius: 230px 230px 0 0;
   background: #ffb547;

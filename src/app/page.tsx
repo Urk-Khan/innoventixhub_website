@@ -3,6 +3,8 @@ import JsonLd from "@/components/JsonLd";
 import { UgcSlider } from "@/components/VideoGallery";
 import { playableIndex, playableUgc } from "@/content/videos";
 import { CommandCenter } from "@/components/visuals";
+import FigmaLoop from "@/components/FigmaLoop";
+import { founderLoop } from "@/content/motion/home";
 import { BookButton, CtaBand, FaqSection, LogoMarquee, Testimonials, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
@@ -95,14 +97,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section overflow-hidden">
+      <FigmaLoop as="section" snippets={founderLoop} data-no-reveal className="section overflow-hidden">
         <div className="wrap grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="mx-auto w-full max-w-[420px]">
             <div className="relative h-[500px]">
               <img src="/assets/amberglow-bb194374.svg" alt="" className="pointer-events-none absolute -left-10 top-0 w-[130%] max-w-none opacity-90" />
-              <div className="arch absolute inset-x-4 bottom-0 top-6" />
+              <div data-node-id="123:73" className="arch arch-static absolute inset-x-4 bottom-0 top-6" />
               <img
                 src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
+                data-node-id="123:74"
                 alt="Ubaid ur Rehman Khan, Founder and CEO"
                 width={460}
                 height={482}
@@ -115,22 +118,22 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <p className="text-[15px] font-bold tracking-[2.7px] text-amber">INTRODUCING</p>
-            <h2 className="mt-4 text-4xl leading-[1.15] text-white md:text-[52px] md:leading-[62px]">
+            <p data-node-id="123:81" className="text-[15px] font-bold tracking-[2.7px] text-amber">INTRODUCING</p>
+            <h2 data-node-id="123:82" className="mt-4 text-4xl leading-[1.15] text-white md:text-[52px] md:leading-[62px]">
               Meet <span className="text-amber">Ubaid ur Rehman Khan</span>, our Founder & CEO.
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-[30px] text-[#dce5ef]">
+            <p data-node-id="123:83" className="mt-6 max-w-xl text-lg leading-[30px] text-[#dce5ef]">
               Before founding Innoventix Hub in January 2025, Ubaid worked with international brands at Image2Work, a Danish company, and Broomstick Creative, a UAE company. Today he leads one small, accountable team that builds your growth systems end to end.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-2">
+            <ul data-node-id="123:84" className="mt-6 flex flex-wrap gap-2">
               {["Founded Jan 2025", "Ex-Image2Work (Denmark)", "Ex-Broomstick Creative (UAE)"].map((chip) => (
                 <li key={chip} className="glass-strong rounded-full px-3 py-2 text-[12px] font-bold text-white">{chip}</li>
               ))}
             </ul>
-            <div className="mt-7"><BookButton /></div>
+            <div data-node-id="123:94" className="mt-7 w-fit"><BookButton /></div>
           </div>
         </div>
-      </section>
+      </FigmaLoop>
 
       <section className="section pt-0">
         <div className="wrap text-center">
@@ -217,9 +220,17 @@ function ReasonVisual({ kind, label }: { kind: string; label: string }) {
     );
   }
   return (
-    <p className="text-[88px] font-bold leading-none text-amber md:text-[112px]">
-      <span data-count="24">24</span>
-      <span className="text-[0.45em]">/7</span>
-    </p>
+    <div className="flex items-end gap-5">
+      <svg viewBox="0 0 64 64" className="clock size-16 shrink-0 text-amber md:size-20" aria-hidden="true">
+        <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" strokeWidth="3" />
+        <line className="clock-hand clock-min" x1="32" y1="32" x2="32" y2="12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <line className="clock-hand clock-hour" x1="32" y1="32" x2="32" y2="20" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+        <circle cx="32" cy="32" r="3" fill="currentColor" />
+      </svg>
+      <p className="text-[88px] font-bold leading-none text-amber md:text-[112px]">
+        <span data-count="24">24</span>
+        <span className="text-[0.45em]">/7</span>
+      </p>
+    </div>
   );
 }
