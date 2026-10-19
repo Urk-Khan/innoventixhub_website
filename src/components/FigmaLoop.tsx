@@ -16,7 +16,7 @@ export default function FigmaLoop({
   ...rest
 }: {
   snippets: Record<string, string>;
-  as?: "div" | "section";
+  as?: "div" | "section" | "main";
   className?: string;
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement>) {

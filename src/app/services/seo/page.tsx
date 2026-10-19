@@ -1,4 +1,5 @@
 import JsonLd from "@/components/JsonLd";
+import StickyAuditBar from "@/components/StickyAuditBar";
 import SeoAuditForm from "@/components/SeoAuditForm";
 import { BookButton, Breadcrumbs, Comparison, FaqSection, LogoMarquee, PromiseStrip, QuoteSplit, StepRail, Testimonials, WhatsAppButton } from "@/components/Sections";
 import { pageMeta } from "@/lib/seo";
@@ -34,6 +35,7 @@ const crumbs = [
 export default function SeoPage() {
   return (
     <main id="main">
+      <StickyAuditBar />
       <JsonLd data={graph(
         breadcrumbSchema(crumbs),
         serviceSchema({

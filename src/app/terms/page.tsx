@@ -40,13 +40,13 @@ export default function TermsPage() {
           <p className="text-xs font-bold tracking-wide text-amber">ON THIS PAGE</p>
           <ol className="mt-3 space-y-2 text-sm">
             {sections.map(([title], index) => (
-              <li key={title}><a href={`#t-${index}`} className="hover:text-amber">{title.replace(/\.$/, "")}</a></li>
+              <li key={title}><a href={`#p-${index}`} className="hover:text-amber">{title.replace(/\.$/, "")}</a></li>
             ))}
           </ol>
         </aside>
         <article>
           {sections.map(([title, body], index) => (
-            <section key={title} id={`t-${index}`} className="mt-8 scroll-mt-28">
+            <section key={title} id={`p-${index}`} className="mt-8 scroll-mt-28">
               <h2 className="text-xl font-bold">{index + 1}. {title}</h2>
               <p className="mt-2 text-sm leading-7 text-cream/85">{body}</p>
             </section>
