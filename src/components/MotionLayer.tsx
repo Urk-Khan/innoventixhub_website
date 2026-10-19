@@ -248,7 +248,8 @@ export default function MotionLayer() {
           trigger: section,
           pin: target,
           start: "top top",
-          end: () => (window.innerWidth < 1024 ? "+=50vh" : "+=150vh"),
+          // ScrollTrigger has no vh unit ("+=150vh" would be read as 150px), so convert to px.
+          end: () => `+=${Math.round(window.innerHeight * (window.innerWidth < 1024 ? 0.5 : 1.5))}`,
           scrub: true,
           invalidateOnRefresh: true,
           anticipatePin: 1,

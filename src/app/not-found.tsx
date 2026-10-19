@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="wrap relative z-10 max-w-3xl text-center">
         <BrandLogo variant="square" className="mx-auto mb-6 h-24 w-24 object-contain" />
         <p className="text-6xl font-black text-amber">404</p>
-        <h1 className="mt-4 text-4xl font-black">This page took a wrong turn.</h1>
+        <h1 data-words className="mt-4 text-4xl font-black">This page took a wrong turn.</h1>
         <p className="mt-3 text-cream/80">The link might be old, or the page has moved. Here's where you can go instead.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link href="/" className="btn-primary">Back to Home</Link>

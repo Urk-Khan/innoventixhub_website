@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
       <div className="px-5 pb-16 pt-28 text-center lg:pt-[200px]">
         <div className="mx-auto flex max-w-[1000px] flex-col items-center">
         <p className="eyebrow">Insights</p>
-        <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Practical Notes on AI, Content and Growth.</h1>
+        <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Practical Notes on AI, Content and Growth.</h1>
         <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75">Short, useful guides from the team that builds this stuff every day.</p>
         </div>
         <ul className="mx-auto mt-8 flex max-w-[1000px] flex-wrap justify-center gap-2 text-sm">

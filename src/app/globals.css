@@ -477,6 +477,15 @@ details.faq .faq-body > div {
   overflow: hidden;
 }
 
+.tab-panel-in {
+  animation: tab-in 250ms ease-out both;
+}
+
+@keyframes tab-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .ugc-card {
   opacity: var(--o, 1);
 }

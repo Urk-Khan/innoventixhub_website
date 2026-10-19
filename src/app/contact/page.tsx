@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="relative z-10 px-5 py-28 text-center lg:pt-[200px]">
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <p className="eyebrow">Contact</p>
-            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Let&apos;s Talk About What You&apos;re Building.</h1>
+            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Let&apos;s Talk About What You&apos;re Building.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Book a free consultation, send us a message, or call our AI agent right now. A real person replies to every enquiry within 1 business day.</p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 text-sm">{["Free consultation", "Reply within 1 business day", "US, UK & EU hours"].map((item) => <li key={item} className="pill plain">{item}</li>)}</ul>
           </div>

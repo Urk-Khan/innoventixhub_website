@@ -65,7 +65,7 @@ export default function SeoPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">SEO · Technical · Local · E-commerce · AI search</p>
-            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Get Found on Google and in AI Answers.</h1>
+            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Get Found on Google and in AI Answers.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">White-hat SEO for D2C brands and SMBs in the US, UK & EU. We fix what&apos;s holding your site back, build real authority and report every month.</p>
             <div className="mt-6 w-full max-w-xl"><SeoAuditForm compact /></div>
             <p className="mt-3 text-xs text-mist/70">Reviewed by a real SEO specialist. Reply within 2 business days. No obligation.</p>

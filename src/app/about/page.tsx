@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="relative z-10 px-5 pb-16 pt-28 lg:px-0 lg:pb-20 lg:pt-[200px]">
           <div className="mx-auto flex max-w-[1000px] flex-col items-center text-center">
             <p className="eyebrow">About Innoventix Hub</p>
-            <h1 className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">
+            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">
               A Small, Focused Team Building <span className="text-amber">Growth Systems</span> for Ambitious Brands.
             </h1>
             <p className="mt-7 max-w-[680px] text-[18px] leading-normal text-pearl/75 sm:text-[20px]">

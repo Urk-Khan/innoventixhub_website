@@ -77,7 +77,7 @@ export default function VoicePage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
-            <h1 className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
+            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
