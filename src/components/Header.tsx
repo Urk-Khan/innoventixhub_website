@@ -55,7 +55,7 @@ export default function Header() {
       </div>
 
       <div className="pointer-events-none hidden justify-center px-6 pt-8 lg:flex">
-        <div className={`pointer-events-auto flex h-[60px] w-full max-w-[1200px] items-center justify-between rounded-full border border-white/12 py-2 pl-6 pr-2 ${scrolled ? "bg-[rgba(38,74,117,0.7)] backdrop-blur-[24px]" : "bg-[rgba(38,74,117,0.7)] backdrop-blur-[12px]"}`}>
+        <div className={`pointer-events-auto flex h-[60px] w-full max-w-[1200px] items-center justify-between rounded-full border border-white/12 py-2 pl-6 pr-2 ${scrolled ? "bg-[rgba(38,74,117,0.7)] backdrop-blur-[24px]" : "bg-[rgba(38,74,117,0.55)] backdrop-blur-[8px]"}`}>
           <Link href="/" className="shrink-0" aria-label="Innoventix Hub home">
             <BrandLogo variant="horizontal" className="h-[34px] w-auto" />
           </Link>

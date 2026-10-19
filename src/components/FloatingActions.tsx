@@ -28,7 +28,7 @@ export default function FloatingActions() {
       ) : null}
       <button
         type="button"
-        className="fab-in inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-amber text-navy shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5"
+        className="fab-chatbot inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-amber text-navy shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5"
         aria-expanded={chatOpen}
         aria-controls="chatbot-embed"
         onClick={() => setChatOpen((value) => !value)}
@@ -38,7 +38,7 @@ export default function FloatingActions() {
       </button>
       <a
         href={site.whatsappUrl}
-        className="fab-in-late inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5"
+        className="fab-whatsapp inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_8px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5"
         aria-label="WhatsApp Innoventix Hub"
       >
         <WhatsAppIcon />

@@ -1,8 +1,28 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { euCountries } from "@/lib/seo";
 
 const KEY = "ih-cookie-choice";
+const consentCountries = new Set([...euCountries, "GB", "UK"]);
+
+async function isEuOrUkVisitor(): Promise<boolean> {
+  try {
+    const res = await fetch("/cdn-cgi/trace", { cache: "no-store" });
+    if (res.ok) {
+      const text = await res.text();
+      const loc = text.match(/^loc=([A-Z]{2})$/m)?.[1];
+      if (loc) return consentCountries.has(loc);
+    }
+  } catch {
+    /* not behind Cloudflare, or trace unavailable */
+  }
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+  if (tz.startsWith("Europe/") || tz === "Atlantic/Reykjavik") return true;
+  const lang = (navigator.language || "").toLowerCase();
+  if (lang.endsWith("-gb") || lang.endsWith("-uk") || lang.includes("-ie")) return true;
+  return false;
+}
 
 export default function CookieBanner() {
   const bannerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +48,7 @@ export default function CookieBanner() {
   }, [visible, settings]);
 
   useEffect(() => {
-    if (!window.localStorage.getItem(KEY)) setVisible(true);
+    let cancelled = false;
     const open = () => {
       const saved = window.localStorage.getItem(KEY);
       setAnalytics(saved === "all");
@@ -36,7 +56,17 @@ export default function CookieBanner() {
       setVisible(true);
     };
     window.addEventListener("open-cookie-settings", open);
-    return () => window.removeEventListener("open-cookie-settings", open);
+
+    (async () => {
+      if (window.localStorage.getItem(KEY)) return;
+      const show = await isEuOrUkVisitor();
+      if (!cancelled && show) setVisible(true);
+    })();
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener("open-cookie-settings", open);
+    };
   }, []);
 
   function save(value: "all" | "essential") {
@@ -50,7 +80,7 @@ export default function CookieBanner() {
   return (
     <div ref={bannerRef} className="fixed inset-x-0 bottom-0 z-50 p-4" role="dialog" aria-label="Cookie consent">
       <div className="glass mx-auto max-w-3xl rounded-3xl p-5 shadow-2xl">
-        <p className="text-sm leading-6 text-cream">
+        <p className="text-sm leading-6 text-pearl">
           We use essential cookies to run this site and, with your OK, analytics cookies to improve it.
         </p>
         {settings ? (
@@ -60,7 +90,7 @@ export default function CookieBanner() {
           </label>
         ) : null}
         <div className="mt-4 flex flex-wrap gap-2">
-          <button type="button" className="rounded-full bg-amber px-4 py-2 text-sm font-bold text-ink" onClick={() => save("all")}>
+          <button type="button" className="rounded-full bg-amber px-4 py-2 text-sm font-bold text-navy" onClick={() => save("all")}>
             Accept all
           </button>
           <button type="button" className="rounded-full border border-white/20 px-4 py-2 text-sm" onClick={() => save("essential")}>
