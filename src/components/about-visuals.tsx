@@ -21,8 +21,8 @@ export function ServiceNetwork() {
             backgroundImage: "linear-gradient(153deg, #1a3657 0%, #0f2138 71%)",
           }}
         >
-          <img src="/assets/dottedgrid-efb2d737.svg" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70" />
-          <img src="/assets/orbitring-79de6d1b.png" alt="" className="pointer-events-none absolute left-[340px] top-[65px] size-[418px] object-contain" />
+          <img loading="lazy" decoding="async" src="/assets/dottedgrid-efb2d737.svg" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70" />
+          <img loading="lazy" decoding="async" src="/assets/orbitring-79de6d1b.png" alt="" className="pointer-events-none absolute left-[340px] top-[65px] size-[418px] object-contain" />
           <div className="orbit-core absolute left-[459px] top-[240px] grid h-[68px] w-[180px] place-items-center rounded-[18px] border border-amber/70 glass text-[16px] font-bold text-white">
             Innoventix Hub
           </div>
@@ -100,7 +100,7 @@ export function StoryCarousel() {
           {slides.map((slide) => (
             <div key={slide.kind === "photo" ? slide.src : slide.title} className="h-full w-full shrink-0">
               {slide.kind === "photo" ? (
-                <img src={slide.src} alt={slide.alt} className="h-full w-full rounded-[14px] border border-white/12 object-cover" />
+                <img loading="lazy" decoding="async" src={slide.src} alt={slide.alt} className="h-full w-full rounded-[14px] border border-white/12 object-cover" />
               ) : (
                 <div className="flex h-full flex-col items-center justify-center rounded-[14px] border border-dashed border-amber/35 bg-[radial-gradient(circle_at_center,#2f5a8c,#0f2138)] px-6 text-center">
                   <p className="text-[40px] text-amber">★</p>

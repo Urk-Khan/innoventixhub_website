@@ -112,9 +112,11 @@ export default function AboutPage() {
         <div className="wrap grid items-center gap-12 lg:grid-cols-[540px_minmax(0,1fr)]">
           <div className="mx-auto w-full max-w-[480px]">
             <div className="relative h-[540px]">
-              <img src="/assets/amberglow-84f416af.svg" alt="" className="pointer-events-none absolute -left-10 top-0 w-[130%] max-w-none" />
+              <img loading="lazy" decoding="async" src="/assets/amberglow-84f416af.svg" alt="" className="pointer-events-none absolute -left-10 top-0 w-[130%] max-w-none" />
               <div className="arch absolute inset-x-2 bottom-0 top-4" />
               <img
+                loading="lazy"
+                decoding="async"
                 src="/assets/ubaidcutoutbgremoved-4d5d3691.png"
                 alt="Ubaid ur Rehman Khan"
                 width={460}
@@ -151,7 +153,7 @@ export default function AboutPage() {
               <li key={member.name} className="glass overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
                 <div className="relative h-[260px] bg-[radial-gradient(circle_at_center,#2f5a8c_0%,#1e3a5f_60%,#132a45_100%)] sm:h-[300px] lg:h-[326px]">
                   {member.image ? (
-                    <img src={member.image} alt={member.imageAlt || member.name} className="h-full w-full object-cover object-top" />
+                    <img loading="lazy" decoding="async" src={member.image} alt={member.imageAlt || member.name} className="h-full w-full object-cover object-top" />
                   ) : (
                     <div className="grid h-full place-items-center">
                       <div className="grid size-[196px] place-items-center rounded-full bg-[conic-gradient(from_180deg,#ffb547,#3e63dd,#30a46c,#8e4ec6,#e5484d,#ffb547)] p-[6px]">
