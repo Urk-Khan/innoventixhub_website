@@ -33,6 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={lato.variable}>
+      <head>
+        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+      </head>
       <body className="min-h-screen font-sans antialiased">
         <JsonLd data={graph(organizationSchema())} />
         <SmoothScroll />

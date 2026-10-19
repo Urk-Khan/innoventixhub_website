@@ -1,6 +1,7 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import { HomeShorts } from "@/components/VideoGallery";
+import { UgcSlider } from "@/components/VideoGallery";
+import { playableIndex, playableUgc } from "@/content/videos";
 import { CommandCenter } from "@/components/visuals";
 import { BookButton, CtaBand, FaqSection, LogoMarquee, Testimonials, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
@@ -89,7 +90,7 @@ export default function HomePage() {
           <p className="pill">AI UGC ads</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px]">See the ads.</h2>
           <p className="mx-auto mt-4 max-w-xl text-pearl/80">Scroll-stopping AI UGC built for TikTok, Reels and Shorts. Hover a card to play.</p>
-          <HomeShorts />
+          <UgcSlider videos={playableUgc} label="See the ads" startIndex={playableIndex("OvS8cCPnmIs")} />
           <Link href="/services/content-creation#work" className="mt-6 inline-flex text-sm font-bold text-amber">See all samples →</Link>
         </div>
       </section>
