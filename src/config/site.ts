@@ -19,6 +19,8 @@ export const site = {
   chatbotEmbedHtml: "",
   /** "Live ads we created" on Content Creation. Off until approved. */
   showLiveAds: false,
+  /** Long-form section on Content Creation. Off until long-form clips exist. */
+  showLongForm: false,
   /** Meta library IDs that must never render, even if the flag is on. */
   excludedAdLibraryIds: ["1148602907724747"],
 } as const;

@@ -59,17 +59,32 @@ export default function MotionLayer() {
     const ctx = gsap.context(() => {
       document.querySelectorAll<HTMLElement>("[data-words]").forEach((heading) => {
         if (heading.dataset.split === "1") return;
-        const text = heading.textContent || "";
+        // Split text nodes into word spans; keep <br> and inline elements (e.g. accent spans) intact.
+        const wrap = (node: Node, into: HTMLElement) => {
+          node.childNodes.forEach((child) => {
+            if (child.nodeType === Node.TEXT_NODE) {
+              (child.textContent || "").split(/(\s+)/).forEach((part) => {
+                if (!part) return;
+                const span = document.createElement("span");
+                span.textContent = part;
+                if (part.trim()) {
+                  span.style.display = "inline-block";
+                  span.className = "word";
+                }
+                into.appendChild(span);
+              });
+            } else if (child.nodeName === "BR") {
+              into.appendChild(child.cloneNode());
+            } else if (child instanceof HTMLElement) {
+              const copy = child.cloneNode(false) as HTMLElement;
+              wrap(child, copy);
+              into.appendChild(copy);
+            }
+          });
+        };
+        const source = heading.cloneNode(true) as HTMLElement;
         heading.textContent = "";
-        text.split(/(\s+)/).forEach((part) => {
-          const span = document.createElement("span");
-          span.textContent = part;
-          if (part.trim()) {
-            span.style.display = "inline-block";
-            span.className = "word";
-          }
-          heading.appendChild(span);
-        });
+        wrap(source, heading);
         heading.dataset.split = "1";
         gsap.from(heading.querySelectorAll(".word"), {
           y: 24,

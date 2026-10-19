@@ -3,6 +3,7 @@ import Link from "next/link";
 import { clientLogos, site } from "@/config/site";
 import { testimonials } from "@/content/testimonials";
 import { CtaGlow } from "@/components/visuals";
+import CaseSlider from "@/components/CaseSlider";
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
@@ -294,22 +295,7 @@ export function CaseRail({ eyebrow, title, copy, tags }: { eyebrow: string; titl
       <div className="wrap">
         <SectionIntro eyebrow={eyebrow} title={title} copy={copy} />
       </div>
-      <ul className="mx-auto mt-10 flex max-w-[1440px] gap-5 overflow-x-auto px-5 pb-4 lg:px-[120px]">
-        {tags.map((tag) => (
-          <li key={tag} className="glass glass-card w-[340px] shrink-0 overflow-hidden rounded-[22px] text-left">
-            <div className="relative grid h-44 place-items-center border-b border-white/10 bg-[#0f2138] text-xs text-mist">
-              <span className="absolute left-4 top-4 rounded-full bg-amber px-2.5 py-1 text-[11px] font-bold text-navy">SAMPLE</span>
-              {tag} screenshot
-            </div>
-            <div className="p-5">
-              <h3 className="text-2xl font-bold text-white">[STAT HEADLINE from screenshot]</h3>
-              <p className="mt-2 text-sm leading-6 text-pearl/80">[What we did, 1–2 lines]</p>
-              <p className="mt-4 inline-block rounded-full border border-amber/40 bg-amber/10 px-3 py-1 text-xs font-bold text-amber">{tag}</p>
-              <a href={site.calendlyUrl} className="mt-4 block text-sm font-bold text-amber">Book A Free Consultation →</a>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <CaseSlider tags={tags} />
     </section>
   );
 }

@@ -79,7 +79,7 @@ export default function ContentPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
             <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
-            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
+            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <BookButton />
@@ -99,7 +99,7 @@ export default function ContentPage() {
         items={[
           { icon: "▶", title: "AI UGC Ads", badge: "Main focus", body: "AI creators, scripts and hooks built to win on paid social. 8–10 ads a month with 3 hooks each.", href: "#ai-ugc", link: "See AI UGC" },
           { icon: "✂", title: "Short-Form Editing", body: "Reels, TikToks and Shorts edited for retention: hooks, captions, pacing and sound.", href: "#short-form", link: "See short-form" },
-          { icon: "Film", title: "Long-Form Editing", body: "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips.", href: "#long-form", link: "See long-form" },
+          { icon: "Film", title: "Long-Form Editing", body: "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips." },
         ]}
       />
       <CardGrid
@@ -145,6 +145,7 @@ export default function ContentPage() {
           <div className="min-w-0"><UgcSlider videos={playableUgc} label="Short-form samples" startIndex={playableIndex("xWf4itxXMDI")} /></div>
         </div>
       </section>
+      {site.showLongForm ? (
       <section id="long-form" className="section scroll-mt-28 bg-navy-deep">
         <div className="wrap grid items-center gap-10 lg:grid-cols-2">
           <div>
@@ -170,6 +171,7 @@ export default function ContentPage() {
           </div>
         </div>
       </section>
+      ) : null}
       <CaseRail eyebrow="Results" title="Results > Promises" copy="Real numbers from brands we've worked with, across UGC, short-form and long-form." tags={["AI UGC", "Short-form", "Long-form"]} />
       <Comparison
         title="See the difference"
