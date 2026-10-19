@@ -14,7 +14,7 @@ function collectRevealTargets(section: HTMLElement) {
   }
   const all = Array.from(section.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
   const clean = all.filter((el) => {
-    if (el.closest("[data-orbit], [data-pin], [data-no-reveal], [data-bento], .marquee")) return false;
+    if (el.closest("[data-orbit], [data-pin], [data-no-reveal], [data-bento], [data-slider], .marquee")) return false;
     if (el.classList.contains("glow-copper") || el.classList.contains("glow-gold") || el.classList.contains("arch")) return false;
     const cls = typeof el.className === "string" ? el.className : "";
     if (cls.includes("translate-")) return false;
@@ -248,10 +248,20 @@ export default function MotionLayer() {
     }, { threshold: 0.35 });
     loops.forEach((node) => observer.observe(node));
 
+    let timer: number | undefined;
     const refresh = () => ScrollTrigger.refresh();
+    const refreshSoon = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(refresh, 150);
+    };
     window.addEventListener("load", refresh);
+    // Late-loading images (sliders, logos) change layout; re-measure triggers.
+    document.addEventListener("load", refreshSoon, true);
+    document.fonts?.ready.then(refreshSoon);
     return () => {
+      window.clearTimeout(timer);
       window.removeEventListener("load", refresh);
+      document.removeEventListener("load", refreshSoon, true);
       observer.disconnect();
       ctx.revert();
     };

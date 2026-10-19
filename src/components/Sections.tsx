@@ -1,15 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { site } from "@/config/site";
+import { clientLogos, site } from "@/config/site";
 import { testimonials } from "@/content/testimonials";
 import { CtaGlow } from "@/components/visuals";
-
-const brandLogos = [
-  { name: "Climb", src: "/assets/logoclimbwhitemono-c71c6c53.png", width: 113, height: 30 },
-  { name: "Persist Brands", src: "/assets/logopersistbrandswhitemono-467bd0e5.png", width: 141, height: 42 },
-  { name: "Image2work", src: "/assets/logoimage2workwhitemono-e3743e74.png", width: 131, height: 30 },
-  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
-];
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
@@ -53,23 +46,27 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
 }
 
 export function LogoMarquee({ label = "Brands we've worked with" }: { label?: string }) {
-  const logos = [...brandLogos, ...brandLogos];
+  const logos = [...clientLogos, ...clientLogos];
   return (
-    <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label}>
+    <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label} data-no-reveal>
       <p className="mb-6 text-center text-xs font-semibold tracking-[1.92px] text-mist uppercase">{label}</p>
       <div className="marquee w-full min-w-0 overflow-hidden">
-        <div className="marquee-track px-8">
-          {logos.map((logo, index) => (
-            <img
-              key={`${logo.name}-${index}`}
-              src={logo.src}
-              alt={index < brandLogos.length ? logo.name : ""}
-              width={logo.width}
-              height={logo.height}
-              className="h-8 w-auto opacity-70 md:h-10"
-            />
-          ))}
-        </div>
+        <ul className="marquee-track">
+          {logos.map((logo, index) => {
+            const dupe = index >= clientLogos.length;
+            return (
+              <li
+                key={`${logo.slug}-${index}`}
+                className="client-logo"
+                style={{ width: logo.width, height: logo.height }}
+                aria-hidden={dupe || undefined}
+              >
+                <img src={logo.src} alt={dupe ? "" : logo.name} width={logo.width} height={logo.height} />
+                {logo.hoverColor ? <img className="client-logo-color" src={logo.colorSrc} alt="" width={logo.width} height={logo.height} /> : null}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

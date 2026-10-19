@@ -24,13 +24,17 @@ export const site = {
 } as const;
 
 export const clientLogos = [
-  { name: "Persist Brands", src: "/logos/clients/persist-brands-white.png", width: 476, height: 142 },
-  { name: "Image2work", src: "/logos/clients/image2work-white.png", width: 435, height: 100 },
-  { name: "Pete's Builders", src: "/logos/clients/petes-builders-white.png", width: 491, height: 240 },
+  { name: "Climb", slug: "climb", src: "/logos/clients/climb-white@2x.webp", colorSrc: "/logos/clients/climb-color@2x.webp", width: 155, height: 40, hoverColor: false },
+  { name: "Klensia", slug: "klensia", src: "/logos/clients/klensia-white@2x.webp", colorSrc: "/logos/clients/klensia-color@2x.webp", width: 173, height: 36, hoverColor: false },
+  { name: "Pete's Builders", slug: "petes-builders", src: "/logos/clients/petes-builders-white@2x.webp", colorSrc: "/logos/clients/petes-builders-color@2x.webp", width: 99, height: 48, hoverColor: true },
+  { name: "Image2Work", slug: "image2work", src: "/logos/clients/image2work-white@2x.webp", colorSrc: "/logos/clients/image2work-color@2x.webp", width: 165, height: 38, hoverColor: false },
+  { name: "Broomstick Creative", slug: "broomstick-creative", src: "/logos/clients/broomstick-creative-white@2x.webp", colorSrc: "/logos/clients/broomstick-creative-color@2x.webp", width: 180, height: 24, hoverColor: false },
+  { name: "13 Media LTD", slug: "13-media", src: "/logos/clients/13-media-white@2x.webp", colorSrc: "/logos/clients/13-media-color@2x.webp", width: 48, height: 48, hoverColor: true },
 ] as const;
 
 export type NavChild = { label: string; href: string };
 
+/** Header and footer render label + blurb only (no sub-items); `children` feeds the /services index. */
 export const serviceNav: { label: string; href: string; blurb: string; children: NavChild[] }[] = [
   {
     label: "Content Creation",
