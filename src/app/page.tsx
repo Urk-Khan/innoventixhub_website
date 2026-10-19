@@ -140,18 +140,20 @@ export default function HomePage() {
           <p className="pill">Our process</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">From idea to revenue in four steps.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
-          <ol className="relative mt-16 grid gap-10 md:grid-cols-4">
+          <ol className="relative mt-10 grid gap-6 md:mt-16 md:grid-cols-4 md:gap-10">
             <svg data-line className="pointer-events-none absolute left-[12%] right-[12%] top-[11px] hidden h-[2px] w-[76%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 1 H100" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
               <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
             </svg>
             {steps.map((step) => (
-              <li key={step.n} className="relative">
-                <span data-step-dot className="relative z-10 mx-auto grid size-6 place-items-center rounded-full border-2 border-white/25 bg-navy">
+              <li key={step.n} className="relative flex items-start gap-4 text-left md:block md:text-center">
+                <span data-step-dot className="relative z-10 grid shrink-0 md:mx-auto md:grid size-6 place-items-center rounded-full border-2 border-white/25 bg-navy">
                   <span className="size-2.5 rounded-full bg-white/40" />
                 </span>
-                <h3 className="mt-6 text-xl text-white">{step.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>
+                <div>
+                  <h3 className="text-xl text-white md:mt-6">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -165,10 +167,11 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
           <ul className="mt-12 grid gap-5 text-left md:grid-cols-2">
             {reasons.map((item) => (
-              <li key={item.title} data-bento-card className="glass flex min-h-[300px] flex-col justify-end rounded-[28px] p-8 md:min-h-[340px]">
-                <ReasonVisual kind={item.visual} label={item.kicker} />
-                <h3 className="mt-6 text-2xl text-white">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-7 text-pearl/80">{item.body}</p>
+              <li key={item.title} data-bento-card className="glass flex flex-col justify-end rounded-2xl p-5 md:min-h-[340px] md:rounded-[28px] md:p-8">
+                {/* Figma mobile shows compact title + blurb rows; the in-card visual is desktop/tablet only. */}
+                <div className="hidden md:block"><ReasonVisual kind={item.visual} label={item.kicker} /></div>
+                <h3 className="text-[22px] text-white md:mt-6 md:text-2xl">{item.title}</h3>
+                <p className="mt-2 text-[14px] leading-[21px] text-pearl/80 md:text-[15px] md:leading-7">{item.body}</p>
               </li>
             ))}
           </ul>

@@ -84,7 +84,7 @@ export function StoryCarousel() {
     <div
       ref={root}
       data-loop
-      className="glass relative h-[460px] overflow-hidden rounded-[22px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+      className="glass relative h-[420px] overflow-hidden rounded-[22px] sm:h-[460px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}
       onTouchStart={(event) => { startX.current = event.touches[0]?.clientX ?? 0; paused.current = true; }}
@@ -95,7 +95,7 @@ export function StoryCarousel() {
       }}
     >
       <p className="absolute left-5 top-4 z-10 text-[12px] font-bold tracking-wide text-amber">ACHIEVEMENTS</p>
-      <div className="absolute inset-x-[19px] top-[43px] h-[350px] overflow-hidden rounded-[14px]">
+      <div className="absolute inset-x-[19px] top-[43px] h-[310px] sm:h-[350px] overflow-hidden rounded-[14px]">
         <div className="flex h-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${index * 100}%)` }}>
           {slides.map((slide) => (
             <div key={slide.kind === "photo" ? slide.src : slide.title} className="h-full w-full shrink-0">
@@ -113,7 +113,7 @@ export function StoryCarousel() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-[37px] left-1/2 flex -translate-x-1/2 gap-3">
+      <div className="absolute bottom-[30px] left-1/2 sm:bottom-[37px] flex -translate-x-1/2 gap-3">
         {slides.map((slide, dot) => (
           <button
             key={slide.kind === "photo" ? slide.src : slide.title}

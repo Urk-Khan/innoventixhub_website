@@ -111,7 +111,7 @@ export function CtaBand({
     <section className="section overflow-hidden pt-8">
       <div className="wrap min-w-0">
         <CtaGlow>
-          <h2 className="text-4xl text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
+          <h2 className="text-[32px] leading-[1.1] text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-mist">{copy}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {primary === "book" ? <BookButton /> : null}
