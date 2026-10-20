@@ -13,6 +13,7 @@ const paths = [
   "/about",
   "/contact",
   "/work",
+  "/blog",
   "/privacy",
   "/terms",
   ...allWork.map((item) => `/work/${item.slug}`),

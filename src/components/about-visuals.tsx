@@ -21,8 +21,8 @@ export function ServiceNetwork() {
             backgroundImage: "linear-gradient(153deg, #1a3657 0%, #0f2138 71%)",
           }}
         >
-          <img src="/assets/dottedgrid-efb2d737.svg" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70" />
-          <img src="/assets/orbitring-79de6d1b.png" alt="" className="pointer-events-none absolute left-[340px] top-[65px] size-[418px] object-contain" />
+          <img loading="lazy" decoding="async" src="/assets/dottedgrid-efb2d737.svg" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70" />
+          <img loading="lazy" decoding="async" src="/assets/orbitring-79de6d1b.png" alt="" className="pointer-events-none absolute left-[340px] top-[65px] size-[418px] object-contain" />
           <div className="orbit-core absolute left-[459px] top-[240px] grid h-[68px] w-[180px] place-items-center rounded-[18px] border border-amber/70 glass text-[16px] font-bold text-white">
             Innoventix Hub
           </div>
@@ -84,7 +84,7 @@ export function StoryCarousel() {
     <div
       ref={root}
       data-loop
-      className="glass relative h-[460px] overflow-hidden rounded-[22px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+      className="glass relative h-[420px] overflow-hidden rounded-[22px] sm:h-[460px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}
       onTouchStart={(event) => { startX.current = event.touches[0]?.clientX ?? 0; paused.current = true; }}
@@ -95,12 +95,12 @@ export function StoryCarousel() {
       }}
     >
       <p className="absolute left-5 top-4 z-10 text-[12px] font-bold tracking-wide text-amber">ACHIEVEMENTS</p>
-      <div className="absolute inset-x-[19px] top-[43px] h-[350px] overflow-hidden rounded-[14px]">
+      <div className="absolute inset-x-[19px] top-[43px] h-[310px] sm:h-[350px] overflow-hidden rounded-[14px]">
         <div className="flex h-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${index * 100}%)` }}>
           {slides.map((slide) => (
             <div key={slide.kind === "photo" ? slide.src : slide.title} className="h-full w-full shrink-0">
               {slide.kind === "photo" ? (
-                <img src={slide.src} alt={slide.alt} className="h-full w-full rounded-[14px] border border-white/12 object-cover" />
+                <img loading="lazy" decoding="async" src={slide.src} alt={slide.alt} className="h-full w-full rounded-[14px] border border-white/12 object-cover" />
               ) : (
                 <div className="flex h-full flex-col items-center justify-center rounded-[14px] border border-dashed border-amber/35 bg-[radial-gradient(circle_at_center,#2f5a8c,#0f2138)] px-6 text-center">
                   <p className="text-[40px] text-amber">★</p>
@@ -113,7 +113,7 @@ export function StoryCarousel() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-[37px] left-1/2 flex -translate-x-1/2 gap-3">
+      <div className="absolute bottom-[30px] left-1/2 sm:bottom-[37px] flex -translate-x-1/2 gap-3">
         {slides.map((slide, dot) => (
           <button
             key={slide.kind === "photo" ? slide.src : slide.title}

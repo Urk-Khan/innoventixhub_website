@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 
+// Poster intrinsic sizes; width/height attrs reserve space so the swap never shifts layout.
 const files = {
-  horizontal: "logo-horizontal",
-  icon: "logo-icon",
-  square: "logo-square",
+  horizontal: { file: "logo-horizontal", width: 480, height: 182 },
+  icon: { file: "logo-icon", width: 200, height: 200 },
+  square: { file: "logo-square", width: 220, height: 220 },
 } as const;
 
 export default function BrandLogo({
@@ -25,11 +26,13 @@ export default function BrandLogo({
     return () => window.removeEventListener("load", start);
   }, []);
 
-  const file = files[variant];
+  const { file, width, height } = files[variant];
   return (
     <img
       src={live ? `/brand/motion/${file}.webp` : `/brand/motion/${file}-poster.webp`}
       alt={variant === "icon" ? "" : "Innoventix Hub"}
+      width={width}
+      height={height}
       className={className}
     />
   );

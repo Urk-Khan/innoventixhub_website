@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,7 +15,7 @@ function collectRevealTargets(section: HTMLElement) {
   }
   const all = Array.from(section.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
   const clean = all.filter((el) => {
-    if (el.closest("[data-orbit], [data-pin], [data-no-reveal], [data-bento], .marquee")) return false;
+    if (el.closest("[data-orbit], [data-pin], [data-no-reveal], [data-bento], [data-slider], .marquee")) return false;
     if (el.classList.contains("glow-copper") || el.classList.contains("glow-gold") || el.classList.contains("arch")) return false;
     const cls = typeof el.className === "string" ? el.className : "";
     if (cls.includes("translate-")) return false;
@@ -43,6 +44,7 @@ function applyPin(section: HTMLElement, progress: number) {
 }
 
 export default function MotionLayer() {
+  const pathname = usePathname();
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
@@ -59,17 +61,32 @@ export default function MotionLayer() {
     const ctx = gsap.context(() => {
       document.querySelectorAll<HTMLElement>("[data-words]").forEach((heading) => {
         if (heading.dataset.split === "1") return;
-        const text = heading.textContent || "";
+        // Split text nodes into word spans; keep <br> and inline elements (e.g. accent spans) intact.
+        const wrap = (node: Node, into: HTMLElement) => {
+          node.childNodes.forEach((child) => {
+            if (child.nodeType === Node.TEXT_NODE) {
+              (child.textContent || "").split(/(\s+)/).forEach((part) => {
+                if (!part) return;
+                const span = document.createElement("span");
+                span.textContent = part;
+                if (part.trim()) {
+                  span.style.display = "inline-block";
+                  span.className = "word";
+                }
+                into.appendChild(span);
+              });
+            } else if (child.nodeName === "BR") {
+              into.appendChild(child.cloneNode());
+            } else if (child instanceof HTMLElement) {
+              const copy = child.cloneNode(false) as HTMLElement;
+              wrap(child, copy);
+              into.appendChild(copy);
+            }
+          });
+        };
+        const source = heading.cloneNode(true) as HTMLElement;
         heading.textContent = "";
-        text.split(/(\s+)/).forEach((part) => {
-          const span = document.createElement("span");
-          span.textContent = part;
-          if (part.trim()) {
-            span.style.display = "inline-block";
-            span.className = "word";
-          }
-          heading.appendChild(span);
-        });
+        wrap(source, heading);
         heading.dataset.split = "1";
         gsap.from(heading.querySelectorAll(".word"), {
           y: 24,
@@ -233,7 +250,8 @@ export default function MotionLayer() {
           trigger: section,
           pin: target,
           start: "top top",
-          end: () => (window.innerWidth < 1024 ? "+=50vh" : "+=150vh"),
+          // ScrollTrigger has no vh unit ("+=150vh" would be read as 150px), so convert to px.
+          end: () => `+=${Math.round(window.innerHeight * (window.innerWidth < 1024 ? 0.5 : 1.5))}`,
           scrub: true,
           invalidateOnRefresh: true,
           anticipatePin: 1,
@@ -248,14 +266,24 @@ export default function MotionLayer() {
     }, { threshold: 0.35 });
     loops.forEach((node) => observer.observe(node));
 
+    let timer: number | undefined;
     const refresh = () => ScrollTrigger.refresh();
+    const refreshSoon = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(refresh, 150);
+    };
     window.addEventListener("load", refresh);
+    // Late-loading images (sliders, logos) change layout; re-measure triggers.
+    document.addEventListener("load", refreshSoon, true);
+    document.fonts?.ready.then(refreshSoon);
     return () => {
+      window.clearTimeout(timer);
       window.removeEventListener("load", refresh);
+      document.removeEventListener("load", refreshSoon, true);
       observer.disconnect();
       ctx.revert();
     };
-  }, []);
+  }, [pathname]); // layout persists across soft navigations: re-init for each page
 
   return null;
 }

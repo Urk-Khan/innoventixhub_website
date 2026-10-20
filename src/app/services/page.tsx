@@ -31,7 +31,7 @@ export default function ServicesPage() {
       />
       <div className="wrap">
         <p className="text-sm text-mist/70">Home / Services</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-black md:text-6xl">AI growth services for D2C brands and SMBs.</h1>
+        <h1 data-words className="mt-4 max-w-3xl text-4xl font-black md:text-6xl">AI growth services for D2C brands and SMBs.</h1>
         <p className="mt-4 max-w-2xl text-lg text-cream/80">
           Five connected AI services: content, automation, voice agents, web development and SEO. See what we build and how it drives revenue.
         </p>

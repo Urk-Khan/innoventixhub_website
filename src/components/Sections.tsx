@@ -1,15 +1,9 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { site } from "@/config/site";
+import { clientLogos, site } from "@/config/site";
 import { testimonials } from "@/content/testimonials";
 import { CtaGlow } from "@/components/visuals";
-
-const brandLogos = [
-  { name: "Climb", src: "/assets/logoclimbwhitemono-c71c6c53.png", width: 113, height: 30 },
-  { name: "Persist Brands", src: "/assets/logopersistbrandswhitemono-467bd0e5.png", width: 141, height: 42 },
-  { name: "Image2work", src: "/assets/logoimage2workwhitemono-e3743e74.png", width: 131, height: 30 },
-  { name: "B", src: "/assets/logobwhitemono-d6509b3c.png", width: 32, height: 48 },
-];
+import CaseSlider from "@/components/CaseSlider";
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}</p>;
@@ -39,7 +33,7 @@ export function WhatsAppButton({ children = "WhatsApp us" }: { children?: React.
 
 export function Breadcrumbs({ items }: { items: { name: string; href?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-mist/80">
+    <nav aria-label="Breadcrumb" className="text-sm text-mist">
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => (
           <li key={item.name} className="flex items-center gap-2">
@@ -53,23 +47,27 @@ export function Breadcrumbs({ items }: { items: { name: string; href?: string }[
 }
 
 export function LogoMarquee({ label = "Brands we've worked with" }: { label?: string }) {
-  const logos = [...brandLogos, ...brandLogos];
+  const logos = [...clientLogos, ...clientLogos];
   return (
-    <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label}>
+    <section className="overflow-hidden border-y border-white/[0.06] bg-navy pb-16 pt-12" aria-label={label} data-no-reveal>
       <p className="mb-6 text-center text-xs font-semibold tracking-[1.92px] text-mist uppercase">{label}</p>
       <div className="marquee w-full min-w-0 overflow-hidden">
-        <div className="marquee-track px-8">
-          {logos.map((logo, index) => (
-            <img
-              key={`${logo.name}-${index}`}
-              src={logo.src}
-              alt={index < brandLogos.length ? logo.name : ""}
-              width={logo.width}
-              height={logo.height}
-              className="h-8 w-auto opacity-70 md:h-10"
-            />
-          ))}
-        </div>
+        <ul className="marquee-track">
+          {logos.map((logo, index) => {
+            const dupe = index >= clientLogos.length;
+            return (
+              <li
+                key={`${logo.slug}-${index}`}
+                className="client-logo"
+                style={{ width: logo.width, height: logo.height }}
+                aria-hidden={dupe || undefined}
+              >
+                <img src={logo.src} alt={dupe ? "" : logo.name} width={logo.width} height={logo.height} />
+                {logo.hoverColor ? <img className="client-logo-color" src={logo.colorSrc} alt="" width={logo.width} height={logo.height} /> : null}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
@@ -113,7 +111,7 @@ export function CtaBand({
     <section className="section overflow-hidden pt-8">
       <div className="wrap min-w-0">
         <CtaGlow>
-          <h2 className="text-4xl text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
+          <h2 className="text-[32px] leading-[1.1] text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-mist">{copy}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {primary === "book" ? <BookButton /> : null}
@@ -297,22 +295,7 @@ export function CaseRail({ eyebrow, title, copy, tags }: { eyebrow: string; titl
       <div className="wrap">
         <SectionIntro eyebrow={eyebrow} title={title} copy={copy} />
       </div>
-      <ul className="mx-auto mt-10 flex max-w-[1440px] gap-5 overflow-x-auto px-5 pb-4 lg:px-[120px]">
-        {tags.map((tag) => (
-          <li key={tag} className="glass glass-card w-[340px] shrink-0 overflow-hidden rounded-[22px] text-left">
-            <div className="relative grid h-44 place-items-center border-b border-white/10 bg-[#0f2138] text-xs text-mist">
-              <span className="absolute left-4 top-4 rounded-full bg-amber px-2.5 py-1 text-[11px] font-bold text-navy">SAMPLE</span>
-              {tag} screenshot
-            </div>
-            <div className="p-5">
-              <h3 className="text-2xl font-bold text-white">[STAT HEADLINE from screenshot]</h3>
-              <p className="mt-2 text-sm leading-6 text-pearl/80">[What we did, 1–2 lines]</p>
-              <p className="mt-4 inline-block rounded-full border border-amber/40 bg-amber/10 px-3 py-1 text-xs font-bold text-amber">{tag}</p>
-              <a href={site.calendlyUrl} className="mt-4 block text-sm font-bold text-amber">Book A Free Consultation →</a>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <CaseSlider tags={tags} />
     </section>
   );
 }

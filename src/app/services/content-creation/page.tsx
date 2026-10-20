@@ -1,10 +1,10 @@
 import JsonLd from "@/components/JsonLd";
 import LiveAds from "@/components/LiveAds";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import { UgcSlider, WorkGallery } from "@/components/VideoGallery";
+import { UgcSlider } from "@/components/VideoGallery";
 import { BookButton, Breadcrumbs, CardGrid, CaseRail, Comparison, CtaBand, FaqSection, LogoMarquee, OfferGrid, SectionIntro, Testimonials, ToolGrid, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
-import { contentFanSlides, ugcVideos, videoEmbedUrl, videoPoster } from "@/content/videos";
+import { embedUrl, playableIndex, playableUgc } from "@/content/videos";
 import { pageMeta } from "@/lib/seo";
 import { breadcrumbSchema, faqSchema, graph, serviceSchema, videoSchema } from "@/lib/schema";
 
@@ -64,11 +64,11 @@ export default function ContentPage() {
           }),
           faqSchema(faqs),
           videoSchema(
-            ugcVideos.filter((video) => video.available).map((video) => ({
+            playableUgc.map((video) => ({
               id: video.id,
               name: "AI UGC sample",
-              thumbnail: videoPoster(video.id),
-              embed: videoEmbedUrl(video.id),
+              thumbnail: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+              embed: embedUrl(video.id, true).split("?")[0],
             })),
           ),
         )}
@@ -79,7 +79,7 @@ export default function ContentPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((item) => ({ name: item.name, href: item.path }))} />
             <p className="eyebrow mt-6">Content creation · AI UGC · Short-form · Long-form</p>
-            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
+            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">Stop Guessing. Start Converting.<br />AI UGC Ads and Video That Sell.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Scroll-stopping AI UGC ads, plus short- and long-form editing for D2C brands on TikTok, Meta and YouTube. More hooks, faster output, one content team.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <BookButton />
@@ -87,7 +87,7 @@ export default function ContentPage() {
             </div>
             <p className="mt-5 text-[13px] text-mist">Home / Services / Content Creation · 20+ live samples below</p>
           </div>
-          <UgcSlider slides={contentFanSlides} label="AI UGC sample ads" />
+          <UgcSlider videos={playableUgc} label="AI UGC sample ads" startIndex={playableIndex("3-PuCBGkI_I")} />
           <p className="mx-auto mt-6 w-fit rounded-full bg-amber px-3.5 py-2 text-[13px] font-bold text-navy">● Featured sample · tap to watch</p>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default function ContentPage() {
         items={[
           { icon: "▶", title: "AI UGC Ads", badge: "Main focus", body: "AI creators, scripts and hooks built to win on paid social. 8–10 ads a month with 3 hooks each.", href: "#ai-ugc", link: "See AI UGC" },
           { icon: "✂", title: "Short-Form Editing", body: "Reels, TikToks and Shorts edited for retention: hooks, captions, pacing and sound.", href: "#short-form", link: "See short-form" },
-          { icon: "Film", title: "Long-Form Editing", body: "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips.", href: "#long-form", link: "See long-form" },
+          { icon: "Film", title: "Long-Form Editing", body: "YouTube videos, podcasts, tutorials and interviews with story, pacing and polish, repurposed into clips." },
         ]}
       />
       <CardGrid
@@ -129,7 +129,7 @@ export default function ContentPage() {
       <section id="work" className="section scroll-mt-28 bg-navy-deep">
         <div className="wrap">
           <SectionIntro eyebrow="Our work" title="Real AI UGC ads we've made" copy="Tap any video to watch." />
-          <WorkGallery />
+          <UgcSlider videos={playableUgc} label="Real AI UGC ads we've made" filterable />
         </div>
       </section>
       <section id="short-form" className="section scroll-mt-28">
@@ -142,16 +142,10 @@ export default function ContentPage() {
             <p className="mt-4 text-sm text-mist">Formats: 9:16, 1:1 and 4:5. Delivered on a weekly schedule agreed on the call.</p>
             <div className="mt-6"><BookButton /></div>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2">
-            {heroShorts.slice(0, 4).map((short) => (
-              <a key={short.src} href="#work" className="phone-frame relative block aspect-[9/16] overflow-hidden">
-                <img src={short.src} alt="" className="h-full w-full object-cover" />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0b1a2e] to-transparent p-3 text-xs font-bold">Sample edit</span>
-              </a>
-            ))}
-          </div>
+          <div className="min-w-0"><UgcSlider videos={playableUgc} label="Short-form samples" startIndex={playableIndex("xWf4itxXMDI")} /></div>
         </div>
       </section>
+      {site.showLongForm ? (
       <section id="long-form" className="section scroll-mt-28 bg-navy-deep">
         <div className="wrap grid items-center gap-10 lg:grid-cols-2">
           <div>
@@ -177,6 +171,7 @@ export default function ContentPage() {
           </div>
         </div>
       </section>
+      ) : null}
       <CaseRail eyebrow="Results" title="Results > Promises" copy="Real numbers from brands we've worked with, across UGC, short-form and long-form." tags={["AI UGC", "Short-form", "Long-form"]} />
       <Comparison
         title="See the difference"

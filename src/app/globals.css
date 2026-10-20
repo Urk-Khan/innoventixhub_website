@@ -11,6 +11,14 @@
   --color-pearl: #f5f7fa;
   --color-mist: #a9bcd3;
   --color-mute: #a9bcd3;
+  --color-inset: #0f2138;
+  --color-text-2: #dce5ef;
+  --color-text-3: #7f93ad;
+  --color-text-4: #9aa8b8;
+  --color-success: #5bd49a;
+  --color-error: #e5787b;
+  --color-link: #7fa8d6;
+  --color-whatsapp: #25d366;
   --color-pillar-content: #e8a07a;
   --color-pillar-automation: #6ba3a0;
   --color-pillar-voice: #7a9ebf;
@@ -265,14 +273,48 @@ h1, h2, h3, .font-black {
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 4.5rem;
   width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   animation: marquee 40s linear infinite;
 }
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
+
+.client-logo {
+  position: relative;
+  flex: none;
+  margin-right: 48px;
+  opacity: 0.7;
+  transition: opacity 200ms ease;
+}
+
+@media (min-width: 768px) {
+  .client-logo { margin-right: 72px; }
+}
+
+.client-logo:hover { opacity: 1; }
+
+.client-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 200ms ease;
+}
+
+.client-logo .client-logo-color {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.client-logo:hover .client-logo-color { opacity: 1; }
+.client-logo:hover .client-logo-color + img,
+.client-logo:has(.client-logo-color):hover > img:first-child { opacity: 0; }
 
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -295,11 +337,11 @@ h1, h2, h3, .font-black {
 }
 
 .fab-in {
-  animation: fab-in 0.6s ease 1s both;
+  animation: fab-in 0.6s ease 1.5s both;
 }
 
 .fab-in-late {
-  animation: fab-in 0.6s ease 1.5s both;
+  animation: fab-in 0.6s ease 1s both;
 }
 
 @keyframes orbit {
@@ -435,6 +477,25 @@ details.faq .faq-body > div {
   overflow: hidden;
 }
 
+.tab-panel-in {
+  animation: tab-in 250ms ease-out both;
+}
+
+@keyframes tab-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ugc-card {
+  opacity: var(--o, 1);
+}
+
+@media (max-width: 639px) {
+  .ugc-card[data-far] {
+    opacity: 0 !important;
+  }
+}
+
 .phone-frame {
   border-radius: 28px;
   border: 3px solid rgba(255, 255, 255, 0.16);
@@ -445,6 +506,28 @@ details.faq .faq-body > div {
 
 .phone-frame:hover {
   transform: scale(1.04);
+}
+
+.arch-static {
+  animation: none !important;
+}
+
+.clock-hand {
+  transform-box: view-box;
+  transform-origin: 32px 32px;
+}
+
+[data-bento-card]:hover .clock-min {
+  animation: clock-tick 0.5s steps(6) forwards;
+}
+
+[data-bento-card]:hover .clock-hour {
+  animation: clock-tick 0.5s steps(2) 0.1s forwards;
+}
+
+@keyframes clock-tick {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(120deg); }
 }
 
 .arch {
@@ -515,6 +598,11 @@ details.faq .faq-body > div {
 
 [data-step-dot].is-on span { background: #ffb547; }
 
+.step-num.is-on {
+  background: #ffb547;
+  color: #1e3a5f;
+}
+
 .web-build .type-line {
   display: block;
   overflow: hidden;
@@ -571,7 +659,16 @@ details.faq .faq-body > div {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .marquee-track,
+  .marquee-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 48px;
+    padding-inline: 24px;
+  }
+  .marquee-track .client-logo { margin-right: 0; }
+  .marquee-track .client-logo[aria-hidden="true"] { display: none; }
   .orbit-spin,
   .wire-dash,
   .arch,

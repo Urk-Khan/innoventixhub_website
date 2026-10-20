@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { HomeShorts } from "@/components/VideoGallery";
+import { UgcSlider } from "@/components/VideoGallery";
+import { playableUgc } from "@/content/videos";
 import { automationCases, webCases } from "@/content/work";
 import { site } from "@/config/site";
 
@@ -23,12 +24,13 @@ export default function WorkBrowser() {
           </button>
         ))}
       </div>
+      <div key={filter} className="tab-panel-in">
       {showUgc ? (
         <section className="section text-center">
           <p className="pill">AI UGC & Content</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Ads that look native in the feed</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-mist">AI UGC ad · hook rate [x]% SAMPLE</p>
-          <HomeShorts />
+          <UgcSlider videos={playableUgc} label="AI UGC samples" />
         </section>
       ) : null}
       {showWeb ? (
@@ -93,6 +95,7 @@ export default function WorkBrowser() {
           <a href={site.calendlyUrl} className="btn-primary mt-6">Book A Free Consultation <span aria-hidden="true">→</span></a>
         </div>
       </section>
+      </div>
     </>
   );
 }

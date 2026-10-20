@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="relative z-10 px-5 py-28 text-center lg:pt-[200px]">
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <p className="eyebrow">Contact</p>
-            <h1 className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Let&apos;s Talk About What You&apos;re Building.</h1>
+            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Let&apos;s Talk About What You&apos;re Building.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Book a free consultation, send us a message, or call our AI agent right now. A real person replies to every enquiry within 1 business day.</p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 text-sm">{["Free consultation", "Reply within 1 business day", "US, UK & EU hours"].map((item) => <li key={item} className="pill plain">{item}</li>)}</ul>
           </div>
@@ -94,10 +94,13 @@ export default function ContactPage() {
           <p className="pill">Next</p>
           <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px]">What happens next</h2>
           <ol className="relative mt-12 grid gap-8 md:grid-cols-3">
-            <div className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-px bg-amber/50 md:block" aria-hidden="true" />
+            <svg data-line className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-[2px] w-[68%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 1 H100" stroke="rgba(255,181,71,0.25)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+            </svg>
             {["We read your message or join your call.", "We give honest advice and a clear next step.", "If it's a fit, you get a fixed written proposal. No obligation."].map((step, index) => (
               <li key={step} className="relative text-center">
-                <span className="relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy font-bold text-amber">{index + 1}</span>
+                <span data-step-dot className="step-num relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy font-bold text-amber">{index + 1}</span>
                 <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-pearl/85">{step}</p>
               </li>
             ))}

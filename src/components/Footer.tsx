@@ -7,8 +7,8 @@ import { serviceNav, site } from "@/config/site";
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-navy-soft">
-      <div className="wrap grid gap-10 pb-12 pt-16 md:grid-cols-[1.3fr_0.8fr_0.7fr_1fr] md:pt-20">
-        <div className="max-w-[340px]">
+      <div className="wrap grid grid-cols-2 gap-x-6 gap-y-8 pb-10 pt-12 md:grid-cols-[1.3fr_0.8fr_0.7fr_1fr] md:gap-10 md:pb-12 md:pt-20">
+        <div className="col-span-2 max-w-[340px] md:col-span-1">
           <BrandLogo variant="square" className="h-16 w-16 object-contain" />
           <p className="mt-4 font-display text-[28px] tracking-[-0.28px] text-white">Innoventix Hub</p>
           <p className="mt-4 text-[15px] leading-[1.55] text-mist">
@@ -31,7 +31,7 @@ export default function Footer() {
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
           </ul>
         </div>
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <p className="text-xs font-semibold tracking-[1.68px] text-mist">CONTACT</p>
           <ul className="mt-4 space-y-3.5 text-[15px] text-pearl">
             <li><a className="hover:text-white" href={`mailto:${site.emailGeneral}`}>{site.emailGeneral}</a></li>

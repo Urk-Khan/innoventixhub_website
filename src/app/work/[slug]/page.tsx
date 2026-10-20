@@ -39,7 +39,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <header className="hero-stage px-5 pb-12 pt-28 text-center lg:pt-[200px]">
         <p className="text-sm text-mist"><Link href="/">Home</Link> / <Link href="/work">Work</Link> / {item.group}</p>
         <p className="eyebrow mt-6">{item.group}</p>
-        <h1 className="mx-auto mt-6 max-w-4xl break-words text-4xl font-bold text-white [overflow-wrap:anywhere] md:text-[56px] md:leading-[1.05]">{item.title}</h1>
+        <h1 data-words className="mx-auto mt-6 max-w-4xl break-words text-4xl font-bold text-white [overflow-wrap:anywhere] md:text-[56px] md:leading-[1.05]">{item.title}</h1>
         <p className="mx-auto mt-5 max-w-2xl text-pearl/75">{item.summary}</p>
       </header>
       <article className="wrap max-w-4xl">
