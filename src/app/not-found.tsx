@@ -26,7 +26,7 @@ export default function NotFound() {
         <BrandLogo variant="square" className="mx-auto mb-6 h-24 w-24 object-contain" />
         <p className="relative text-6xl font-black text-amber">
           404
-          <span data-node-id="108:4610" aria-hidden="true" className="absolute -right-2 top-0 text-3xl text-amber-bright drop-shadow-[0_0_14px_rgba(255,181,71,0.9)]">⚡</span>
+          <span data-node-id="108:4610" aria-hidden="true" className="absolute -right-2 top-0 text-3xl text-amber-bright drop-shadow-[0_0_14px_rgba(93, 240, 168,0.9)]">⚡</span>
         </p>
         <h1 data-words className="mt-4 text-4xl font-black">This page took a wrong turn.</h1>
         <p className="mt-3 text-cream/80">The link might be old, or the page has moved. Here's where you can go instead.</p>

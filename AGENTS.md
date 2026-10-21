@@ -18,4 +18,4 @@ Next.js App Router site with Tailwind CSS v4, GSAP and Lenis.
 
 ## Styling
 
-Tailwind v4 is loaded from `src/app/globals.css`. Brand colors: navy `#1E3A5F`, amber `#FFB547`. Font: Lato via `next/font`.
+Tailwind v4 is loaded from `src/app/globals.css`. Deep-space theme: near-black navy `#04060f`, mint accent `#5df0a8`, fixed WebGL planet in `PlanetCanvas.tsx`. Font: Inter via `next/font`.

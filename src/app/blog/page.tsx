@@ -30,7 +30,7 @@ export default function BlogIndexPage() {
       <div className="wrap pb-4">
         {featured ? (
           <article className="glass glass-card overflow-hidden rounded-[24px] text-left lg:grid lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="grid min-h-56 place-items-end bg-[#0f2138] p-6">
+            <div className="grid min-h-56 place-items-end bg-[#080d1e] p-6">
               <span className="rounded-full bg-amber px-3 py-1 text-xs font-bold text-navy">{featured.category}</span>
             </div>
             <div className="p-6 md:p-8">
@@ -50,7 +50,7 @@ export default function BlogIndexPage() {
           <ul className="mt-6 grid gap-5 text-left md:grid-cols-3">
             {rest.map((post) => (
               <li key={post.slug} className="glass glass-card overflow-hidden rounded-[22px]">
-                <div className="grid h-28 place-items-center bg-[#0f2138] text-xs font-bold text-amber">{post.category}</div>
+                <div className="grid h-28 place-items-center bg-[#080d1e] text-xs font-bold text-amber">{post.category}</div>
                 <div className="p-5">
                   <h2 className="font-bold text-white"><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
                   <p className="mt-2 text-sm leading-6 text-pearl/75">{post.description}</p>

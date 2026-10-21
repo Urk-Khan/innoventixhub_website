@@ -35,7 +35,7 @@ function panel(line: string, includes: string[]) {
         <p className="mt-4 text-sm font-bold text-amber">2–4 weeks to launch</p>
         <a href={site.calendlyUrl} className="mt-3 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
       </div>
-      <div className="rounded-[24px] border border-white/10 bg-[#0f2138] p-4">
+      <div className="rounded-[24px] border border-white/10 bg-[#080d1e] p-4">
         <div className="mb-3 flex items-center gap-2 text-xs text-mist"><span className="pulse-dot inline-flex size-2 rounded-full bg-[#5bd49a]" /> Live call</div>
         <div className="flex h-10 items-end gap-1">
           {Array.from({ length: 13 }).map((_, index) => (
@@ -88,7 +88,7 @@ export default function VoicePage() {
           <div className="relative mx-auto mt-10 grid h-[280px] w-[280px] place-items-center" aria-hidden="true">
             <span className="absolute size-[220px] rounded-full border border-amber/30" />
             <span className="absolute size-[160px] rounded-full border border-amber/50" />
-            <span className="grid size-[96px] place-items-center rounded-full bg-amber text-[13px] font-bold text-navy shadow-[0_0_40px_rgba(255,181,71,0.55)]">Voice</span>
+            <span className="grid size-[96px] place-items-center rounded-full bg-amber text-[13px] font-bold text-navy shadow-[0_0_40px_rgba(93, 240, 168,0.55)]">Voice</span>
           </div>
         </div>
       </section>

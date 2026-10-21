@@ -20,7 +20,7 @@ export function GET(request: Request) {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", color: "#FFB547", fontSize: 28, letterSpacing: 4 }}>INNOVENTIX HUB</div>
+        <div style={{ display: "flex", color: "#5df0a8", fontSize: 28, letterSpacing: 4 }}>INNOVENTIX HUB</div>
         <div style={{ display: "flex", fontSize: 56, fontWeight: 700, lineHeight: 1.15, maxWidth: 980 }}>{title}</div>
         <div style={{ display: "flex", color: "#C9D2DE", fontSize: 24 }}>innoventixhub.tech</div>
       </div>

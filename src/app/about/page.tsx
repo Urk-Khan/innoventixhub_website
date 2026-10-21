@@ -29,7 +29,7 @@ const feelings = [
 ];
 
 const services = [
-  { mono: "UG", label: "Content Creation (UGC)", href: "/services/content-creation", color: "#ffb547" },
+  { mono: "UG", label: "Content Creation (UGC)", href: "/services/content-creation", color: "#5df0a8" },
   { mono: "Au", label: "AI Automation", href: "/services/ai-automation", color: "#3e63dd" },
   { mono: "Vo", label: "AI Voice Agents", href: "/services/ai-voice-agents", color: "#30a46c" },
   { mono: "We", label: "Web Development", href: "/services/web-development", color: "#8e4ec6" },
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 className="absolute bottom-0 left-1/2 z-10 h-[94%] w-auto max-w-[72%] -translate-x-1/2 object-contain object-bottom"
               />
             </div>
-            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#0c1c30] px-4 py-3 text-[13px] font-bold text-white">
+            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#070b1a] px-4 py-3 text-[13px] font-bold text-white">
               <span className="inline-block size-1.5 rounded-full bg-amber" />
               Ubaid ur Rehman Khan · Founder & CEO
             </p>
@@ -151,13 +151,13 @@ export default function AboutPage() {
           <ul className="mt-10 grid grid-cols-2 gap-3 text-left sm:gap-6 lg:grid-cols-3">
             {team.map((member) => (
               <li key={member.name} className="glass overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <div className="relative h-[168px] bg-[radial-gradient(circle_at_center,#2f5a8c_0%,#1e3a5f_60%,#132a45_100%)] sm:h-[300px] lg:h-[326px]">
+                <div className="relative h-[168px] bg-[radial-gradient(circle_at_center,#16254a_0%,#0c1430_60%,#060a18_100%)] sm:h-[300px] lg:h-[326px]">
                   {member.image ? (
                     <img loading="lazy" decoding="async" src={member.image} alt={member.imageAlt || member.name} className="h-full w-full object-cover object-top" />
                   ) : (
                     <div className="grid h-full place-items-center">
-                      <div className="grid size-[112px] place-items-center rounded-full bg-[conic-gradient(from_180deg,#ffb547,#3e63dd,#30a46c,#8e4ec6,#e5484d,#ffb547)] p-[4px] sm:size-[196px] sm:p-[6px]">
-                        <span className="grid h-full w-full place-items-center rounded-full bg-[#1a3657] text-[36px] font-bold text-white sm:text-[64px]">{member.initials}</span>
+                      <div className="grid size-[112px] place-items-center rounded-full bg-[conic-gradient(from_180deg,#5df0a8,#3e63dd,#30a46c,#8e4ec6,#e5484d,#5df0a8)] p-[4px] sm:size-[196px] sm:p-[6px]">
+                        <span className="grid h-full w-full place-items-center rounded-full bg-[#101a36] text-[36px] font-bold text-white sm:text-[64px]">{member.initials}</span>
                       </div>
                     </div>
                   )}

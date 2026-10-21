@@ -70,7 +70,7 @@ export default function WebPage() {
           </div>
           <div data-loop className="web-build glass mx-auto mt-12 max-w-[860px] overflow-hidden rounded-[24px] p-4 text-left">
             <div className="mb-3 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-white/30" /><span className="h-2.5 w-2.5 rounded-full bg-white/20" /><span className="h-2.5 w-2.5 rounded-full bg-amber" /></div>
-            <div className="grid gap-4 rounded-xl bg-[#0f2138] p-4 md:grid-cols-[0.8fr_1.2fr]">
+            <div className="grid gap-4 rounded-xl bg-[#080d1e] p-4 md:grid-cols-[0.8fr_1.2fr]">
               <pre className="overflow-hidden font-mono text-[11px] leading-5 text-pearl/80">
                 <span className="type-line" style={{ animationDelay: "0s" }}>const page = await build(brand)</span>
                 <span className="type-line" style={{ animationDelay: "0.35s" }}>seo.ready = true</span>
@@ -227,7 +227,7 @@ function PlatformPanel({ best, points, label }: { best: string; points: string[]
         <p className="text-[15px] leading-7 text-pearl/85">{best}</p>
         <ul className="mt-4 space-y-2 text-sm text-pearl/85">{points.map((point) => <li key={point}>✓ {point}</li>)}</ul>
       </div>
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0f2138] text-left">
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#080d1e] text-left">
         <div className="flex gap-1.5 border-b border-white/10 px-3 py-2"><span className="size-2.5 rounded-full bg-white/25" /><span className="size-2.5 rounded-full bg-white/15" /><span className="size-2.5 rounded-full bg-amber" /></div>
         <div className="p-4">
           <div className="h-2.5 w-24 rounded-full bg-white/15" />
