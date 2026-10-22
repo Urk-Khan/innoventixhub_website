@@ -14,7 +14,7 @@ export default function FloatingActions() {
             <p className="font-bold">Chat with AI</p>
             <button type="button" className="text-sm text-mist" onClick={() => setChatOpen(false)}>Close</button>
           </div>
-          <div id="chatbot-embed" className="min-h-40 rounded-2xl border border-dashed border-amber/40 bg-[rgba(93, 240, 168,0.06)] p-4 text-sm text-mist">
+          <div id="chatbot-embed" className="min-h-40 rounded-2xl border border-dashed border-amber/40 bg-[rgba(255,181,71,0.06)] p-4 text-sm text-mist">
             {site.chatbotEmbedHtml ? (
               <div dangerouslySetInnerHTML={{ __html: site.chatbotEmbedHtml }} />
             ) : (

@@ -35,7 +35,7 @@ function panel(line: string, includes: string[], timeline: string) {
         <p className="mt-4 text-sm font-bold text-amber">Timeline: {timeline}</p>
         <a href={site.calendlyUrl} className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
       </div>
-      <div className="rounded-2xl border border-white/10 bg-[#080d1e] p-4">
+      <div className="rounded-2xl border border-white/10 bg-[#0f2138] p-4">
         <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold text-amber">
           {includes.slice(0, 4).map((item, index) => (
             <span key={item} className="flex items-center gap-2">
@@ -45,7 +45,7 @@ function panel(line: string, includes: string[], timeline: string) {
           ))}
         </div>
         <svg viewBox="0 0 320 70" className="mt-4 h-16 w-full" aria-hidden="true">
-          <path className="wire-dash" d="M16 36 H300" fill="none" stroke="#5df0a8" strokeWidth="2" />
+          <path className="wire-dash" d="M16 36 H300" fill="none" stroke="#ffb547" strokeWidth="2" />
         </svg>
         <p className="text-center text-xs font-bold text-[#5bd49a]">Running · monitored</p>
       </div>
@@ -91,7 +91,7 @@ export default function AutomationPage() {
           </div>
           <div className="glass relative mx-auto mt-12 h-[280px] max-w-[1000px] overflow-hidden rounded-[28px] p-6" aria-hidden="true">
             <svg viewBox="0 0 360 220" className="h-full w-full">
-              <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#5df0a8" strokeWidth="2" />
+              <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#ffb547" strokeWidth="2" />
             </svg>
             <div className="absolute inset-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {["Lead form", "OpenAI", "HubSpot", "Slack"].map((name) => (

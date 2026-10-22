@@ -112,7 +112,7 @@ export default function HomePage() {
                 className="absolute bottom-0 left-1/2 z-10 h-[92%] w-auto max-w-[74%] -translate-x-1/2 object-contain object-bottom"
               />
             </div>
-            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#070b1a] px-4 py-3 text-[13px] font-bold text-white">
+            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#0c1c30] px-4 py-3 text-[13px] font-bold text-white">
               <span className="inline-block size-1.5 rounded-full bg-amber" />
               Ubaid ur Rehman Khan · Founder & CEO
             </p>
@@ -143,7 +143,7 @@ export default function HomePage() {
           <ol className="relative mt-10 grid gap-6 md:mt-16 md:grid-cols-4 md:gap-10">
             <svg data-line className="pointer-events-none absolute left-[12%] right-[12%] top-[11px] hidden h-[2px] w-[76%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 1 H100" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
-              <path data-line-draw d="M0 1 H100" stroke="#5df0a8" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
             </svg>
             {steps.map((step) => (
               <li key={step.n} className="relative flex items-start gap-4 text-left md:block md:text-center">
@@ -214,8 +214,8 @@ function ReasonVisual({ kind, label }: { kind: string; label: string }) {
   if (kind === "nodes") {
     return (
       <svg viewBox="0 0 260 36" className="h-16 w-full max-w-sm" aria-hidden="true">
-        <path data-bento-wire d="M16 18 H244" stroke="#5df0a8" strokeWidth="2" fill="none" />
-        <circle data-bento-glow r="5" cy="18" cx="16" fill="#8ff7c4" />
+        <path data-bento-wire d="M16 18 H244" stroke="#ffb547" strokeWidth="2" fill="none" />
+        <circle data-bento-glow r="5" cy="18" cx="16" fill="#ffc970" />
         {[16, 92, 168, 244].map((cx) => (
           <circle key={cx} data-bento-dot cx={cx} cy="18" r="6" fill="#8fae8b" />
         ))}

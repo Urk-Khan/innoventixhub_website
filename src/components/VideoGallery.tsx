@@ -292,7 +292,7 @@ export function UgcSlider({
                     ["--o" as string]: abs === 3 ? 0 : abs === 2 ? 0.55 : 1,
                     transform: `translate(calc(-50% + ${offset} * (var(--card-w) + var(--gap)) + ${shift}px), -50%) scale(${centre ? 1.05 : 0.86})`,
                     zIndex: 10 - abs,
-                    boxShadow: centre ? "0 0 40px rgba(93, 240, 168,0.45), 0 24px 60px rgba(0,0,0,0.35)" : undefined,
+                    boxShadow: centre ? "0 0 40px rgba(255,181,71,0.45), 0 24px 60px rgba(0,0,0,0.35)" : undefined,
                     transition: dragging ? "none" : "transform 500ms cubic-bezier(.22,1,.36,1), opacity 500ms ease, box-shadow 500ms ease",
                     pointerEvents: abs > 2 ? "none" : undefined,
                   }}
@@ -316,7 +316,7 @@ export function UgcSlider({
                           <span className="ml-0.5 border-y-[7px] border-l-[11px] border-y-transparent border-l-navy" />
                         </span>
                       )}
-                      <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#080d1e] to-transparent p-3 text-left text-xs font-bold">
+                      <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f2138] to-transparent p-3 text-left text-xs font-bold">
                         {video.caption || "AI UGC ad"}
                       </span>
                     </span>

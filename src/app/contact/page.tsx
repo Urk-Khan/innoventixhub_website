@@ -95,8 +95,8 @@ export default function ContactPage() {
           <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px]">What happens next</h2>
           <ol className="relative mt-12 grid gap-8 md:grid-cols-3">
             <svg data-line className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-[2px] w-[68%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 1 H100" stroke="rgba(93, 240, 168,0.25)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
-              <path data-line-draw d="M0 1 H100" stroke="#5df0a8" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path d="M0 1 H100" stroke="rgba(255,181,71,0.25)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+              <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
             </svg>
             {["We read your message or join your call.", "We give honest advice and a clear next step.", "If it's a fit, you get a fixed written proposal. No obligation."].map((step, index) => (
               <li key={step} className="relative text-center">

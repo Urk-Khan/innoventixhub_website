@@ -131,7 +131,7 @@ export default function SeoPage() {
               ["ai-search", "AI search visibility", "Structured answers, schema, entity work and brand mentions so you are a stronger candidate to be cited.", "AEO · GEO"],
             ].map(([id, title, body, chip]) => (
               <li key={id} id={id} className="glass glass-card scroll-mt-28 overflow-hidden rounded-[22px] text-left">
-                <div className="grid h-28 place-items-center border-b border-white/10 bg-[#080d1e] text-xs font-bold tracking-wide text-amber">{chip}</div>
+                <div className="grid h-28 place-items-center border-b border-white/10 bg-[#0f2138] text-xs font-bold tracking-wide text-amber">{chip}</div>
                 <div className="p-5">
                   <h3 className="font-bold text-white">{title}</h3>
                   <p className="mt-2 text-sm leading-6 text-pearl/75">{body}</p>

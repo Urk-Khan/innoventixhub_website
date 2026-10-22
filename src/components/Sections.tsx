@@ -319,7 +319,7 @@ export function OfferGrid({
         <SectionIntro eyebrow={eyebrow} title={title} copy={copy} />
         <ul className="mt-12 grid gap-5 text-left lg:grid-cols-3">
           {offers.map((offer) => (
-            <li key={offer.name} className={`glass glass-card rounded-[24px] p-6 ${offer.featured ? "border-amber/70 shadow-[0_0_40px_rgba(93, 240, 168,0.2)]" : ""}`}>
+            <li key={offer.name} className={`glass glass-card rounded-[24px] p-6 ${offer.featured ? "border-amber/70 shadow-[0_0_40px_rgba(255,181,71,0.2)]" : ""}`}>
               {offer.featured ? <p className="text-xs font-bold tracking-wide text-amber">Most teams start here</p> : <span className="block h-4" />}
               <h3 className="mt-3 text-xl font-bold text-white">{offer.name}</h3>
               <p className="mt-1 text-sm text-pearl/75">{offer.blurb}</p>
@@ -371,7 +371,7 @@ export function StepRail({
           <div className="bar-fill pointer-events-none absolute left-[8%] right-[8%] top-5 hidden h-px origin-left bg-amber lg:block" aria-hidden="true" />
           {steps.map((step, index) => (
             <li key={step.label} className="relative text-center">
-              <span className="relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy text-sm font-bold text-amber shadow-[0_0_18px_rgba(93, 240, 168,0.35)]">{index + 1}</span>
+              <span className="relative z-10 mx-auto grid size-10 place-items-center rounded-full border border-amber bg-navy text-sm font-bold text-amber shadow-[0_0_18px_rgba(255,181,71,0.35)]">{index + 1}</span>
               <h3 className="mt-4 text-sm font-bold text-white">{step.label}</h3>
               {step.body ? <p className="mt-2 text-xs leading-5 text-mist">{step.body}</p> : null}
             </li>

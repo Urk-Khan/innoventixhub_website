@@ -31,7 +31,7 @@ export default function CaseSlider({ tags }: { tags: string[] }) {
       <ul ref={track} className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] lg:px-[120px] [&::-webkit-scrollbar]:hidden">
         {tags.map((tag) => (
           <li key={tag} className="glass glass-card w-[78%] shrink-0 snap-start overflow-hidden rounded-[22px] text-left sm:w-[340px]">
-            <div className="relative grid h-44 place-items-center border-b border-white/10 bg-[#080d1e] text-xs text-mist">
+            <div className="relative grid h-44 place-items-center border-b border-white/10 bg-[#0f2138] text-xs text-mist">
               <span className="absolute left-4 top-4 rounded-full bg-amber px-2.5 py-1 text-[11px] font-bold text-navy">SAMPLE</span>
               {tag} screenshot
             </div>

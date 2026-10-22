@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </header>
       <div className="wrap">
-        <div className="glass mb-10 grid h-64 place-items-end overflow-hidden rounded-[24px] bg-[#080d1e] p-6 md:h-80">
+        <div className="glass mb-10 grid h-64 place-items-end overflow-hidden rounded-[24px] bg-[#0f2138] p-6 md:h-80">
           <span className="rounded-full bg-amber px-3 py-1 text-xs font-bold text-navy">{post.meta.category}</span>
         </div>
       </div>
