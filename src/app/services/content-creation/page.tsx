@@ -47,7 +47,7 @@ const crumbs = [
 
 export default function ContentPage() {
   return (
-    <main id="main">
+    <main id="main" className="type-lg">
       <JsonLd
         data={graph(
           breadcrumbSchema(crumbs),
@@ -115,7 +115,7 @@ export default function ContentPage() {
       <CardGrid
         id="ai-ugc"
         eyebrow="AI UGC ads"
-        title="Everything you need to test and scale creative"
+        title="AI UGC Ads: everything you need to test and scale creative"
         columns={6}
         items={[
           "AI character creation & customization",
@@ -197,7 +197,7 @@ export default function ContentPage() {
           { title: "Scale & Optimize", body: "We double down on winners, cut losers fast and keep fresh creatives coming." },
         ]}
       />
-      <ToolGrid eyebrow="Our AI stack" title="The tools behind the ads" tools={["Higgsfield", "Kling", "Veo", "ElevenLabs", "GPT", "Claude", "Nano Banana"]} />
+      <ToolGrid eyebrow="Our AI stack" title="Every layer engineered for output that sells" tools={["Higgsfield", "Kling", "Veo", "ElevenLabs", "GPT", "Claude", "Nano Banana"]} />
       <Testimonials />
       <OfferGrid
         eyebrow="Pricing"
@@ -217,7 +217,7 @@ export default function ContentPage() {
           </div>
         )}
       />
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="AI UGC ads, answered." />
       <CtaBand
         title="Ready to turn views into buyers?"
         copy="Book a free 15-minute strategy call. We'll go through your funnel and show you where AI UGC and smarter editing can move the needle."

@@ -61,7 +61,7 @@ const crumbs = [
 
 export default function AutomationPage() {
   return (
-    <main id="main">
+    <main id="main" className="type-lg">
       <JsonLd data={graph(
         breadcrumbSchema(crumbs),
         serviceSchema({
@@ -115,7 +115,7 @@ export default function AutomationPage() {
       />
       <section className="section">
         <div className="wrap">
-          <SectionIntro eyebrow="What we automate" title="n8n, GoHighLevel, CRM and custom Python" />
+          <SectionIntro eyebrow="What we automate" title="Four ways to put your business on autopilot" />
           <div className="mt-8">
             <Tabs
               label="Automation types"
@@ -158,7 +158,7 @@ export default function AutomationPage() {
         ]}
       />
       <ProcessTimeline
-        title="From audit to a workflow that runs"
+        title="From Audit to Autopilot in 6 Steps"
         steps={[
           { title: "Free audit call", body: "We map your current workflow and find the hours you lose." },
           { title: "Design", body: "A visual workflow blueprint you approve before we build anything." },
@@ -168,7 +168,7 @@ export default function AutomationPage() {
           { title: "Monitor & optimize", body: "We watch it run and improve it (optional care plan)." },
         ]}
       />
-      <ToolGrid eyebrow="Tool stack" title="We pick the tool that fits" copy="We pick the right tool for the job, not the one we're paid to sell." tools={["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"]} />
+      <ToolGrid eyebrow="Tool stack" title="The right tool for every job" copy="We pick the right tool for the job, not the one we're paid to sell." tools={["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"]} />
       <Testimonials />
       <QuoteSplit
         eyebrow="Pricing"
@@ -181,7 +181,7 @@ export default function AutomationPage() {
         sideBody="If the automation doesn't do what we agreed in the signed blueprint, we fix it free. If we still can't make it work as specified within 30 days of launch, you get a full refund for that workflow."
         sideNotes={["Scope is the approved blueprint.", "Third-party app or API changes and scope changes are excluded.", "You provide access and credentials on time.", "Claims within 30 days of go-live."]}
       />
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="AI automation, answered." />
       <CtaBand title="Stop Doing It by Hand." copy="Book a free 30-minute automation audit. We'll show you which tasks to automate first and what it will save you." />
     </main>
   );

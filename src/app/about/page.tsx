@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="wrap grid items-start gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] lg:gap-12">
           <div>
             <p className="pill">Our story</p>
-            <h2 className="mt-6 max-w-[774px] text-[28px] font-bold leading-[34px] text-white lg:text-[44px] lg:leading-[52px]">Why we started Innoventix Hub</h2>
+            <h2 className="mt-6 max-w-[774px] text-h2 font-bold text-white">Why we started Innoventix Hub</h2>
             <p className="mt-6 max-w-[774px] text-[15px] leading-6 text-[#dce5ef] lg:text-[18px] lg:leading-[30px]">
               Before Innoventix Hub, our founder Ubaid worked with international brands at Image2Work, a Danish company, and Broomstick Creative, a UAE company. His professional journey began at the National Assembly of Pakistan, where he had the opportunity to lead a team of interns at an international IPU conference. Along the way, he saw growing brands juggling separate agencies, freelancers and tools that didn&apos;t talk to each other. In January 2025, he founded Innoventix Hub to fix that: one small, accountable team that creates AI UGC ads, automates the busywork and answers calls 24/7 with AI voice agents that sound naturally human. We&apos;re self-funded, so we answer to our clients, not investors.
             </p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <section className="bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">Mission & values</p>
-          <h2 className="mx-auto mt-6 max-w-[900px] text-[28px] font-bold leading-[34px] text-white lg:text-[44px] lg:leading-[52px]">
+          <h2 className="mx-auto mt-6 max-w-[900px] text-h2 font-bold text-white">
             Give growing brands the content, systems and visibility of a big company, without the big-company overhead.
           </h2>
           <ul className="mt-12 grid gap-5 text-left sm:grid-cols-2 xl:grid-cols-4">
@@ -146,7 +146,7 @@ export default function AboutPage() {
       <section id="team" className="scroll-mt-28 bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">Our team</p>
-          <h2 className="mt-6 text-[34px] font-bold leading-[1.15] text-white lg:text-[44px] lg:leading-[52px]">The people behind the work</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">The people behind the work</h2>
           <p className="mt-3 text-[18px] leading-7 text-mist">A small team, working in your business hours.</p>
           <ul className="mt-10 grid grid-cols-2 gap-3 text-left sm:gap-6 lg:grid-cols-3">
             {team.map((member) => (
@@ -175,7 +175,7 @@ export default function AboutPage() {
       <section className="bg-navy py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">How we work</p>
-          <h2 className="mt-6 text-[34px] font-bold text-white lg:text-[44px] lg:leading-[52px]">How working with us feels</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">How working with us feels</h2>
           <ol className="mt-12 grid gap-5 text-left sm:grid-cols-2 lg:grid-cols-5">
             {feelings.map(([n, title, body]) => (
               <li key={n} className="glass rounded-[18px] p-5 sm:min-h-[220px]">
@@ -193,7 +193,7 @@ export default function AboutPage() {
       <section className="bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">What we do</p>
-          <h2 className="mt-6 text-[34px] font-bold text-white lg:text-[44px] lg:leading-[52px]">Five services, one accountable team</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">Five services, one accountable team</h2>
           <ul className="mt-10 grid grid-cols-2 gap-3 text-left sm:gap-5 lg:grid-cols-5">
             {services.map((service) => (
               <li key={service.href}>

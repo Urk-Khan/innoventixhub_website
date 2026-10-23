@@ -22,22 +22,28 @@ export default function NotFound() {
   return (
     <FigmaLoop as="main" id="main" snippets={notFoundLoop} className="hero-stage section lg:pt-40">
       <img src="/assets/glowcopper-92d117a3.svg" alt="" className="glow-copper" />
-      <div className="wrap relative z-10 max-w-3xl text-center">
-        <BrandLogo variant="square" className="mx-auto mb-6 h-24 w-24 object-contain" />
-        <p className="relative text-6xl font-black text-amber">
+      <div className="wrap relative z-10 max-w-5xl text-center">
+        <BrandLogo variant="square" className="mx-auto mb-6 h-16 w-16 object-contain" />
+        <p className="pill">Error 404</p>
+        <p className="relative mx-auto mt-4 w-fit text-[clamp(6.875rem,4.3214rem+10.4762vw,13.75rem)] font-black leading-none tracking-[-0.02em] text-amber">
           404
-          <span data-node-id="108:4610" aria-hidden="true" className="absolute -right-2 top-0 text-3xl text-amber-bright drop-shadow-[0_0_14px_rgba(255,181,71,0.9)]">⚡</span>
+          <span data-node-id="108:4610" aria-hidden="true" className="absolute -right-[0.15em] top-[0.05em] text-[0.25em] text-amber-bright drop-shadow-[0_0_14px_rgba(255,181,71,0.9)]">⚡</span>
         </p>
-        <h1 data-words className="mt-4 text-4xl font-black">This page took a wrong turn.</h1>
-        <p className="mt-3 text-cream/80">The link might be old, or the page has moved. Here's where you can go instead.</p>
+        <h1 data-words className="mt-4 text-h2 font-black text-white">This page took a wrong turn.</h1>
+        <p className="mx-auto mt-3 max-w-xl text-cream/80">The link might be old, or the page has moved. Here's where you can go instead.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link href="/" className="btn-primary">Back home</Link>
+          <Link href="/" className="btn-primary">Back to Home</Link>
           <a href={site.calendlyUrl} className="btn-secondary">Book A Free Consultation</a>
         </div>
-        <ul className="mt-10 grid gap-3 text-left sm:grid-cols-2">
+        <p className="mt-14 text-xs font-bold tracking-[0.14em] text-amber-bright">GO SOMEWHERE USEFUL</p>
+        <h2 className="mt-3 text-h2-sm text-white">Explore our services</h2>
+        <ul className="mt-8 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-3">
           {serviceNav.map((service) => (
             <li key={service.href} data-node-id={linkNodes[service.href]} className="relative">
-              <Link href={service.href} className="glass glass-card block rounded-2xl p-4 font-bold">{service.label}</Link>
+              <Link href={service.href} className="glass glass-card flex h-full flex-col gap-6 rounded-2xl p-5">
+                <span className="text-lg font-bold text-white">{service.label}</span>
+                <span className="text-sm font-bold text-amber">Explore →</span>
+              </Link>
             </li>
           ))}
         </ul>

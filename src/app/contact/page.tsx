@@ -73,7 +73,7 @@ export default function ContactPage() {
         <div className="wrap grid gap-8 lg:grid-cols-2">
           <div>
             <p className="pill">Calendar</p>
-            <h2 className="mt-6 text-3xl text-white md:text-[40px] md:leading-[48px]">Book your free consultation</h2>
+            <h2 className="mt-6 text-h2-sm text-white">Book your free consultation</h2>
             <p className="mt-3 text-pearl/75">You&apos;ll talk to the person who&apos;ll work on your project, not a salesperson.</p>
             <iframe
               title="Book a free consultation"
@@ -84,7 +84,7 @@ export default function ContactPage() {
           </div>
           <div>
             <p className="pill">Message</p>
-            <h2 className="mt-6 text-3xl text-white md:text-[40px] md:leading-[48px]">Prefer to write? Send a message.</h2>
+            <h2 className="mt-6 text-h2-sm text-white">Prefer to write? Send a message.</h2>
             <div className="mt-6"><EnquiryForm /></div>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
       <section className="section">
         <div className="wrap text-center">
           <p className="pill">Next</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px]">What happens next</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Simple, honest, no obligation</h2>
           <ol className="relative mt-12 grid gap-8 md:grid-cols-3">
             <svg data-line className="pointer-events-none absolute left-[16%] right-[16%] top-5 hidden h-[2px] w-[68%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 1 H100" stroke="rgba(255,181,71,0.25)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
@@ -107,7 +107,7 @@ export default function ContactPage() {
           </ol>
         </div>
       </section>
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="Quick answers" />
       <CtaBand title="Ready when you are." copy="30-minute call. No pitch deck. A clear plan for your brand." />
       <p className="sr-only"><BookButton /></p>
     </main>

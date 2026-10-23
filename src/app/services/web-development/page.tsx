@@ -92,7 +92,7 @@ export default function WebPage() {
         <div className="wrap grid items-center gap-10 lg:grid-cols-2">
           <div>
             <p className="pill">Launch speed</p>
-            <h2 className="mt-6 text-h2 text-white">From first call to a live site</h2>
+            <h2 className="mt-6 text-h2 text-white">Live in days, not months.</h2>
             <ul className="mt-8 space-y-4">
               {[["24–48 hours", "landing page launch"], ["5–7 days", "custom website launch"], ["100% custom", "no templates"]].map(([stat, label]) => (
                 <li key={stat} className="glass flex items-center gap-4 rounded-[18px] px-5 py-4">
@@ -134,7 +134,7 @@ export default function WebPage() {
       <section className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Platforms</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">The right stack for the job</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">The right platform for your business</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-pearl/80">Not sure which platform? We&apos;ll recommend one on the free call, with reasons.</p>
           <div className="mt-8">
             <Tabs label="Platforms" tabs={[
@@ -148,7 +148,7 @@ export default function WebPage() {
       <section className="section">
         <div className="wrap text-center">
           <p className="pill">Our projects</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Sites we&apos;ve shipped</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Sites we&apos;ve designed and built</h2>
           <ul className="mt-10 grid gap-5 md:grid-cols-3">
             {webCases.map((item) => (
               <li key={item.slug} className="glass glass-card overflow-hidden rounded-[22px] text-left">
@@ -166,7 +166,7 @@ export default function WebPage() {
       <section className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Tech stack</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-h2 text-white">Tools we build with</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-h2 text-white">Built with tools that last</h2>
           <p className="mx-auto mt-4 max-w-2xl text-pearl/80">We pick the right tool for the job, not the one we&apos;re paid to sell.</p>
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {["Next.js", "React", "TypeScript", "Tailwind", "Vercel", "Shopify", "WordPress", "WooCommerce", "Figma", "JavaScript", "Laravel"].map((tool) => (
@@ -188,7 +188,7 @@ export default function WebPage() {
         ]}
       />
       <Comparison
-        title="See the difference"
+        title="Why brands choose a custom build"
         columns={["Innoventix Hub", "DIY template builder", "Freelancer"]}
         rows={[
           { label: "Custom design", cells: ["yes", "no", "partial"] },
@@ -203,7 +203,7 @@ export default function WebPage() {
       />
       <QuoteSplit
         eyebrow="Pricing"
-        title="Custom quote after a free call."
+        title="Pricing that fits your project"
         copy="Every website is different, so we quote after a free consultation. You get a fixed, written proposal with scope, timeline and cost before any work starts."
         includesTitle="What affects the cost"
         includes={["Number of pages and unique layouts", "Platform (Next.js, Shopify, WordPress)", "Custom features and integrations", "E-commerce catalog and checkout", "Copywriting and content", "Migration from an existing site", "Multilingual needs"]}
@@ -214,7 +214,7 @@ export default function WebPage() {
         extra={<ul className="mt-5 space-y-1 text-sm text-pearl/85">{["Custom mobile-first design", "SEO-ready build, forms and analytics", "Speed and Core Web Vitals checks", "You own the domain, content and code"].map((item) => <li key={item}>✓ {item}</li>)}</ul>}
       />
       <Testimonials />
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="Web development, answered." />
       <CtaBand title="Ready for a website that actually sells?" copy="Book a free consultation. We'll review your current site or idea and send a fixed, written proposal." secondary="whatsapp" />
     </main>
   );

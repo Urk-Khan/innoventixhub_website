@@ -91,7 +91,7 @@ export default function SeoPage() {
         <div className="wrap grid items-start gap-10 lg:grid-cols-2">
           <div>
             <p className="pill">Free audit</p>
-            <h2 className="mt-6 text-h2 text-white">What&apos;s holding your site back?</h2>
+            <h2 className="mt-6 text-h2 text-white">What&apos;s holding your site back? Your free audit finds out.</h2>
             <ul className="mt-8 space-y-4">
               {[
                 ["Invisible on Google", "Technical clean-up so pages can be crawled and indexed."],
@@ -154,7 +154,7 @@ export default function SeoPage() {
       <section className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Proof</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">What you&apos;ll see</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Clear progress, every month</h2>
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             <article data-loop className="serp-list glass rounded-[22px] p-6 text-left text-sm">
               <p className="text-xs font-bold tracking-wide text-mist">Illustrative SERP</p>
@@ -193,7 +193,7 @@ export default function SeoPage() {
         <div className="wrap grid items-center gap-8 lg:grid-cols-[280px_1fr]">
           <article className="glass rounded-[24px] p-6 text-center">
             <div className="mx-auto grid size-24 place-items-center rounded-full bg-gradient-to-br from-amber to-navy text-lg font-bold text-navy" aria-hidden="true">SEO</div>
-            <h2 className="mt-4 text-2xl font-bold text-white">Who does your SEO</h2>
+            <h2 className="mt-4 text-2xl font-bold text-white">Real specialists, transparent methods</h2>
             <p className="mt-2 text-sm text-pearl/75">A named lead specialist is assigned to your account. Photo and LinkedIn are added when confirmed.</p>
           </article>
           <div>
@@ -205,7 +205,7 @@ export default function SeoPage() {
         </div>
       </section>
       <Comparison
-        title="See the difference"
+        title="Why brands choose us over tools and cheap agencies"
         columns={["Innoventix Hub", "DIY SEO tool", "Cheap SEO agency"]}
         rows={[
           { label: "Dedicated specialist", cells: ["yes", "no", "partial"] },
@@ -220,7 +220,7 @@ export default function SeoPage() {
       />
       <QuoteSplit
         eyebrow="Pricing"
-        title="Custom quote after a free SEO audit."
+        title="Pricing built around your goals"
         copy="We audit your site first, then send a fixed monthly proposal: exactly what we'll do each month and what it costs."
         includesTitle="What affects the cost"
         includes={["Site size", "Keyword competition", "Number of locations", "Catalog size", "Link-building intensity", "Content add-on volume"]}
@@ -235,11 +235,11 @@ export default function SeoPage() {
         ]}
       />
       <Testimonials />
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="SEO, answered." />
       <section className="section overflow-hidden pt-8">
         <div className="wrap">
           <div className="cta-card px-6 py-14 text-center">
-            <h2 className="text-4xl text-white md:text-[56px] md:leading-[1.05]">Ready to get found?</h2>
+            <h2 className="text-cta text-white">Ready to get found?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-mist">Send us your URL. A specialist will review your site and show you what&apos;s holding it back.</p>
             <div className="mx-auto mt-6 max-w-xl text-left"><SeoAuditForm /></div>
             <div className="mt-4 flex flex-wrap justify-center gap-3"><BookButton ghost /><WhatsAppButton /></div>

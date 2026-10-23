@@ -56,7 +56,7 @@ const crumbs = [
 
 export default function VoicePage() {
   return (
-    <main id="main">
+    <main id="main" className="type-lg">
       <JsonLd data={graph(
         breadcrumbSchema(crumbs),
         serviceSchema({
@@ -104,9 +104,9 @@ export default function VoicePage() {
           { icon: "◎", title: "Staff stuck on the phone?", body: "Your team answers the same questions all day instead of serving customers and selling." },
         ]}
       />
-      <section className="section">
+      <section className="section type-sm">
         <div className="wrap">
-          <SectionIntro eyebrow="What we build" title="Inbound receptionist and outbound agents" />
+          <SectionIntro eyebrow="What we build" title="Inbound receptionist or outbound caller. Or both." />
           <div className="mt-8">
             <Tabs label="Voice agent types" tabs={[
               { id: "inbound", label: "Inbound AI Receptionist", content: panel("An AI receptionist that picks up on the first ring, day or night, answers questions, books appointments and routes urgent calls to your team.", ["24/7 call answering", "FAQs trained on your business", "appointment booking & rescheduling", "call screening & routing", "warm transfer to a human", "message taking & SMS confirmations", "call recordings, transcripts & summaries"]) },
@@ -115,10 +115,11 @@ export default function VoicePage() {
           </div>
         </div>
       </section>
+      <div className="type-sm">
       <CardGrid
         tone="deep"
         eyebrow="Use cases"
-        title="Use cases by industry"
+        title="Built for the calls your business actually gets."
         columns={6}
         items={[
           { icon: "▣", title: "E-commerce / D2C", body: "Order status and returns questions, COD and order confirmation calls, abandoned-cart callbacks, post-purchase review requests." },
@@ -129,6 +130,7 @@ export default function VoicePage() {
           { icon: "▣", title: "Agencies & B2B services", body: "Inbound lead qualification, discovery call booking, reactivation of old leads." },
         ]}
       />
+      </div>
       <section className="section">
         <div className="wrap grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="text-center lg:text-left">
@@ -154,6 +156,7 @@ export default function VoicePage() {
           </div>
         </div>
       </section>
+      <div className="type-sm">
       <CardGrid
         eyebrow="Under the hood"
         title="What powers your AI voice agent"
@@ -167,8 +170,10 @@ export default function VoicePage() {
           { icon: "▣", title: "Transcripts, recordings & insights", body: "Summaries, sentiment and extracted data after each call." },
         ]}
       />
+      </div>
       <p className="wrap -mt-8 pb-4 text-center text-sm text-pearl/80">Built responsibly: call-recording disclosure, GDPR-aware data handling, encrypted storage, opt-out and do-not-call respect, human handoff anytime.</p>
       <CaseRail eyebrow="Results" title="Results > Promises" tags={["Call dashboard", "Transcript", "Calendar bookings"]} />
+      <div className="type-sm">
       <Comparison
         title="See the difference"
         columns={["Innoventix AI Voice Agent", "Human receptionist", "Outsourced call center"]}
@@ -183,9 +188,10 @@ export default function VoicePage() {
           { label: "Hands off to a human when needed", cells: ["yes", "na", "yes"] },
         ]}
       />
+      </div>
       <p className="wrap -mt-8 text-sm text-mist/80">Best results: AI handles volume and after-hours, your team handles the high-value calls.</p>
       <ProcessTimeline
-        title="From call audit to a live agent"
+        title="From First Call to Live Agent in 2–4 Weeks"
         steps={[
           { title: "Free consultation & call audit", body: "What callers ask, where calls are lost, which systems to connect." },
           { title: "Script & conversation design", body: "Call flows, FAQs, tone and handoff rules you approve." },
@@ -203,7 +209,7 @@ export default function VoicePage() {
           <VoicePricing />
         </div>
       </section>
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="AI voice agents, answered." />
       <CtaBand
         title="Your next customer is calling. Let AI pick up."
         copy="Call our live agent or book a free consultation, and we'll map exactly which calls to automate first."

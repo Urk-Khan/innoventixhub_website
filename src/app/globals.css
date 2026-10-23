@@ -85,6 +85,11 @@ h1, h2, h3, .font-black {
   --fs-founder: clamp(1.875rem, 1.3643rem + 2.0952vw, 3.25rem);
 }
 
+.type-sm,
+.type-lg .type-sm {
+  --fs-h2: var(--fs-h2-sm);
+}
+
 .type-lg {
   --fs-h2: clamp(2.125rem, 1.6143rem + 2.0952vw, 3.5rem);
 }
