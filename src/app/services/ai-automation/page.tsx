@@ -35,7 +35,7 @@ function panel(line: string, includes: string[], timeline: string) {
         <p className="mt-4 text-sm font-bold text-amber">Timeline: {timeline}</p>
         <a href={site.calendlyUrl} className="mt-4 inline-block text-sm font-bold text-amber">Book A Free Consultation →</a>
       </div>
-      <div className="rounded-2xl border border-white/10 bg-[#080d1e] p-4">
+      <div className="rounded-2xl border border-white/10 bg-[#0f2138] p-4">
         <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold text-amber">
           {includes.slice(0, 4).map((item, index) => (
             <span key={item} className="flex items-center gap-2">
@@ -45,7 +45,7 @@ function panel(line: string, includes: string[], timeline: string) {
           ))}
         </div>
         <svg viewBox="0 0 320 70" className="mt-4 h-16 w-full" aria-hidden="true">
-          <path className="wire-dash" d="M16 36 H300" fill="none" stroke="#5df0a8" strokeWidth="2" />
+          <path className="wire-dash" d="M16 36 H300" fill="none" stroke="#ffb547" strokeWidth="2" />
         </svg>
         <p className="text-center text-xs font-bold text-[#5bd49a]">Running · monitored</p>
       </div>
@@ -61,7 +61,7 @@ const crumbs = [
 
 export default function AutomationPage() {
   return (
-    <main id="main">
+    <main id="main" className="type-lg">
       <JsonLd data={graph(
         breadcrumbSchema(crumbs),
         serviceSchema({
@@ -84,14 +84,14 @@ export default function AutomationPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">AI Automation · n8n · GoHighLevel · CRM · Python</p>
-            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
+            <h1 data-words className="mt-7 max-w-[920px] text-hero font-bold text-white">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build n8n, GoHighLevel, CRM and custom Python automations that capture leads, follow up in seconds, sync your tools and remove hours of manual work every week, so your team can focus on growth.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4"><BookButton /><VoiceButton ghost /></div>
             <p className="mt-5 text-[13px] text-mist">Built for D2C brands and SMBs in the US, UK & EU</p>
           </div>
           <div className="glass relative mx-auto mt-12 h-[280px] max-w-[1000px] overflow-hidden rounded-[28px] p-6" aria-hidden="true">
             <svg viewBox="0 0 360 220" className="h-full w-full">
-              <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#5df0a8" strokeWidth="2" />
+              <path className="wire-dash" d="M40 50 H140 V120 H240 V50 H320" fill="none" stroke="#ffb547" strokeWidth="2" />
             </svg>
             <div className="absolute inset-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {["Lead form", "OpenAI", "HubSpot", "Slack"].map((name) => (
@@ -115,7 +115,7 @@ export default function AutomationPage() {
       />
       <section className="section">
         <div className="wrap">
-          <SectionIntro eyebrow="What we automate" title="n8n, GoHighLevel, CRM and custom Python" />
+          <SectionIntro eyebrow="What we automate" title="Four ways to put your business on autopilot" />
           <div className="mt-8">
             <Tabs
               label="Automation types"
@@ -158,7 +158,7 @@ export default function AutomationPage() {
         ]}
       />
       <ProcessTimeline
-        title="From audit to a workflow that runs"
+        title="From Audit to Autopilot in 6 Steps"
         steps={[
           { title: "Free audit call", body: "We map your current workflow and find the hours you lose." },
           { title: "Design", body: "A visual workflow blueprint you approve before we build anything." },
@@ -168,7 +168,7 @@ export default function AutomationPage() {
           { title: "Monitor & optimize", body: "We watch it run and improve it (optional care plan)." },
         ]}
       />
-      <ToolGrid eyebrow="Tool stack" title="We pick the tool that fits" copy="We pick the right tool for the job, not the one we're paid to sell." tools={["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"]} />
+      <ToolGrid eyebrow="Tool stack" title="The right tool for every job" copy="We pick the right tool for the job, not the one we're paid to sell." tools={["n8n", "GoHighLevel", "HubSpot", "Pipedrive", "Zoho", "Salesforce", "Shopify", "Google Sheets", "Slack", "Stripe", "OpenAI", "Python", "Make", "Zapier"]} />
       <Testimonials />
       <QuoteSplit
         eyebrow="Pricing"
@@ -181,7 +181,7 @@ export default function AutomationPage() {
         sideBody="If the automation doesn't do what we agreed in the signed blueprint, we fix it free. If we still can't make it work as specified within 30 days of launch, you get a full refund for that workflow."
         sideNotes={["Scope is the approved blueprint.", "Third-party app or API changes and scope changes are excluded.", "You provide access and credentials on time.", "Claims within 30 days of go-live."]}
       />
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} title="AI automation, answered." />
       <CtaBand title="Stop Doing It by Hand." copy="Book a free 30-minute automation audit. We'll show you which tasks to automate first and what it will save you." />
     </main>
   );

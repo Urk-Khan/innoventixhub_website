@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const orbitNodes = [
-  { mono: "UG", name: "Content Creation (UGC)", color: "#5df0a8", left: 449, top: 37 },
+  { mono: "UG", name: "Content Creation (UGC)", color: "#ffb547", left: 449, top: 37 },
   { mono: "Au", name: "AI Automation", color: "#3e63dd", left: 747, top: 181 },
   { mono: "Vo", name: "AI Voice Agents", color: "#30a46c", left: 633, top: 415 },
   { mono: "We", name: "Web Development", color: "#8e4ec6", left: 265, top: 415 },
@@ -15,10 +15,10 @@ export function ServiceNetwork() {
     <div data-loop className="about-network @container mx-auto mt-10 w-full max-w-[1100px]">
       <div className="relative w-full" style={{ height: "min(550px, calc(100cqw * 550 / 1100))" }}>
         <div
-          className="absolute left-0 top-0 h-[550px] w-[1100px] origin-top-left overflow-hidden rounded-[28px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.45),0_0_80px_rgba(93, 240, 168,0.2)]"
+          className="absolute left-0 top-0 h-[550px] w-[1100px] origin-top-left overflow-hidden rounded-[28px] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.45),0_0_80px_rgba(255,181,71,0.2)]"
           style={{
             transform: "scale(min(1, 100cqw / 1100px))",
-            backgroundImage: "linear-gradient(153deg, #101a36 0%, #080d1e 71%)",
+            backgroundImage: "linear-gradient(153deg, #1a3657 0%, #0f2138 71%)",
           }}
         >
           <img loading="lazy" decoding="async" src="/assets/dottedgrid-efb2d737.svg" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70" />
@@ -36,7 +36,7 @@ export function ServiceNetwork() {
                 </span>
               </div>
               <div
-                className="node-glow pointer-events-none absolute inset-0 rounded-[14px] border-2 border-amber bg-amber/10 shadow-[0_0_28px_rgba(93, 240, 168,0.65)]"
+                className="node-glow pointer-events-none absolute inset-0 rounded-[14px] border-2 border-amber bg-amber/10 shadow-[0_0_28px_rgba(255,181,71,0.65)]"
                 style={{ animationDelay: `${index * 0.8}s` }}
               />
             </div>
@@ -102,7 +102,7 @@ export function StoryCarousel() {
               {slide.kind === "photo" ? (
                 <img loading="lazy" decoding="async" src={slide.src} alt={slide.alt} className="h-full w-full rounded-[14px] border border-white/12 object-cover" />
               ) : (
-                <div className="flex h-full flex-col items-center justify-center rounded-[14px] border border-dashed border-amber/35 bg-[radial-gradient(circle_at_center,#16254a,#080d1e)] px-6 text-center">
+                <div className="flex h-full flex-col items-center justify-center rounded-[14px] border border-dashed border-amber/35 bg-[radial-gradient(circle_at_center,#2f5a8c,#0f2138)] px-6 text-center">
                   <p className="text-[40px] text-amber">★</p>
                   <p className="mt-3 text-[16px] font-bold text-white">{slide.title}</p>
                   <p className="mt-2 text-[12px] leading-[17px] text-mist">{slide.body}</p>
@@ -124,7 +124,7 @@ export function StoryCarousel() {
           />
         ))}
       </div>
-      <p className="absolute bottom-3 left-5 text-[11px] text-[#6b7796]">Auto-slides every 3s, pauses on hover; swipe on mobile.</p>
+      <p className="absolute bottom-3 left-5 text-[11px] text-[#7f93ad]">Auto-slides every 3s, pauses on hover; swipe on mobile.</p>
     </div>
   );
 }
