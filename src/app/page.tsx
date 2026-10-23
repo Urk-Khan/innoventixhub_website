@@ -5,7 +5,7 @@ import { playableIndex, playableUgc } from "@/content/videos";
 import { CommandCenter } from "@/components/visuals";
 import FigmaLoop from "@/components/FigmaLoop";
 import { founderLoop } from "@/content/motion/home";
-import { BookButton, CtaBand, FaqSection, LogoMarquee, Testimonials, VoiceButton } from "@/components/Sections";
+import { BookButton, CtaBand, FaqSection, LogoMarquee, ShortOnMobile, Testimonials, VoiceButton } from "@/components/Sections";
 import { site } from "@/config/site";
 import { pageMeta } from "@/lib/seo";
 import { faqSchema, graph, professionalServiceSchema, websiteSchema } from "@/lib/schema";
@@ -43,10 +43,10 @@ const steps = [
 ];
 
 const reasons = [
-  { kicker: "24/7", title: "24/7 AI", body: "Agents answer calls, chats and leads around the clock, in every time zone.", visual: "clock" },
-  { kicker: "Reporting", title: "Transparent reporting", body: "Live dashboards and weekly reports. You always see the numbers.", visual: "bars" },
-  { kicker: "Integrated", title: "Integrated services", body: "Content, voice, automation, web and SEO from one team.", visual: "nodes" },
-  { kicker: "Fast", title: "Fast delivery", body: "First ads in days, agents and automations live in weeks, not months.", visual: "progress" },
+  { kicker: "24/7", title: "24/7 AI", shortTitle: "24/7 AI", body: "Agents answer calls, chats and leads around the clock, in every time zone.", short: "Agents answer around the clock.", visual: "clock", mobileOrder: "order-1" },
+  { kicker: "Reporting", title: "Transparent reporting", shortTitle: "Transparent", body: "Live dashboards and weekly reports. You always see the numbers.", short: "Live dashboards & weekly reports.", visual: "bars", mobileOrder: "order-3" },
+  { kicker: "Integrated", title: "Integrated services", shortTitle: "Integrated", body: "Content, voice, automation, web and SEO from one team.", short: "All five pillars, one team.", visual: "nodes", mobileOrder: "order-2" },
+  { kicker: "Fast", title: "Fast delivery", shortTitle: "Fast delivery", body: "First ads in days, agents and automations live in weeks, not months.", short: "Ads in days. Agents in weeks.", visual: "progress", mobileOrder: "order-4" },
 ];
 
 export default function HomePage() {
@@ -59,18 +59,20 @@ export default function HomePage() {
         <img src="/assets/glowgold-30af2e67.svg" alt="" className="glow-gold" />
         <img src="/assets/aiorbloopingclipplaceholder-efc30a34.svg" alt="" className="pointer-events-none absolute bottom-0 left-1/2 z-0 w-[min(320px,70%)] -translate-x-1/2 opacity-80" />
         <div className="relative z-10 mx-auto flex min-h-[700px] max-w-[1000px] flex-col items-center px-5 pb-20 pt-16 text-center lg:min-h-[920px] lg:justify-center lg:pt-28">
-          <p className="eyebrow">AI growth agency for D2C & SMBs</p>
-          <h1 data-words className="mt-7 max-w-[920px] text-[40px] leading-[1.04] text-white sm:text-5xl lg:text-[76px] lg:tracking-[-0.76px]">
+          <p className="eyebrow"><ShortOnMobile short="AI growth agency">AI growth agency for D2C & SMBs</ShortOnMobile></p>
+          <h1 data-words className="mt-5 max-w-[920px] text-display text-white md:mt-7">
             AI that sells, talks, and works for your brand 24/7.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-pearl/75 lg:text-xl">
+          <p className="mt-5 max-w-2xl text-[15px] text-pearl/75 md:mt-6 md:text-lg lg:text-xl">
             Content, voice agents, and automation, connected to drive revenue.
           </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-4">
+          <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 md:mt-7">
             <BookButton />
             <VoiceButton ghost />
           </div>
-          <p className="mt-6 text-[13px] text-mist">Trusted by D2C brands & SMBs in the USA, UK and Europe</p>
+          <p className="mt-5 text-xs font-medium text-mist md:mt-6 md:text-[13px]">
+            <ShortOnMobile short="Trusted by D2C brands & SMBs worldwide">Trusted by D2C brands & SMBs in the USA, UK and Europe</ShortOnMobile>
+          </p>
         </div>
       </section>
 
@@ -79,8 +81,8 @@ export default function HomePage() {
       <section className="section overflow-hidden">
         <div className="wrap text-center">
           <p className="pill">Command center</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">One hub. Five capabilities.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[17px] leading-7 text-pearl/80">
+          <h2 className="mx-auto mt-3 max-w-3xl text-h2-lg text-white md:mt-6">One hub.<br className="md:hidden" /> Five capabilities.</h2>
+          <p className="mx-auto mt-4 hidden max-w-2xl text-[17px] leading-7 text-pearl/80 md:block">
             Every service plugs into the same core — so your content, calls and workflows work as one system.
           </p>
         </div>
@@ -90,10 +92,10 @@ export default function HomePage() {
       <section className="section overflow-hidden pt-0">
         <div className="wrap text-center">
           <p className="pill">AI UGC ads</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px]">See the ads.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-pearl/80">Scroll-stopping AI UGC built for TikTok, Reels and Shorts. Hover a card to play.</p>
+          <h2 className="mx-auto mt-3 max-w-3xl text-h2-lg text-white md:mt-6">See the ads.</h2>
+          <p className="mx-auto mt-4 hidden max-w-xl text-pearl/80 md:block">Scroll-stopping AI UGC built for TikTok, Reels and Shorts. Hover a card to play.</p>
           <UgcSlider videos={playableUgc} label="See the ads" startIndex={playableIndex("OvS8cCPnmIs")} />
-          <Link href="/services/content-creation#work" className="mt-6 inline-flex text-sm font-bold text-amber">See all samples →</Link>
+          <Link href="/services/content-creation#work" className="mt-6 hidden text-sm font-bold text-amber md:inline-flex">See all samples →</Link>
         </div>
       </section>
 
@@ -119,7 +121,7 @@ export default function HomePage() {
           </div>
           <div>
             <p data-node-id="123:81" className="text-[15px] font-bold tracking-[2.7px] text-amber">INTRODUCING</p>
-            <h2 data-node-id="123:82" className="mt-4 text-4xl leading-[1.15] text-white md:text-[52px] md:leading-[62px]">
+            <h2 data-node-id="123:82" className="mt-4 text-founder text-white">
               Meet <span className="text-amber">Ubaid ur Rehman Khan</span>, our Founder & CEO.
             </h2>
             <p data-node-id="123:83" className="mt-6 max-w-xl text-lg leading-[30px] text-[#dce5ef]">
@@ -138,21 +140,21 @@ export default function HomePage() {
       <section className="section pt-0">
         <div className="wrap text-center">
           <p className="pill">Our process</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">From idea to revenue in four steps.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
-          <ol className="relative mt-10 grid gap-6 md:mt-16 md:grid-cols-4 md:gap-10">
+          <h2 className="mx-auto mt-3 max-w-3xl text-h2-lg text-white md:mt-6"><ShortOnMobile short="Four steps.">From idea to revenue in four steps.</ShortOnMobile></h2>
+          <p className="mx-auto mt-4 hidden max-w-2xl text-pearl/80 md:block">Discover, Build, Launch, Optimize — a line draws itself as you scroll.</p>
+          <ol className="relative mt-8 grid md:mt-16 md:grid-cols-4 md:gap-10">
             <svg data-line className="pointer-events-none absolute left-[12%] right-[12%] top-[11px] hidden h-[2px] w-[76%] md:block" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 1 H100" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
               <path data-line-draw d="M0 1 H100" stroke="#ffb547" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
             </svg>
             {steps.map((step) => (
-              <li key={step.n} className="relative flex items-start gap-4 text-left md:block md:text-center">
-                <span data-step-dot className="relative z-10 grid shrink-0 md:mx-auto md:grid size-6 place-items-center rounded-full border-2 border-white/25 bg-navy">
+              <li key={step.n} className="relative flex items-center gap-4 border-b border-white/10 py-4 text-left md:block md:border-0 md:py-0 md:text-center">
+                <span data-step-dot className="relative z-10 grid size-7 shrink-0 place-items-center rounded-full border-2 border-white/25 bg-navy md:mx-auto md:size-6">
                   <span className="size-2.5 rounded-full bg-white/40" />
                 </span>
                 <div>
-                  <h3 className="text-xl text-white md:mt-6">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>
+                  <h3 className="text-[22px] tracking-[-0.01em] text-white md:mt-6 md:text-xl md:tracking-normal"><span className="md:hidden">{step.n}&nbsp;&nbsp;</span>{step.title}</h3>
+                  <p className="mt-2 hidden text-sm leading-6 text-pearl/80 md:block">{step.body}</p>
                 </div>
               </li>
             ))}
@@ -163,15 +165,15 @@ export default function HomePage() {
       <section data-bento className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Why Innoventix</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">Built to grow, not just to ship.</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pearl/80">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
-          <ul className="mt-12 grid gap-5 text-left md:grid-cols-2">
+          <h2 className="mx-auto mt-3 max-w-3xl text-h2-lg text-white md:mt-6"><ShortOnMobile short="Built to grow.">Built to grow, not just to ship.</ShortOnMobile></h2>
+          <p className="mx-auto mt-4 hidden max-w-2xl text-pearl/80 md:block">Four reasons D2C brands and SMBs stay with Innoventix Hub.</p>
+          <ul className="mt-6 grid gap-3 text-left md:mt-12 md:grid-cols-2 md:gap-5">
             {reasons.map((item) => (
-              <li key={item.title} data-bento-card className="glass flex flex-col justify-end rounded-2xl p-5 md:min-h-[340px] md:rounded-[28px] md:p-8">
+              <li key={item.title} data-bento-card className={`glass flex flex-col justify-end gap-2 rounded-2xl p-5 md:order-none md:min-h-[340px] md:gap-0 md:rounded-[28px] md:p-8 ${item.mobileOrder}`}>
                 {/* Figma mobile shows compact title + blurb rows; the in-card visual is desktop/tablet only. */}
                 <div className="hidden md:block"><ReasonVisual kind={item.visual} label={item.kicker} /></div>
-                <h3 className="text-[22px] text-white md:mt-6 md:text-2xl">{item.title}</h3>
-                <p className="mt-2 text-[14px] leading-[21px] text-pearl/80 md:text-[15px] md:leading-7">{item.body}</p>
+                <h3 className="text-[22px] tracking-[-0.01em] text-white md:mt-6 md:text-2xl md:tracking-normal"><ShortOnMobile short={item.shortTitle}>{item.title}</ShortOnMobile></h3>
+                <p className="text-[14px] text-mist md:mt-2 md:text-[15px] md:leading-7 md:text-pearl/80"><ShortOnMobile short={item.short}>{item.body}</ShortOnMobile></p>
               </li>
             ))}
           </ul>
@@ -180,11 +182,13 @@ export default function HomePage() {
 
       <Testimonials />
 
-      <FaqSection items={faqs} />
+      <FaqSection items={faqs} mobileTitle="Questions." />
 
       <CtaBand
         title="Let's build your AI growth engine."
         copy="30-minute call. No pitch deck. A clear plan for your brand."
+        mobileCopy="30-minute call. Clear plan."
+        mobileSecondary={false}
       />
       <p className="sr-only">Call {site.voiceAgentDisplay} or WhatsApp {site.phoneWhatsappDisplay}.</p>
     </main>

@@ -262,7 +262,7 @@ export function UgcSlider({
 
       <div
         ref={stageRef}
-        className="ugc-stage relative mx-auto w-full max-w-[1100px] touch-pan-y select-none overflow-hidden py-10 [--card-w:150px] [--gap:14px] sm:[--card-w:210px] sm:[--gap:22px]"
+        className="ugc-stage relative mx-auto w-full max-w-[1100px] touch-pan-y select-none overflow-hidden py-5 [--card-w:160px] [--gap:12px] sm:py-10 sm:[--card-w:210px] sm:[--gap:22px]"
         style={{ transition: "opacity 250ms ease", opacity: fade ? 0 : 1 }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}

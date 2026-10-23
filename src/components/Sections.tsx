@@ -73,20 +73,33 @@ export function LogoMarquee({ label = "Brands we've worked with" }: { label?: st
   );
 }
 
-export function Testimonials({ title = "Real words. Real results." }: { title?: string }) {
+export function ShortOnMobile({ short, children }: { short: ReactNode; children: ReactNode }) {
+  return (
+    <>
+      <span className="md:hidden">{short}</span>
+      <span className="hidden md:inline">{children}</span>
+    </>
+  );
+}
+
+export function Testimonials({ title = "Real words. Real results.", mobileTitle = "Real words." }: { title?: string; mobileTitle?: string }) {
   return (
     <section className="section bg-navy-deep">
       <div className="wrap text-center">
         <p className="pill">What clients say</p>
-        <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
-        <ul className="mt-10 grid gap-5 text-left md:grid-cols-3">
+        <h2 className="mx-auto mt-3 max-w-3xl text-h2-lg text-white md:mt-6"><ShortOnMobile short={mobileTitle}>{title}</ShortOnMobile></h2>
+        <ul className="mt-6 grid gap-3 text-left md:mt-10 md:grid-cols-3 md:gap-5">
           {testimonials.map((item) => (
-            <li key={item.name} className="glass glass-card flex h-full flex-col rounded-[20px] p-6">
-              <p className="tracking-[2px] text-amber" aria-label="5 out of 5 stars">★★★★★</p>
-              <blockquote className="mt-4 flex-1 text-[15px] leading-7 text-pearl">“{item.quote}”</blockquote>
-              <footer className="mt-6">
-                <p className="font-bold text-white">{item.name}</p>
-                <p className="text-sm text-mist">{item.meta}</p>
+            <li key={item.name} className="glass glass-card flex h-full flex-col rounded-2xl p-5 md:rounded-[20px] md:p-6">
+              <p className="text-sm tracking-[2px] text-amber md:text-base" aria-label="5 out of 5 stars">★★★★★</p>
+              <blockquote className="mt-3 flex-1 text-base font-bold leading-[1.45] tracking-[-0.01em] text-pearl md:mt-4 md:text-[15px] md:font-normal md:leading-7 md:tracking-normal">
+                <ShortOnMobile short={`“${item.short}”`}>“{item.quote}”</ShortOnMobile>
+              </blockquote>
+              <footer className="mt-3 md:mt-6">
+                <p className="text-[13px] font-semibold text-white md:text-base md:font-bold">
+                  {item.name}<span className="md:hidden"> · {item.shortMeta}</span>
+                </p>
+                <p className="hidden text-sm text-mist md:block">{item.meta}</p>
               </footer>
             </li>
           ))}
@@ -99,27 +112,33 @@ export function Testimonials({ title = "Real words. Real results." }: { title?: 
 export function CtaBand({
   title,
   copy,
+  mobileCopy,
   primary = "book",
   secondary = "voice",
+  mobileSecondary = true,
 }: {
   title: string;
   copy: string;
+  mobileCopy?: string;
   primary?: "book" | "audit" | "voice";
   secondary?: "voice" | "whatsapp" | "book" | "none";
+  mobileSecondary?: boolean;
 }) {
   return (
-    <section className="section overflow-hidden pt-8">
+    <section className="section overflow-hidden pt-10 md:pt-8">
       <div className="wrap min-w-0">
         <CtaGlow>
-          <h2 className="text-[32px] leading-[1.1] text-white md:text-[64px] md:leading-[1.05]">{title}</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-mist">{copy}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <h2 className="text-cta text-white">{title}</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-sm text-mist md:text-lg">{mobileCopy ? <ShortOnMobile short={mobileCopy}>{copy}</ShortOnMobile> : copy}</p>
+          <div className="mt-5 flex flex-wrap justify-center gap-3 md:mt-8">
             {primary === "book" ? <BookButton /> : null}
             {primary === "voice" ? <VoiceButton>{`Talk to Inbound Agent: ${site.voiceAgentDisplay}`}</VoiceButton> : null}
             {primary === "audit" ? <a href="#free-audit" className="inline-flex rounded-full bg-amber px-5 py-3 text-sm font-bold text-ink">Get My Free SEO Audit</a> : null}
-            {secondary === "voice" ? <VoiceButton ghost /> : null}
-            {secondary === "whatsapp" ? <WhatsAppButton /> : null}
-            {secondary === "book" ? <BookButton ghost /> : null}
+            <span className={mobileSecondary ? "contents" : "hidden md:contents"}>
+              {secondary === "voice" ? <VoiceButton ghost /> : null}
+              {secondary === "whatsapp" ? <WhatsAppButton /> : null}
+              {secondary === "book" ? <BookButton ghost /> : null}
+            </span>
           </div>
         </CtaGlow>
       </div>
@@ -145,7 +164,7 @@ export function Comparison({
       <div className="wrap">
         <div className="text-center">
           <p className="pill">Why us</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-h2 text-white">{title}</h2>
           {subtitle ? <p className="mx-auto mt-4 max-w-2xl text-pearl/80">{subtitle}</p> : null}
         </div>
         <div className="mt-10 hidden overflow-hidden rounded-[24px] border border-white/10 md:block">
@@ -205,7 +224,7 @@ function Mark({ value }: { value: CompareCell }) {
 
 export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
-    <div className="space-y-3">
+    <div className="md:space-y-3">
       {items.map((item) => (
         <details key={item.q} className="faq glass glass-card group rounded-[18px] px-5 py-4">
           <summary className="cursor-pointer font-bold text-white">
@@ -225,12 +244,13 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   );
 }
 
-export function SectionIntro({ eyebrow, title, copy, align = "center" }: { eyebrow?: string; title: string; copy?: string; align?: "center" | "left" }) {
+export function SectionIntro({ eyebrow, title, copy, align = "center", size = "page" }: { eyebrow?: string; title: string; copy?: string; align?: "center" | "left"; size?: "page" | "sm" | "lg" }) {
   const center = align === "center";
+  const titleSize = size === "lg" ? "text-h2-lg" : size === "sm" ? "text-h2-sm" : "text-h2";
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl text-left"}>
       {eyebrow ? <p className="pill">{eyebrow}</p> : null}
-      <h2 className={`text-3xl text-white md:text-[44px] md:leading-[52px] ${eyebrow ? "mt-6" : ""}`}>{title}</h2>
+      <h2 className={`${titleSize} text-white ${eyebrow ? "mt-6" : ""}`}>{title}</h2>
       {copy ? <p className={`mt-4 max-w-2xl text-[17px] leading-7 text-pearl/80 ${center ? "mx-auto" : ""}`}>{copy}</p> : null}
     </div>
   );
@@ -411,7 +431,7 @@ export function QuoteSplit({
       <div className="wrap grid items-start gap-6 lg:grid-cols-2">
         <article className="glass rounded-[24px] p-7 text-left">
           <p className="pill">{eyebrow}</p>
-          <h2 className="mt-6 text-3xl text-white md:text-[40px] md:leading-[48px]">{title}</h2>
+          <h2 className="mt-6 text-h2 text-white">{title}</h2>
           <p className="mt-4 text-[15px] leading-7 text-pearl/80">{copy}</p>
           <h3 className="mt-6 font-bold text-white">{includesTitle}</h3>
           <ul className="mt-3 space-y-2 text-sm text-pearl/85">{includes.map((item) => <li key={item}>✓ {item}</li>)}</ul>
@@ -429,12 +449,15 @@ export function QuoteSplit({
   );
 }
 
-export function FaqSection({ items }: { items: { q: string; a: string }[] }) {
+export function FaqSection({ items, title = "Questions, answered.", mobileTitle }: { items: { q: string; a: string }[]; title?: string; mobileTitle?: string }) {
   return (
     <section className="section bg-navy-deep">
       <div className="wrap">
-        <SectionIntro eyebrow="FAQ" title="Questions, answered." />
-        <div className="mx-auto mt-10 max-w-3xl text-left"><FaqList items={items} /></div>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="pill">FAQ</p>
+          <h2 className="mt-3 text-h2-lg text-white md:mt-6">{mobileTitle ? <ShortOnMobile short={mobileTitle}>{title}</ShortOnMobile> : title}</h2>
+        </div>
+        <div className="mx-auto mt-6 max-w-3xl text-left md:mt-10"><FaqList items={items} /></div>
       </div>
     </section>
   );

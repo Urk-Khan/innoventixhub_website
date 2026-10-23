@@ -7,7 +7,23 @@ import { serviceNav, site } from "@/config/site";
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-navy-soft">
-      <div className="wrap grid grid-cols-2 gap-x-6 gap-y-8 pb-10 pt-12 md:grid-cols-[1.3fr_0.8fr_0.7fr_1fr] md:gap-10 md:pb-12 md:pt-20">
+      <div className="wrap flex flex-col items-start gap-7 pb-10 pt-12 md:hidden">
+        <p className="font-display text-[22px] font-black tracking-[-0.22px] text-white">Innoventix Hub</p>
+        <a className="text-sm text-pearl" href={`mailto:${site.emailGeneral}`}>{site.emailGeneral}</a>
+        <a className="text-sm text-pearl" href={site.whatsappUrl}>WhatsApp {site.phoneWhatsappDisplay}</a>
+        <a className="text-sm text-pearl" href={`tel:${site.voiceAgentTel}`}>AI agent {site.voiceAgentDisplay}</a>
+        <p className="text-[13px] text-mist">
+          <Link href={serviceNav[0]?.href ?? "/"}>Services</Link> · <Link href="/work">Work</Link> · <Link href="/about">About</Link> · <Link href="/contact">Contact</Link>
+        </p>
+        <a href={site.whatsappUrl} className="rounded-full bg-[#25d366] px-3.5 py-2.5 text-xs font-semibold text-white">WhatsApp</a>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-mist">
+          <span>© {new Date().getFullYear()} Innoventix Hub</span>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <button type="button" onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}>Cookie settings</button>
+        </div>
+      </div>
+      <div className="wrap hidden gap-10 pb-12 pt-20 md:grid md:grid-cols-[1.3fr_0.8fr_0.7fr_1fr]">
         <div className="col-span-2 max-w-[340px] md:col-span-1">
           <BrandLogo variant="square" className="h-16 w-16 object-contain" />
           <p className="mt-4 font-display text-[28px] tracking-[-0.28px] text-white">Innoventix Hub</p>
@@ -40,7 +56,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="wrap flex flex-col gap-3 border-t border-white/10 py-6 text-[13px] text-mist sm:flex-row sm:items-center sm:justify-between">
+      <div className="wrap hidden gap-3 border-t border-white/10 py-6 text-[13px] text-mist md:flex md:flex-row md:items-center md:justify-between">
         <p>© {new Date().getFullYear()} Innoventix Hub. All rights reserved.</p>
         <div className="flex flex-wrap gap-4">
           <Link href="/privacy" className="hover:text-white">Privacy</Link>

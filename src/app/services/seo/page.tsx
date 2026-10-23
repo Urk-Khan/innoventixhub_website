@@ -67,7 +67,7 @@ export default function SeoPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">SEO · Technical · Local · E-commerce · AI search</p>
-            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Get Found on Google and in AI Answers.</h1>
+            <h1 data-words className="mt-7 text-hero font-bold text-white">Get Found on Google and in AI Answers.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">White-hat SEO for D2C brands and SMBs in the US, UK & EU. We fix what&apos;s holding your site back, build real authority and report every month.</p>
             <div className="mt-6 w-full max-w-xl"><SeoAuditForm compact /></div>
             <p className="mt-3 text-xs text-mist/70">Reviewed by a real SEO specialist. Reply within 2 business days. No obligation.</p>
@@ -91,7 +91,7 @@ export default function SeoPage() {
         <div className="wrap grid items-start gap-10 lg:grid-cols-2">
           <div>
             <p className="pill">Free audit</p>
-            <h2 className="mt-6 text-3xl text-white md:text-[44px] md:leading-[52px]">What&apos;s holding your site back?</h2>
+            <h2 className="mt-6 text-h2 text-white">What&apos;s holding your site back?</h2>
             <ul className="mt-8 space-y-4">
               {[
                 ["Invisible on Google", "Technical clean-up so pages can be crawled and indexed."],
@@ -120,7 +120,7 @@ export default function SeoPage() {
       <section className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Services</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Everything search, in one plan</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Everything search, in one plan</h2>
           <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
               ["technical-seo", "Technical SEO", "Speed, Core Web Vitals, crawl and index fixes, schema, sitemaps, migrations.", "Speed · crawl · schema"],
@@ -154,7 +154,7 @@ export default function SeoPage() {
       <section className="section bg-navy-deep">
         <div className="wrap text-center">
           <p className="pill">Proof</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">What you&apos;ll see</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">What you&apos;ll see</h2>
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             <article data-loop className="serp-list glass rounded-[22px] p-6 text-left text-sm">
               <p className="text-xs font-bold tracking-wide text-mist">Illustrative SERP</p>

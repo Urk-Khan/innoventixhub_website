@@ -74,6 +74,62 @@ h1, h2, h3, .font-black {
   letter-spacing: -0.02em;
 }
 
+/* Fluid type: each clamp hits the Figma mobile size at 390px and the desktop size at 1440px. */
+:root {
+  --fs-display: clamp(2.25rem, 1.3214rem + 3.8095vw, 4.75rem);
+  --fs-hero: clamp(2.25rem, 1.6rem + 2.6667vw, 4rem);
+  --fs-h2-sm: clamp(1.75rem, 1.3786rem + 1.5238vw, 2.75rem);
+  --fs-h2-lg: clamp(2rem, 1.4429rem + 2.2857vw, 3.5rem);
+  --fs-h2: var(--fs-h2-sm);
+  --fs-cta: clamp(2.25rem, 1.2286rem + 4.1905vw, 5rem);
+  --fs-founder: clamp(1.875rem, 1.3643rem + 2.0952vw, 3.25rem);
+}
+
+.type-lg {
+  --fs-h2: clamp(2.125rem, 1.6143rem + 2.0952vw, 3.5rem);
+}
+
+@utility text-display {
+  font-size: var(--fs-display);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+@utility text-hero {
+  font-size: var(--fs-hero);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+@utility text-h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+@utility text-h2-sm {
+  font-size: var(--fs-h2-sm);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+@utility text-h2-lg {
+  font-size: var(--fs-h2-lg);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+@utility text-cta {
+  font-size: var(--fs-cta);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+@utility text-founder {
+  font-size: var(--fs-founder);
+  line-height: 1.19;
+}
+
 .glass {
   background: rgba(38, 74, 117, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -99,13 +155,7 @@ h1, h2, h3, .font-black {
 }
 
 .section {
-  padding: 4.5rem 0;
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding: 7rem 0;
-  }
+  padding-block: clamp(4rem, 2.8857rem + 4.5714vw, 7rem);
 }
 
 .wrap {
@@ -475,6 +525,22 @@ details.faq[open] .faq-body {
 
 details.faq .faq-body > div {
   overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  details.faq.glass {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 16px 0;
+  }
+
+  details.faq.glass:hover {
+    transform: none;
+  }
 }
 
 .tab-panel-in {

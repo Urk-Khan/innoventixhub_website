@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="relative z-10 px-5 py-28 text-center lg:pt-[200px]">
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <p className="eyebrow">Contact</p>
-            <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Let&apos;s Talk About What You&apos;re Building.</h1>
+            <h1 data-words className="mt-7 text-hero font-bold text-white">Let&apos;s Talk About What You&apos;re Building.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">Book a free consultation, send us a message, or call our AI agent right now. A real person replies to every enquiry within 1 business day.</p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 text-sm">{["Free consultation", "Reply within 1 business day", "US, UK & EU hours"].map((item) => <li key={item} className="pill plain">{item}</li>)}</ul>
           </div>
@@ -36,7 +36,7 @@ export default function ContactPage() {
       <section className="section">
         <div className="wrap text-center">
           <p className="pill">Ways to reach us</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Pick the way that suits you</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Pick the way that suits you</h2>
           <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             <li className="glass glass-card rounded-[22px] p-6 text-left">
               <span className="grid size-12 place-items-center rounded-[14px] border border-amber/40 bg-amber/15 text-amber">▦</span>

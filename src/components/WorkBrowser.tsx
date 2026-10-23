@@ -28,7 +28,7 @@ export default function WorkBrowser() {
       {showUgc ? (
         <section className="section text-center">
           <p className="pill">AI UGC & Content</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Ads that look native in the feed</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Ads that look native in the feed</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-mist">AI UGC ad · hook rate [x]% SAMPLE</p>
           <UgcSlider videos={playableUgc} label="AI UGC samples" />
         </section>
@@ -36,7 +36,7 @@ export default function WorkBrowser() {
       {showWeb ? (
         <section className="section pt-0 text-center">
           <p className="pill">Web Development</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Sites we&apos;ve shipped</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Sites we&apos;ve shipped</h2>
           <ul className="mt-10 grid gap-5 md:grid-cols-3">
             {webCases.map((item) => (
               <li key={item.slug} className="glass glass-card overflow-hidden rounded-[22px] text-left">
@@ -55,7 +55,7 @@ export default function WorkBrowser() {
       {showAuto ? (
         <section className="section pt-0 text-center">
           <p className="pill">AI Automation</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-center text-3xl text-white md:text-[44px] md:leading-[52px]">Workflows that run without a person in the middle</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-center text-h2 text-white">Workflows that run without a person in the middle</h2>
           <ul className="mt-10 grid gap-5 md:grid-cols-2">
             {automationCases.map((item) => (
               <li key={item.slug} className="glass glass-card rounded-[22px] p-5 text-left">

@@ -382,6 +382,18 @@ export default function CommandCenter() {
           <Link href={chosen.href} className="mt-4 inline-flex text-sm font-bold text-amber">Explore {chosen.label} →</Link>
         </div>
       ) : null}
+
+      <ul className="wrap mt-6 grid gap-2 text-left md:hidden">
+        {services.map((service) => (
+          <li key={service.label}>
+            <Link href={service.href} className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-navy-soft px-3.5 py-3">
+              <span className="size-3 shrink-0 rounded-full" style={{ background: service.color }} />
+              <span className="text-sm font-semibold text-white">{service.label}</span>
+              <span className="text-[11px] text-mist">{service.subs.join(" · ")}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

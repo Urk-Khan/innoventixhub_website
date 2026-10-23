@@ -141,7 +141,7 @@ export function LivingCall() {
 export function CtaGlow({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="cta-card flex min-h-[340px] items-center px-6 py-12 text-center md:min-h-[560px] md:px-16 md:py-28"
+      className="cta-card flex items-center px-6 py-12 text-center md:min-h-[560px] md:px-16 md:py-28"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const x = ((event.clientX - rect.left) / rect.width) * 100;

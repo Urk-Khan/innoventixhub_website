@@ -33,7 +33,7 @@ export default function PrivacyPage() {
       <JsonLd data={graph(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Privacy", path: "/privacy" }]))} />
       <section className="hero-stage px-5 pb-10 pt-28 text-center lg:pt-[200px]">
         <p className="eyebrow">Legal</p>
-        <h1 data-words className="mt-7 text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Privacy Policy</h1>
+        <h1 data-words className="mt-7 text-hero font-bold text-white">Privacy Policy</h1>
         <p className="mx-auto mt-5 max-w-[680px] text-[15px] text-mist">Last updated: October 16, 2026 · Controller: Innoventix Hub · Contact: {site.emailGeneral}, {site.emailFounder}</p>
       </section>
       <div className="wrap grid gap-10 pb-20 lg:grid-cols-[240px_1fr]">

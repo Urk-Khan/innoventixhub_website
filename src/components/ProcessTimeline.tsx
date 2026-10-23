@@ -61,7 +61,7 @@ export default function ProcessTimeline({
       <div className="wrap">
         <div className="text-center">
           <p className="pill">Our process</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-h2 text-white">{title}</h2>
         </div>
         <ol className="relative mt-14 space-y-8">
           <div className="absolute bottom-6 left-[19px] top-6 w-px bg-white/15 md:left-1/2" aria-hidden="true">

@@ -77,7 +77,7 @@ export default function VoicePage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">AI Voice Agents · Inbound Receptionist · Outbound Calling</p>
-            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
+            <h1 data-words className="mt-7 max-w-[920px] text-hero font-bold text-white">Never Miss Another Call. AI Voice Agents for 24/7 Sales, Support and Bookings.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build human-sounding AI voice agents that answer every call, qualify leads, book appointments and follow up in seconds, then log everything to your CRM. Built for D2C brands and SMBs in the US, UK & EU.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <VoiceButton>{`Talk to Inbound Agent · ${site.voiceAgentDisplay}`}</VoiceButton>
@@ -133,7 +133,7 @@ export default function VoicePage() {
         <div className="wrap grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="text-center lg:text-left">
             <p className="pill">Live demo</p>
-            <h2 className="mt-6 text-3xl text-white md:text-[44px] md:leading-[52px]">Hear the agent in action</h2>
+            <h2 className="mt-6 text-h2 text-white">Hear the agent in action</h2>
             <p className="mt-3 text-3xl font-bold text-amber">{site.voiceAgentDisplay}</p>
             <p className="mt-4 max-w-xl text-pearl/80">Don&apos;t take our word for it. Call our inbound AI receptionist right now: ask about services, book a consultation or try to trip it up.</p>
             <div className="mt-6"><VoiceButton>Talk to Inbound Agent</VoiceButton></div>

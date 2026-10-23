@@ -84,7 +84,7 @@ export default function AutomationPage() {
           <div className="mx-auto flex max-w-[1000px] flex-col items-center">
             <Breadcrumbs items={crumbs.map((c) => ({ name: c.name, href: c.path }))} />
             <p className="eyebrow mt-6">AI Automation · n8n · GoHighLevel · CRM · Python</p>
-            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px]">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
+            <h1 data-words className="mt-7 max-w-[920px] text-hero font-bold text-white">Your Business, on Autopilot. The AI Automation Agency for Growing Brands.</h1>
             <p className="mt-7 max-w-[680px] text-[18px] text-pearl/75 sm:text-[20px]">We build n8n, GoHighLevel, CRM and custom Python automations that capture leads, follow up in seconds, sync your tools and remove hours of manual work every week, so your team can focus on growth.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-4"><BookButton /><VoiceButton ghost /></div>
             <p className="mt-5 text-[13px] text-mist">Built for D2C brands and SMBs in the US, UK & EU</p>
