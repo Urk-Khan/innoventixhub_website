@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import CookieBanner from "@/components/CookieBanner";
-import PlanetCanvas from "@/components/PlanetCanvas";
 import MotionBoot from "@/components/MotionBoot";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/config/site";
 import { graph, organizationSchema } from "@/lib/schema";
 
-const inter = Inter({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700", "900"],
   display: "swap",
   variable: "--font-lato",
 });
@@ -32,17 +31,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={lato.variable}>
       <head>
         <link rel="preconnect" href="https://www.youtube-nocookie.com" />
         <link rel="preconnect" href="https://i.ytimg.com" />
       </head>
       <body className="min-h-screen font-sans antialiased">
-        <PlanetCanvas />
         <JsonLd data={graph(organizationSchema())} />
         <MotionBoot />
         <Header />
-        <div className="relative z-[1] pt-[60px] lg:pt-0">{children}</div>
+        <div className="pt-[60px] lg:pt-0">{children}</div>
         <Footer />
         <FloatingActions />
         <CookieBanner />

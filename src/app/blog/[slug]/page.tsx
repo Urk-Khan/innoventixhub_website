@@ -43,14 +43,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <header className="hero-stage px-5 pb-10 pt-28 text-center lg:pt-[200px]">
         <p className="text-sm text-mist"><Link href="/">Home</Link> / <Link href="/blog">Insights</Link> / {post.meta.category}</p>
         <p className="eyebrow mt-6">{post.meta.category}</p>
-        <h1 data-words className="mx-auto mt-7 max-w-[920px] text-[34px] font-bold leading-[1.08] text-white sm:text-5xl lg:text-[56px]">{post.meta.title}</h1>
+        <h1 data-words className="mx-auto mt-7 max-w-[920px] text-h2-lg font-bold text-white">{post.meta.title}</h1>
         <div className="mx-auto mt-6 flex items-center justify-center gap-3 text-left">
           <img src="/team/ubaid-ur-rehman-khan-founder-ceo.jpg" alt="" width={48} height={48} className="size-12 rounded-full object-cover" />
           <p className="text-sm text-pearl">{post.meta.author} · {post.meta.role}<br /><span className="text-mist">{post.meta.date} · {post.meta.readTime}</span></p>
         </div>
       </header>
       <div className="wrap">
-        <div className="glass mb-10 grid h-64 place-items-end overflow-hidden rounded-[24px] bg-[#080d1e] p-6 md:h-80">
+        <div className="glass mb-10 grid h-64 place-items-end overflow-hidden rounded-[24px] bg-[#0f2138] p-6 md:h-80">
           <span className="rounded-full bg-amber px-3 py-1 text-xs font-bold text-navy">{post.meta.category}</span>
         </div>
       </div>

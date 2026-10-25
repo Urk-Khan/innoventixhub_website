@@ -341,7 +341,7 @@ export default function CommandCenter() {
 
         <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 w-[24%] -translate-x-1/2 -translate-y-1/2">
           <img src="/assets/coreglow-e7939e95.svg" alt="" className="absolute left-1/2 top-1/2 w-[170%] max-w-none -translate-x-1/2 -translate-y-1/2" />
-          <div className="relative flex aspect-square flex-col items-center justify-center rounded-full border-2 border-amber bg-[#101830] text-center shadow-[0_0_50px_rgba(93, 240, 168,0.45)]">
+          <div className="relative flex aspect-square flex-col items-center justify-center rounded-full border-2 border-amber bg-[#264a75] text-center shadow-[0_0_50px_rgba(255,181,71,0.45)]">
             <BrandLogo variant="icon" className="h-[34%] w-[34%] object-contain" />
             <span className="text-[clamp(6px,1vw,10px)] font-bold tracking-[0.14em] text-amber">INNOVENTIX</span>
             <span className="text-[clamp(9px,1.5vw,15px)] font-black tracking-[0.16em] text-white">HUB</span>
@@ -382,6 +382,18 @@ export default function CommandCenter() {
           <Link href={chosen.href} className="mt-4 inline-flex text-sm font-bold text-amber">Explore {chosen.label} →</Link>
         </div>
       ) : null}
+
+      <ul className="wrap mt-6 grid gap-2 text-left md:hidden">
+        {services.map((service) => (
+          <li key={service.label}>
+            <Link href={service.href} className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-navy-soft px-3.5 py-3">
+              <span className="size-3 shrink-0 rounded-full" style={{ background: service.color }} />
+              <span className="text-sm font-semibold text-white">{service.label}</span>
+              <span className="text-[11px] text-mist">{service.subs.join(" · ")}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

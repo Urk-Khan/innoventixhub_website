@@ -29,7 +29,7 @@ const feelings = [
 ];
 
 const services = [
-  { mono: "UG", label: "Content Creation (UGC)", href: "/services/content-creation", color: "#5df0a8" },
+  { mono: "UG", label: "Content Creation (UGC)", href: "/services/content-creation", color: "#ffb547" },
   { mono: "Au", label: "AI Automation", href: "/services/ai-automation", color: "#3e63dd" },
   { mono: "Vo", label: "AI Voice Agents", href: "/services/ai-voice-agents", color: "#30a46c" },
   { mono: "We", label: "Web Development", href: "/services/web-development", color: "#8e4ec6" },
@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="relative z-10 px-5 pb-16 pt-28 lg:px-0 lg:pb-20 lg:pt-[200px]">
           <div className="mx-auto flex max-w-[1000px] flex-col items-center text-center">
             <p className="eyebrow">About Innoventix Hub</p>
-            <h1 data-words className="mt-7 max-w-[920px] text-[34px] font-bold leading-[1.04] text-white sm:text-5xl lg:text-[64px] lg:tracking-[-0.64px]">
+            <h1 data-words className="mt-7 max-w-[920px] text-hero font-bold text-white">
               A Small, Focused Team Building <span className="text-amber">Growth Systems</span> for Ambitious Brands.
             </h1>
             <p className="mt-7 max-w-[680px] text-[18px] leading-normal text-pearl/75 sm:text-[20px]">
@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="wrap grid items-start gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)] lg:gap-12">
           <div>
             <p className="pill">Our story</p>
-            <h2 className="mt-6 max-w-[774px] text-[28px] font-bold leading-[34px] text-white lg:text-[44px] lg:leading-[52px]">Why we started Innoventix Hub</h2>
+            <h2 className="mt-6 max-w-[774px] text-h2 font-bold text-white">Why we started Innoventix Hub</h2>
             <p className="mt-6 max-w-[774px] text-[15px] leading-6 text-[#dce5ef] lg:text-[18px] lg:leading-[30px]">
               Before Innoventix Hub, our founder Ubaid worked with international brands at Image2Work, a Danish company, and Broomstick Creative, a UAE company. His professional journey began at the National Assembly of Pakistan, where he had the opportunity to lead a team of interns at an international IPU conference. Along the way, he saw growing brands juggling separate agencies, freelancers and tools that didn&apos;t talk to each other. In January 2025, he founded Innoventix Hub to fix that: one small, accountable team that creates AI UGC ads, automates the busywork and answers calls 24/7 with AI voice agents that sound naturally human. We&apos;re self-funded, so we answer to our clients, not investors.
             </p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <section className="bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">Mission & values</p>
-          <h2 className="mx-auto mt-6 max-w-[900px] text-[28px] font-bold leading-[34px] text-white lg:text-[44px] lg:leading-[52px]">
+          <h2 className="mx-auto mt-6 max-w-[900px] text-h2 font-bold text-white">
             Give growing brands the content, systems and visibility of a big company, without the big-company overhead.
           </h2>
           <ul className="mt-12 grid gap-5 text-left sm:grid-cols-2 xl:grid-cols-4">
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 className="absolute bottom-0 left-1/2 z-10 h-[94%] w-auto max-w-[72%] -translate-x-1/2 object-contain object-bottom"
               />
             </div>
-            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#070b1a] px-4 py-3 text-[13px] font-bold text-white">
+            <p className="relative z-10 flex items-center justify-center gap-2 bg-[#0c1c30] px-4 py-3 text-[13px] font-bold text-white">
               <span className="inline-block size-1.5 rounded-full bg-amber" />
               Ubaid ur Rehman Khan · Founder & CEO
             </p>
@@ -146,18 +146,18 @@ export default function AboutPage() {
       <section id="team" className="scroll-mt-28 bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">Our team</p>
-          <h2 className="mt-6 text-[34px] font-bold leading-[1.15] text-white lg:text-[44px] lg:leading-[52px]">The people behind the work</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">The people behind the work</h2>
           <p className="mt-3 text-[18px] leading-7 text-mist">A small team, working in your business hours.</p>
           <ul className="mt-10 grid grid-cols-2 gap-3 text-left sm:gap-6 lg:grid-cols-3">
             {team.map((member) => (
               <li key={member.name} className="glass overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <div className="relative h-[168px] bg-[radial-gradient(circle_at_center,#16254a_0%,#0c1430_60%,#060a18_100%)] sm:h-[300px] lg:h-[326px]">
+                <div className="relative h-[168px] bg-[radial-gradient(circle_at_center,#2f5a8c_0%,#1e3a5f_60%,#132a45_100%)] sm:h-[300px] lg:h-[326px]">
                   {member.image ? (
                     <img loading="lazy" decoding="async" src={member.image} alt={member.imageAlt || member.name} className="h-full w-full object-cover object-top" />
                   ) : (
                     <div className="grid h-full place-items-center">
-                      <div className="grid size-[112px] place-items-center rounded-full bg-[conic-gradient(from_180deg,#5df0a8,#3e63dd,#30a46c,#8e4ec6,#e5484d,#5df0a8)] p-[4px] sm:size-[196px] sm:p-[6px]">
-                        <span className="grid h-full w-full place-items-center rounded-full bg-[#101a36] text-[36px] font-bold text-white sm:text-[64px]">{member.initials}</span>
+                      <div className="grid size-[112px] place-items-center rounded-full bg-[conic-gradient(from_180deg,#ffb547,#3e63dd,#30a46c,#8e4ec6,#e5484d,#ffb547)] p-[4px] sm:size-[196px] sm:p-[6px]">
+                        <span className="grid h-full w-full place-items-center rounded-full bg-[#1a3657] text-[36px] font-bold text-white sm:text-[64px]">{member.initials}</span>
                       </div>
                     </div>
                   )}
@@ -175,7 +175,7 @@ export default function AboutPage() {
       <section className="bg-navy py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">How we work</p>
-          <h2 className="mt-6 text-[34px] font-bold text-white lg:text-[44px] lg:leading-[52px]">How working with us feels</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">How working with us feels</h2>
           <ol className="mt-12 grid gap-5 text-left sm:grid-cols-2 lg:grid-cols-5">
             {feelings.map(([n, title, body]) => (
               <li key={n} className="glass rounded-[18px] p-5 sm:min-h-[220px]">
@@ -193,7 +193,7 @@ export default function AboutPage() {
       <section className="bg-navy-deep py-16 lg:py-[100px]">
         <div className="wrap text-center">
           <p className="pill">What we do</p>
-          <h2 className="mt-6 text-[34px] font-bold text-white lg:text-[44px] lg:leading-[52px]">Five services, one accountable team</h2>
+          <h2 className="mt-6 text-h2 font-bold text-white">Five services, one accountable team</h2>
           <ul className="mt-10 grid grid-cols-2 gap-3 text-left sm:gap-5 lg:grid-cols-5">
             {services.map((service) => (
               <li key={service.href}>

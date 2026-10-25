@@ -36,9 +36,9 @@ export function WorkflowAssembly() {
           </div>
           <div className="glass relative h-[420px] overflow-hidden rounded-[28px]">
             <svg viewBox="0 0 640 420" className="absolute inset-0 h-full w-full" aria-hidden="true">
-              <path className="wire-draw" pathLength="1" d="M90 90 H270 V250 H430" fill="none" stroke="#5df0a8" strokeWidth="2" />
-              <path className="wire-draw" pathLength="1" d="M270 90 H470 V180 H560" fill="none" stroke="#8ff7c4" strokeWidth="2" />
-              <circle className="wire-pulse" r="5" fill="#5df0a8">
+              <path className="wire-draw" pathLength="1" d="M90 90 H270 V250 H430" fill="none" stroke="#ffb547" strokeWidth="2" />
+              <path className="wire-draw" pathLength="1" d="M270 90 H470 V180 H560" fill="none" stroke="#ffc970" strokeWidth="2" />
+              <circle className="wire-pulse" r="5" fill="#ffb547">
                 <animateMotion dur="4s" repeatCount="indefinite" path="M90 90 H270 V250 H430" />
               </circle>
             </svg>
@@ -102,7 +102,7 @@ export function LivingCall() {
                 <span data-from="0" data-to="0.3" className="rounded-full border border-white/15 px-3 py-1">Incoming · 2:14 AM</span>
                 <button type="button" data-from="0.12" data-to="0.34" className="accept rounded-full bg-amber px-3 py-1 font-bold text-navy">Accept</button>
               </div>
-              <div data-from="0.3" className="orb mx-auto mb-4 grid size-16 place-items-center rounded-full bg-[radial-gradient(circle,#8ff7c4,#5df0a8_55%,transparent_70%)] shadow-[0_0_30px_rgba(93, 240, 168,0.55)]" />
+              <div data-from="0.3" className="orb mx-auto mb-4 grid size-16 place-items-center rounded-full bg-[radial-gradient(circle,#ffc970,#ffb547_55%,transparent_70%)] shadow-[0_0_30px_rgba(255,181,71,0.55)]" />
               <div className="space-y-3 text-sm">
                 {bubbles.map((bubble) => (
                   <p
@@ -141,7 +141,7 @@ export function LivingCall() {
 export function CtaGlow({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="cta-card flex min-h-[340px] items-center px-6 py-12 text-center md:min-h-[560px] md:px-16 md:py-28"
+      className="cta-card flex items-center px-6 py-12 text-center md:min-h-[560px] md:px-16 md:py-28"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const x = ((event.clientX - rect.left) / rect.width) * 100;

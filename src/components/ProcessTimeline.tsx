@@ -61,17 +61,17 @@ export default function ProcessTimeline({
       <div className="wrap">
         <div className="text-center">
           <p className="pill">Our process</p>
-          <h2 className="mx-auto mt-6 max-w-3xl text-3xl text-white md:text-[44px] md:leading-[52px]">{title}</h2>
+          <h2 className="mx-auto mt-6 max-w-3xl text-h2 text-white">{title}</h2>
         </div>
         <ol className="relative mt-14 space-y-8">
           <div className="absolute bottom-6 left-[19px] top-6 w-px bg-white/15 md:left-1/2" aria-hidden="true">
-            <div data-fill className="h-full origin-top scale-y-0 bg-amber shadow-[0_0_16px_rgba(93, 240, 168,0.65)]" />
+            <div data-fill className="h-full origin-top scale-y-0 bg-amber shadow-[0_0_16px_rgba(255,181,71,0.65)]" />
           </div>
           {steps.map((step, index) => {
             const flip = index % 2 === 1;
             return (
               <li key={step.title} data-step className="group relative grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
-                <div className={`glass glass-card rounded-[20px] p-6 opacity-80 transition group-[.is-active]:opacity-100 group-[.is-active]:shadow-[0_0_28px_rgba(93, 240, 168,0.2)] ${flip ? "md:col-start-3" : ""}`}>
+                <div className={`glass glass-card rounded-[20px] p-6 opacity-80 transition group-[.is-active]:opacity-100 group-[.is-active]:shadow-[0_0_28px_rgba(255,181,71,0.2)] ${flip ? "md:col-start-3" : ""}`}>
                   <p className="text-xs font-semibold tracking-[1.6px] text-amber">STEP {String(index + 1).padStart(2, "0")}</p>
                   <h3 className="mt-2 text-xl text-white">{step.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-pearl/80">{step.body}</p>

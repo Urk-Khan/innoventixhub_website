@@ -29,9 +29,6 @@ importers:
       react-dom:
         specifier: ^19.1.1
         version: 19.3.1(react@19.3.1)
-      three:
-        specifier: 0.143.0
-        version: 0.143.0
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.14
@@ -994,9 +991,6 @@ packages:
   tapable@2.3.3:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
-
-  three@0.143.0:
-    resolution: {integrity: sha512-oKcAGYHhJ46TGEuHjodo2n6TY2R6lbvrkp+feKZxqsUL/WkH7GKKaeu6RHeyb2Xjfk2dPLRKLsOP0KM2VgT8Zg==}
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -2160,8 +2154,6 @@ snapshots:
   tailwindcss@4.3.3: {}
 
   tapable@2.3.3: {}
-
-  three@0.143.0: {}
 
   trim-lines@3.0.1: {}
 
